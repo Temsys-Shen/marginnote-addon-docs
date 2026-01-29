@@ -5,7 +5,7 @@ description: 二进制数据对象，用于读写文件、字符串编码、网�
 
 用于表示二进制数据。常用创建方式：从文件/URL 读取、从字符串编码、从字节。编码常用值：4 表示 UTF-8（NSUTF8StringEncoding）。
 
-## 类方法（创建）
+## 类成员 (Class members)
 
 | 方法 | 参数 | 返回值 | 说明 |
 |------|------|--------|------|
@@ -16,7 +16,7 @@ description: 二进制数据对象，用于读写文件、字符串编码、网�
 | `dataWithBytesLength(bytes, length)` | bytes, length | NSData | 从字节创建。 |
 | `dataWithData(data)` | data: NSData | NSData | 拷贝。 |
 
-## 实例属性与方法
+## 实例成员 (Instance members)
 
 | 方法/属性 | 返回值 | 说明 |
 |-----------|--------|------|

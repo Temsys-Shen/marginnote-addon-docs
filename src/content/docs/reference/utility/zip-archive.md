@@ -5,7 +5,7 @@ description: 压缩与解压 ZIP 文件（JSBSSZipArchive）。
 
 协议名为 JSBSSZipArchive，用于 ZIP 的创建与解压。
 
-## 类方法
+## 类成员 (Class members)
 
 | 方法 | 参数 | 返回值 | 说明 |
 |------|------|--------|------|
@@ -14,7 +14,7 @@ description: 压缩与解压 ZIP 文件（JSBSSZipArchive）。
 | `createZipFileAtPathWithFilesAtPaths(path, filenames)` | path: string, filenames: NSArray | boolean | 将多个文件打包为 ZIP。 |
 | `createZipFileAtPathWithContentsOfDirectory(path, directoryPath)` | path, directoryPath: string | boolean | 将目录打包为 ZIP。 |
 
-## 实例方法（流式写入）
+## 实例成员 (Instance members)
 
 | 方法 | 说明 |
 |------|------|

@@ -1,16 +1,25 @@
-# Starlight Starter Kit: Basics
+# MarginNote 插件开发文档
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+**本仓库为 MarginNote 官方插件接口文档与教程站点。**
 
+基于 [Starlight](https://starlight.astro.build) 构建，提供完整的 API 参考、渐进式教程与 Cookbook 配方，供开发者为 MarginNote 编写插件时查阅与学习。
+
+## 文档内容
+
+- **API 参考**：全局与入口（JSB、Application、Database）、MarginNote 核心（JSExtension、控制器、脑图、笔记/笔记本/文档模型）、Foundation / UIKit / Utility 等接口说明。
+- **教程**：从快速开始到生命周期、笔记与数据库、脑图与选区、工具栏与命令、原生 UI、存储与文件。
+- **Cookbook 配方**：按任务组织的可运行示例（如批量改标题、导出笔记本、高亮笔记、选区追加为评论、插件设置页等）。
+
+## 本地开发与构建
+
+```bash
+pnpm install
+pnpm dev      # 本地开发，默认 http://localhost:4321
+pnpm build    # 构建静态站点到 ./dist/
+pnpm preview  # 预览构建结果
 ```
-pnpm create astro@latest -- --template starlight
-```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## 项目结构
 
 ```
 .
@@ -18,32 +27,15 @@ Inside of your Astro + Starlight project, you'll see the following folders and f
 ├── src/
 │   ├── assets/
 │   ├── content/
-│   │   └── docs/
+│   │   └── docs/          # 文档正文（入门、教程、Cookbook、API 参考）
 │   └── content.config.ts
 ├── astro.config.mjs
 ├── package.json
 └── tsconfig.json
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+文档页面为 `src/content/docs/` 下的 `.md` / `.mdx` 文件，侧栏在 `astro.config.mjs` 中配置。
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+## 声明
 
-Static assets, like favicons, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+**本仓库中的插件接口说明与示例基于 MarginNote 官方提供的 Objective-C 头文件与插件能力整理，作为 MarginNote 官方插件开发文档使用。**

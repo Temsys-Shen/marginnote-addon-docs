@@ -5,13 +5,13 @@ description: 按钮控件，需通过 addTargetActionForControlEvents 绑定点�
 
 按钮控件。使用 `UIButton.buttonWithType(0)` 或 `new UIButton(frame)` 创建。点击需在 **JSB.defineClass 的实例方法** 中定义 selector（如 `toggleSample:`），方法名**必须以冒号结尾**，并通过 `addTargetActionForControlEvents(self, 'toggleSample:', 1<<6)` 绑定（1<<6 为 TouchUpInside）。
 
-## 类方法
+## 类成员 (Class members)
 
 | 方法 | 参数 | 返回值 | 说明 |
 |------|------|--------|------|
 | `buttonWithType(buttonType)` | buttonType: number（0 为 System） | UIButton | 创建按钮。 |
 
-## 属性与设置
+## 实例成员 (Instance members)
 
 | 方法/属性 | 说明 |
 |-----------|------|

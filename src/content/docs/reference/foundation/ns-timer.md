@@ -5,13 +5,13 @@ description: 定时器，延迟执行或周期执行回调。
 
 用于延迟执行或重复执行一段代码。JS 侧通过 `scheduledTimerWithTimeInterval(ti, repeats, block)` 创建，block 接收 timer 参数。
 
-## 类方法
+## 类成员 (Class members)
 
 | 方法 | 参数 | 返回值 | 说明 |
 |------|------|--------|------|
 | `scheduledTimerWithTimeInterval(ti, repeats, block)` | ti: number（秒）, repeats: boolean, block: (timer) => void | NSTimer | 创建并调度定时器；repeats 为 false 时只执行一次。 |
 
-## 实例方法
+## 实例成员 (Instance members)
 
 | 方法 | 说明 |
 |------|------|

@@ -67,6 +67,60 @@ UIAlertView.showWithTitleMessageStyleCancelButtonTitleOtherButtonTitlesTapBlock(
 
 `buttonIndex` 为 0 表示第一个「其他」按钮，-1 表示取消。
 
+## 使用 WebView
+
+在插件中嵌入网页或本地 HTML 可使用 [UIWebView](/reference/uikit/uiwebview/)。创建 WebView、设置 frame 与 delegate，在承载它的 ViewController 的**实例成员**中实现 UIWebViewDelegate 回调（webViewDidStartLoad、webViewDidFinishLoad、webViewDidFailLoadWithError、webViewShouldStartLoadWithRequestNavigationType）。
+
+### 创建并加载远程 URL
+
+```javascript
+var webFrame = { x: 0, y: 40, width: self.view.bounds.width, height: self.view.bounds.height - 40 };
+self.webView = new UIWebView(webFrame);
+self.webView.backgroundColor = UIColor.whiteColor();
+self.webView.scalesPageToFit = true;
+self.webView.delegate = self;
+self.view.addSubview(self.webView);
+self.webView.loadRequest(NSURLRequest.requestWithURL(NSURL.URLWithString("http://www.apple.com/")));
+```
+
+### 加载本地 HTML 字符串
+
+```javascript
+var html = "<html><body><h1>Hello</h1></body></html>";
+self.webView.loadHTMLStringBaseURL(html, null);  // 或 loadHTMLString(html, null)，以实际导出名为准
+```
+
+### Delegate 回调（实例成员）
+
+在 `JSB.defineClass` 的第二个参数中定义：
+
+```javascript
+webViewDidStartLoad: function (webView) {
+  // 开始加载，可显示 loading
+},
+webViewDidFinishLoad: function (webView) {
+  // 加载完成
+},
+webViewDidFailLoadWithError: function (webView, error) {
+  // 加载失败，可用 loadHTMLStringBaseURL 显示错误页
+},
+webViewShouldStartLoadWithRequestNavigationType: function (webView, request, type) {
+  return true;  // 若拦截自定义 URL Scheme 则解析后 return false
+}
+```
+
+### 插件向页面注入 JS
+
+加载完成后可用 `evaluateJavaScript` 在页面上下文中执行脚本：
+
+```javascript
+self.webView.evaluateJavaScript("document.title", function (result) {
+  JSB.log("页面标题: %@", result);
+});
+```
+
+WebView 内 JS 与插件 JS 的双向通信（自定义 URL Scheme 拦截 + evaluateJavaScript）见 [Cookbook：WebView 内 JS 与插件 JS 双向通信](/guides/cookbook/webview-bidirectional-js/)。
+
 ## 布局与圆角
 
 - 通过设置 `view.frame` 控制位置和大小；在 `controllerWillLayoutSubviews` 中根据 `studyController.view.bounds` 重新计算 frame，可适配窗口变化。
@@ -74,5 +128,6 @@ UIAlertView.showWithTitleMessageStyleCancelButtonTitleOtherButtonTitlesTapBlock(
 
 ## 相关
 
-- [UIView](/reference/uikit/uiview/)、[UIButton](/reference/uikit/uibutton/)、[UIAlertView](/reference/uikit/uialertview/)、[UIColor](/reference/uikit/uicolor/)
+- [UIView](/reference/uikit/uiview/)、[UIButton](/reference/uikit/uibutton/)、[UIAlertView](/reference/uikit/uialertview/)、[UIWebView](/reference/uikit/uiwebview/)、[UIColor](/reference/uikit/uicolor/)
 - [工具栏与命令](/guides/toolbar-and-commands/) — 将面板与工具栏按钮联动
+- [Cookbook：WebView 内 JS 与插件 JS 双向通信](/guides/cookbook/webview-bidirectional-js/)

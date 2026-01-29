@@ -5,13 +5,15 @@ description: 插件主类必须继承的基类，处理生命周期与工具栏�
 
 你的插件主类必须通过 `JSB.defineClass('MyAddon : JSExtension', ...)` 继承 JSExtension，用于处理窗口/笔记本/文档的生命周期以及工具栏图标状态。
 
-## 属性（只读）
+## 实例成员 (Instance members)
+
+### 属性（只读）
 
 | 属性 | 类型 | 说明 |
 |------|------|------|
 | `window` | `UIWindow` | 当前插件所在窗口。在实例方法内也可用 `self.window`。 |
 
-## 实例方法（生命周期）
+### 实例方法（生命周期）
 
 | 方法 | 参数 | 说明 |
 |------|------|------|
@@ -24,7 +26,7 @@ description: 插件主类必须继承的基类，处理生命周期与工具栏�
 | `documentDidOpen(docmd5)` | `docmd5`: string | 某文档已打开时调用。 |
 | `documentWillClose(docmd5)` | `docmd5`: string | 某文档即将关闭时调用。 |
 
-## 实例方法（工具栏与扩展）
+### 实例方法（工具栏与扩展）
 
 | 方法 | 返回值/参数 | 说明 |
 |------|-------------|------|
@@ -36,7 +38,9 @@ description: 插件主类必须继承的基类，处理生命周期与工具栏�
 | `queryShortcutKey(command, keyFlags)` | `NSDictionary` | 查询某快捷键的状态。 |
 | `processShortcutKey(command, keyFlags)` | — | 处理快捷键按下。 |
 
-## 类方法（生命周期）
+## 类成员 (Class members)
+
+### 类方法（生命周期）
 
 | 方法 | 说明 |
 |------|------|
