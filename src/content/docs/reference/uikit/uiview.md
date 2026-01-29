@@ -5,7 +5,9 @@ description: 所有 UI 控件的基类，管理 frame、子视图与图层。
 
 所有 UI 控件的基类。通过 `new UIView(frame)` 或 `initWithFrame(frame)` 创建，frame 为 `{ x, y, width, height }`。可将插件面板添加到 `StudyController.view`。
 
-## 属性（常用）
+## 实例成员 (Instance members)
+
+### 属性（常用）
 
 | 属性 | 类型 | 说明 |
 |------|------|------|
@@ -21,7 +23,7 @@ description: 所有 UI 控件的基类，管理 frame、子视图与图层。
 | `alpha` | number | 透明度。 |
 | `autoresizingMask` | number | 自动调整掩码（如 1<<0 右边缘）。 |
 
-## 方法（常用）
+### 方法（常用）
 
 | 方法 | 说明 |
 |------|------|

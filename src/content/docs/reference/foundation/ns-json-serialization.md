@@ -5,7 +5,7 @@ description: JSON 与 Foundation 对象之间的序列化与反序列化。
 
 用于在 JSON 数据（NSData）与 JavaScript 对象/数组之间转换。
 
-## 类方法
+## 类成员 (Class members)
 
 | 方法 | 参数 | 返回值 | 说明 |
 |------|------|--------|------|

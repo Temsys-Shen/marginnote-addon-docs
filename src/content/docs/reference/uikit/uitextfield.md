@@ -5,7 +5,9 @@ description: 单行文本输入框。
 
 单行文本输入。通过 `new UITextField(frame)` 创建。可设置 `placeholder`、`text`、`delegate`（需实现如 textFieldShouldReturn）等。
 
-## 属性（常用）
+## 实例成员 (Instance members)
+
+### 属性（常用）
 
 | 属性 | 类型 | 说明 |
 |------|------|------|
@@ -15,7 +17,7 @@ description: 单行文本输入框。
 | `borderStyle` | number | 边框样式（如 2）。 |
 | `delegate` | id | 委托，可实现 textFieldShouldReturn 等。 |
 
-## 方法
+### 方法
 
 | 方法 | 说明 |
 |------|------|

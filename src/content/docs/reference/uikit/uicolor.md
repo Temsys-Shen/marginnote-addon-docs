@@ -5,7 +5,7 @@ description: 颜色对象，用于视图背景、文本等。
 
 颜色对象。部分环境提供 `colorWithHexString(hex)`（如 "#FF0000"）；否则使用 RGB/灰度 API。
 
-## 类方法（常用）
+## 类成员 (Class members)
 
 | 方法 | 参数 | 说明 |
 |------|------|------|

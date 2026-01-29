@@ -72,7 +72,7 @@ JSB.newAddon = function (mainPath) {
 
 说明：
 
-- `JSB.defineClass('类名 : JSExtension', 实例方法, 类方法)` 定义插件类；类名可自取，但必须继承 `JSExtension`。
+- `JSB.defineClass('类名 : JSExtension', 实例成员, 类成员)` 定义插件类；类名可自取，但必须继承 `JSExtension`。
 - `sceneWillConnect` 在插件窗口即将连接时调用，这里用 `Application.sharedInstance().showHUD(message, view, duration)` 在 `self.window` 上显示 2 秒 HUD。
 - `mainPath` 是插件包根目录路径，可用于加载包内资源。
 

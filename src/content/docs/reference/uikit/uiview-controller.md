@@ -5,7 +5,9 @@ description: 视图控制器基类，管理 view 与生命周期。
 
 视图控制器基类。可用 `JSB.defineClass('MyVC : UIViewController', { viewDidLoad: function() { ... } })` 定义子类。`view` 为其管理的根视图。
 
-## 属性（常用）
+## 实例成员 (Instance members)
+
+### 属性（常用）
 
 | 属性 | 类型 | 说明 |
 |------|------|------|
@@ -14,7 +16,7 @@ description: 视图控制器基类，管理 view 与生命周期。
 | `navigationItem` | UINavigationItem | 导航栏项。 |
 | `navigationController` | UINavigationController | 所在导航控制器。 |
 
-## 生命周期方法
+### 生命周期方法
 
 | 方法 | 说明 |
 |------|------|

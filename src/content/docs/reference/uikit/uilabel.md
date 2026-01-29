@@ -5,7 +5,9 @@ description: 静态文本标签。
 
 用于显示静态文本。通过 `new UILabel()` 创建，设置 `frame`、`text`、`textColor`、`font` 等。
 
-## 属性（常用）
+## 实例成员 (Instance members)
+
+### 属性（常用）
 
 | 属性 | 类型 | 说明 |
 |------|------|------|

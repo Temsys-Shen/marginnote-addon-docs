@@ -5,7 +5,9 @@ description: URL 对象，用于网页、文件路径与 Application.openURL。
 
 用于表示 URL（网页或本地文件路径）。可通过 `Application.sharedInstance().openURL(url)` 打开网页或 App URL Scheme。
 
-## 类方法（创建）
+## 类成员 (Class members)
+
+### 创建
 
 | 方法 | 参数 | 返回值 | 说明 |
 |------|------|--------|------|
@@ -14,7 +16,9 @@ description: URL 对象，用于网页、文件路径与 Application.openURL。
 | `fileURLWithPath(path)` | path: string | NSURL | 从文件路径创建。 |
 | `fileURLWithPathIsDirectory(path, isDir)` | path: string, isDir: boolean | NSURL | 文件 URL，可指定是否目录。 |
 
-## 实例属性（常用）
+## 实例成员 (Instance members)
+
+### 属性（常用）
 
 | 属性 | 类型 | 说明 |
 |------|------|------|
