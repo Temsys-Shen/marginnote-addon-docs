@@ -1,40 +1,40 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: MarginNote 插件开发文档
+description: MarginNote 插件开发的完整 API 参考与渐进式教程（含 Cookbook 配方）。
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: 为 MarginNote 编写插件的官方/社区参考文档
   image:
     file: ../../assets/houston.webp
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: 快速开始
+      link: /guides/getting-started/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
+    - text: API 参考
+      link: /reference/global/jsb/
+      icon: document
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## 从这里开始
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="快速开始" icon="rocket">
+		从零运行你的第一个插件（Hello World），了解 mnaddon.json 与入口函数。
+		[进入快速开始](/guides/getting-started/)
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="教程" icon="pencil">
+		按学习路径掌握生命周期、笔记与数据库、脑图与选区、工具栏与原生 UI。
+		[浏览教程](/guides/lifecycle-and-window/)
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Cookbook 配方" icon="add-document">
+		按任务查找完整可运行代码：批量改标题、导出笔记本、高亮笔记、设置页等。
+		[查看配方](/guides/cookbook/batch-rename-notes/)
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="API 参考" icon="open-book">
+		全局对象、MarginNote 核心、Foundation、UIKit、Utility 的完整 API 说明。
+		[进入 API](/reference/global/jsb/)
 	</Card>
 </CardGrid>
