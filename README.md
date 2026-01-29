@@ -2,6 +2,9 @@
 
 **本仓库为 MarginNote 官方插件接口文档与教程站点。**
 
+- **在线文档**：<https://mn-docs.museday.top>
+- **仓库**：<https://github.com/Temsys-Shen/marginnote-addon-docs>
+
 基于 [Starlight](https://starlight.astro.build) 构建，提供完整的 API 参考、渐进式教程与 Cookbook 配方，供开发者为 MarginNote 编写插件时查阅与学习。
 
 ## 文档内容

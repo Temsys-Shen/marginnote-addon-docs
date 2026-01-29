@@ -4,10 +4,11 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://mn-docs.museday.top',
 	integrations: [
 		starlight({
 			title: 'MarginNote 插件开发文档',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/Temsys-Shen/marginnote-addon-docs' }],
 			sidebar: [
 				{
 					label: '入门',
