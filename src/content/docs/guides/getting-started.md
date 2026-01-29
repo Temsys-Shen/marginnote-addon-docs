@@ -7,8 +7,8 @@ description: 从零运行你的第一个 MarginNote 插件（Hello World）。
 
 ## 前提
 
-- 已安装 MarginNote 3（建议 3.6.11 及以上）。
-- 了解如何将插件包放入 MarginNote 的 addon 目录并在应用中启用插件。
+- 已安装 MarginNote 3 或 MarginNote 4（MN3 建议 3.6.11 及以上）。
+- 了解如何将 .mnaddon 包安装到 MarginNote 并在应用中启用插件。
 
 ## 第一步：插件包结构
 
@@ -78,8 +78,8 @@ JSB.newAddon = function (mainPath) {
 
 ## 第四步：安装与验证
 
-1. 将包含 `main.js` 和 `mnaddon.json` 的文件夹放入 MarginNote 的 addon 目录。
-2. 在 MarginNote 中启用该插件。
+1. 将包含 `main.js` 和 `mnaddon.json` 的文件夹打包成 `.mnaddon` 文件（本质为 zip：将上述文件放在 zip 根目录，扩展名改为 `.mnaddon`）。
+2. 将 `.mnaddon` 安装到 MarginNote（按应用内说明或文档操作），并在应用中启用该插件。
 3. 打开或切换到一个窗口，使插件窗口连接；应看到 "Hello World" 的 HUD。
 
 ## 下一步
