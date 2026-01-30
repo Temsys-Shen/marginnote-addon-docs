@@ -101,6 +101,12 @@ export default defineConfig({
 						},
 					],
 				},
+				{
+					label: '关于',
+					items: [
+						{ label: '贡献指南', slug: 'guides/contributing' },
+					],
+				},
 			],
 
 		}),
