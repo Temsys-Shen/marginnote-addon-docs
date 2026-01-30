@@ -1,6 +1,45 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import path from 'node:path';
+import { cp, stat } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+
+/**
+ * Starlight 默认把 Pagefind bundle 输出到 `dist/pagefind/`，并在运行时请求 `/pagefind/*`。
+ * 但一些旧的部署/缓存或人工排查会请求 `/_pagefind/*`，导致“搜索弹窗空白（资源 404）”的错觉。
+ *
+ * 这里在构建结束后把 `pagefind/` 复制一份到 `_pagefind/`，实现兼容双路径。
+ *
+ * @returns {import('astro').AstroIntegration}
+ */
+function pagefindCompatAlias() {
+	return {
+		name: 'pagefind-compat-alias',
+		hooks: {
+			'astro:build:done': async ({ dir, logger }) => {
+				const outDir = fileURLToPath(dir);
+				const src = path.join(outDir, 'pagefind');
+				const dst = path.join(outDir, '_pagefind');
+
+				try {
+					const s = await stat(src);
+					if (!s.isDirectory()) return;
+				} catch {
+					// 没有 pagefind 输出时，直接跳过（例如未来关闭内置搜索）
+					return;
+				}
+
+				try {
+					await cp(src, dst, { recursive: true, force: true });
+					logger.info('Created compatibility alias: /_pagefind/ → /pagefind/');
+				} catch (err) {
+					logger.warn(`Failed to create /_pagefind/ alias: ${String(err)}`);
+				}
+			},
+		},
+	};
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -110,5 +149,6 @@ export default defineConfig({
 			],
 
 		}),
+		pagefindCompatAlias(),
 	],
 });
