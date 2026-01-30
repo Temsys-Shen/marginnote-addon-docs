@@ -5,13 +5,17 @@ description: 通知中心，用于插件内部或与系统的事件通信。
 
 用于发送与接收应用内通知。通过 `NSNotificationCenter.defaultCenter()` 获取默认中心。
 
-## 获取实例
+## 类成员 (Class members)
+
+### 获取实例
 
 | 方法 | 返回值 | 说明 |
 |------|--------|------|
 | `static defaultCenter()` | NSNotificationCenter | 获取默认通知中心。 |
 
-## 方法
+## 实例成员 (Instance members)
+
+### 方法
 
 | 方法 | 参数 | 说明 |
 |------|------|------|

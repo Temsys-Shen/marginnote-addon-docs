@@ -81,6 +81,7 @@ self.webView.scalesPageToFit = true;
 self.webView.delegate = self;
 self.view.addSubview(self.webView);
 self.webView.loadRequest(NSURLRequest.requestWithURL(NSURL.URLWithString("http://www.apple.com/")));
+// 若需设置 User-Agent 等，可用 NSMutableURLRequest 构建请求，再 loadRequest(req)
 ```
 
 ### 加载本地 HTML 字符串
@@ -102,7 +103,7 @@ webViewDidFinishLoad: function (webView) {
   // 加载完成
 },
 webViewDidFailLoadWithError: function (webView, error) {
-  // 加载失败，可用 loadHTMLStringBaseURL 显示错误页
+  // 加载失败；可用 error.localizedDescription 获取错误信息，或用 loadHTMLStringBaseURL 显示错误页
 },
 webViewShouldStartLoadWithRequestNavigationType: function (webView, request, type) {
   return true;  // 若拦截自定义 URL Scheme 则解析后 return false

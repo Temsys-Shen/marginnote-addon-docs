@@ -10,7 +10,7 @@ description: 笔记核心对象，代表脑图中的一条笔记及其摘录、�
 ### 可读写属性
 
 | 属性 | 类型 | 说明 |
-|------|------|------|
+| :--- | :--- | :--- |
 | `noteTitle` | `string` | 笔记标题。 |
 | `excerptText` | `string` | 摘录文本。 |
 | `colorIndex` | `number` | 颜色索引 (0–15)。 |
@@ -20,7 +20,7 @@ description: 笔记核心对象，代表脑图中的一条笔记及其摘录、�
 ### 只读属性
 
 | 属性 | 类型 | 说明 |
-|------|------|------|
+| :--- | :--- | :--- |
 | `noteId` | `string` | 笔记唯一 ID。 |
 | `docMd5` | `string` | 来源文档 MD5。 |
 | `notebookId` | `string` | 所属笔记本 ID。 |
@@ -44,15 +44,95 @@ description: 笔记核心对象，代表脑图中的一条笔记及其摘录、�
 
 ### 实例方法
 
-| 方法 | 参数 | 返回值 | 说明 |
-|------|------|--------|------|
-| `appendTextComment(text)` | `text`: string | void | 添加一条文本评论。 |
-| `appendNoteLink(note)` | `note`: MbBookNote | void | 添加指向另一条笔记的链接（JS 中也可用 addNoteLink）。 |
-| `appendHtmlComment(html, text, tag)` | html, text, tag: string | void | 添加 HTML 评论。 |
-| `removeCommentByIndex(index)` | `index`: number | void | 按索引删除一条评论。 |
-| `clearFormat()` | — | void | 清除笔记文本格式。 |
-| `paste()` | — | void | 粘贴。 |
-| `allNoteText()` | — | string | 获取笔记全部文本。 |
+### `appendTextComment`
+
+添加一条文本评论。
+
+```javascript
+appendTextComment(text: string): void
+```
+
+**Parameters:**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `text` | `string` | 评论内容。 |
+
+### `appendNoteLink`
+
+添加指向另一条笔记的链接（JS 中也可用 addNoteLink）。
+
+```javascript
+appendNoteLink(note: MbBookNote): void
+```
+
+**Parameters:**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `note` | `MbBookNote` | 目标笔记对象。 |
+
+### `appendHtmlComment`
+
+添加 HTML 评论。
+
+```javascript
+appendHtmlComment(html: string, text: string, tag: string): void
+```
+
+**Parameters:**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `html` | `string` | HTML 内容。 |
+| `text` | `string` | 纯文本内容（用于搜索等）。 |
+| `tag` | `string` | 标签/尺寸信息。 |
+
+### `removeCommentByIndex`
+
+按索引删除一条评论。
+
+```javascript
+removeCommentByIndex(index: number): void
+```
+
+**Parameters:**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `index` | `number` | 评论在 `comments` 数组中的索引。 |
+
+### `clearFormat`
+
+清除笔记文本格式。
+
+```javascript
+clearFormat(): void
+```
+
+### `paste`
+
+粘贴（将剪贴板内容作为评论或摘录）。
+
+```javascript
+paste(): void
+```
+
+### `allNoteText`
+
+获取笔记全部文本（标题+摘录+评论）。
+
+```javascript
+allNoteText(): string
+```
+
+**Return Value:**
+
+- `string`: 聚合文本。
+
+## 类成员 (Class members)
+
+当前运行时未额外暴露 `MbBookNote` 的类成员。
 
 ## 创建笔记
 

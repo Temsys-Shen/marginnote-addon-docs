@@ -47,7 +47,22 @@ var textData = NSData.dataWithStringEncoding("Hello, World!", 4);
 textData.writeToFileAtomically(filePath, true);
 ```
 
-读取文件为 NSData，再转为字符串需在 JS 侧自行处理（若环境暴露了 NSData 转 string 的 API 则可用）。
+读取文件为 NSData 后，若需转为 JS 可用的形式：
+
+- **若文件为 JSON**：用 `NSJSONSerialization.JSONObjectWithDataOptions(data, 0)` 解析为对象/数组；解析前可用 `data.length() === 0` 判断是否为空。
+- **若需纯文本字符串**：若运行时导出了 `NSString`，可用 `NSString.alloc().initWithDataEncoding(data, 4)`（4 为 UTF-8）再取字符串；若无 NSString，可先尝试上述 JSON 解析。
+
+示例：从文件读取 JSON 并解析
+
+```javascript
+var data = NSData.dataWithContentsOfFile(filePath);
+if (data && data.length() > 0) {
+  var obj = NSJSONSerialization.JSONObjectWithDataOptions(data, 0);
+  if (NSJSONSerialization.isValidJSONObject(obj)) {
+    // obj 为 JS 对象，可直接使用
+  }
+}
+```
 
 ## 路径说明
 
@@ -73,3 +88,4 @@ NSUserDefaults.standardUserDefaults().setBoolForKey(newValue, "my_addon_show_pan
 
 - [NSUserDefaults](/reference/foundation/ns-user-defaults/)、[NSFileManager](/reference/foundation/ns-file-manager/)、[NSData](/reference/foundation/ns-data/)
 - [Cookbook：插件设置页](/guides/cookbook/addon-settings/)
+- [网络请求](/guides/network-requests/) —— 网络响应 NSData 的 JSON 解析同理

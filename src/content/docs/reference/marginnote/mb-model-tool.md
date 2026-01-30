@@ -5,7 +5,9 @@ description: 数据库工具协议，Database 单例的实现类型，提供笔�
 
 `Database.sharedInstance()` 返回的对象即实现 `MbModelTool` 协议的单例。API 与 [Database](/reference/global/database/) 一致，本页列出完整方法签名便于对照原生接口。
 
-## 单例与查询
+## 实例成员 (Instance members)
+
+### 单例与查询
 
 | 方法 | 说明 |
 |------|------|
@@ -17,7 +19,7 @@ description: 数据库工具协议，Database 单例的实现类型，提供笔�
 | `getFlashcardByNoteId(noteId, topicId)` / `getFlashcardsByNoteId(noteId)` / `hasFlashcardByNoteId(noteId)` | 闪卡相关查询。 |
 | `allNotebooks()` / `allDocuments()` | 所有笔记本/文档。 |
 
-## 持久化与同步
+### 持久化与同步
 
 | 方法 | 说明 |
 |------|------|
@@ -25,7 +27,7 @@ description: 数据库工具协议，Database 单例的实现类型，提供笔�
 | `setNotebookSyncDirty(topicid)` | 将笔记本标记为同步脏。 |
 | `saveHistoryArchive(topicid, key)` / `loadHistoryArchive(topicid, key)` | 历史归档。 |
 
-## 删除与克隆
+### 删除与克隆
 
 | 方法 | 说明 |
 |------|------|
@@ -33,12 +35,16 @@ description: 数据库工具协议，Database 单例的实现类型，提供笔�
 | `deleteBookNoteTree(noteId)` | 删除笔记及其所有后代。 |
 | `cloneNotes(notes, topicId)` / `cloneNotesToFlashcards(notes, topicId)` | 克隆笔记到指定笔记本或闪卡。 |
 
-## 导入导出
+### 导入导出
 
 | 方法 | 说明 |
 |------|------|
 | `exportNotebook(topicid, storePath)` | 导出笔记本。 |
 | `importNotebookFromStorePath(storePath, merge)` | 从路径导入笔记本。 |
+
+## 类成员 (Class members)
+
+当前运行时未额外暴露 `MbModelTool` 的类成员；通常通过全局对象 [Database](/reference/global/database/)（单例）来使用。
 
 ## 相关
 

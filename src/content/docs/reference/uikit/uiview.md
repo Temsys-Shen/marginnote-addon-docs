@@ -33,6 +33,10 @@ description: 所有 UI 控件的基类，管理 frame、子视图与图层。
 | `insertSubviewAboveSubview(view, sibling)` | 插入到某子视图上方。 |
 | `viewWithTag(tag)` | 按 tag 查找子视图。 |
 
+## 类成员 (Class members)
+
+当前运行时未额外暴露 `UIView` 的类成员。
+
 ## 相关
 
 - [UIViewController](/reference/uikit/uiview-controller/)、[UIColor](/reference/uikit/uicolor/)

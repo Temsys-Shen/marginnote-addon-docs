@@ -27,7 +27,7 @@ var allDocuments = db.allDocuments();
 
 ## 修改笔记与 Undo
 
-修改笔记属性（如 `noteTitle`、`excerptText`、`colorIndex`）后，应放在 **UndoManager 的 undoGrouping** 中执行，并传入**当前笔记本 ID**（可从 `note.notebookId` 取）。这样用户可撤销，且界面会正确刷新。
+修改笔记属性后，应放在 **UndoManager 的 undoGrouping** 中执行。常用属性：`noteTitle`（笔记标题）、`excerptText`（摘录/高亮文本）、`colorIndex`（颜色索引），并传入**当前笔记本 ID**（可从 `note.notebookId` 取）。这样用户可撤销，且界面会正确刷新。
 
 ```javascript
 var noteId = "要修改的笔记 ID";
@@ -38,7 +38,7 @@ if (note) {
     "修改笔记标题",
     topicid,
     function () {
-      note.noteTitle = "新标题";
+      note.noteTitle = "新标题";  // 或修改 excerptText、colorIndex 等
     }
   );
   Application.sharedInstance().refreshAfterDBChanged(topicid);

@@ -5,21 +5,70 @@ description: 撤销管理，修改笔记数据时应用 undoGrouping 以支持�
 
 修改笔记/笔记本数据时，应使用 `undoGrouping(actionName, topicid, block)` 包裹修改逻辑，以便支持撤销并在块执行后刷新界面。通过 `UndoManager.sharedInstance()` 获取（类型为 JSBUndoManager）。
 
-## 获取实例
+## 类成员 (Class members)
 
-| 方法 | 返回值 | 说明 |
-|------|--------|------|
-| `static sharedInstance()` | JSBUndoManager | 获取全局 UndoManager。 |
+### `sharedInstance`
 
-## 方法
+获取全局 UndoManager。
 
-| 方法 | 参数 | 说明 |
-|------|------|------|
-| `undoGrouping(actionName, inNotebook topicid, block)` | actionName: string；topicid: string；block: JSValue（无参函数） | 在指定笔记本下执行 block，作为一次可撤销操作；执行后界面会刷新。 |
-| `undo()` | — | 执行撤销。 |
-| `redo()` | — | 执行重做。 |
-| `canUndo` / `canRedo` | — | 是否可撤销/重做。 |
-| `clearAll()` | — | 清空撤销栈。 |
+```javascript
+static sharedInstance(): JSBUndoManager
+```
+
+**Return Value:**
+
+- `JSBUndoManager`: 单例对象。
+
+## 实例成员 (Instance members)
+
+### 属性
+
+| 属性 | 类型 | 说明 |
+| :--- | :--- | :--- |
+| `canUndo` | `boolean` | 是否可撤销。 |
+| `canRedo` | `boolean` | 是否可重做。 |
+
+### 方法
+
+### `undoGrouping`
+
+在指定笔记本下执行 block，作为一次可撤销操作；执行后界面会刷新。
+
+```javascript
+undoGrouping(actionName: string, topicid: string, block: () => void): void
+```
+
+**Parameters:**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `actionName` | `string` | 操作名称（显示在撤销菜单中）。 |
+| `topicid` | `string` | 笔记本 ID (`inNotebook`)。 |
+| `block` | `() => void` | 执行修改逻辑的回调函数。 |
+
+### `undo`
+
+执行撤销。
+
+```javascript
+undo(): void
+```
+
+### `redo`
+
+执行重做。
+
+```javascript
+redo(): void
+```
+
+### `clearAll`
+
+清空撤销栈。
+
+```javascript
+clearAll(): void
+```
 
 ## 使用示例
 

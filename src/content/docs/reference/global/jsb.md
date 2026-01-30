@@ -1,24 +1,87 @@
 ---
 title: JSB
-description: JavaScript 桥接核心，连接 JavaScript 与原生 Objective-C 的入口对象。
+description: JavaScript 桥接核心，连接插件 JS 与运行时对象的入口对象。
 ---
 
-JSB（JavaScript Bridge）是桥接 JavaScript 与原生 Objective-C 的核心对象，所有插件的入口与类定义都通过它完成。
+JSB（JavaScript Bridge）是插件运行时的桥接核心对象：类定义、插件入口、日志与包内脚本加载都通过它完成。
 
-## 方法
+## 实例成员 (Instance members)
 
-| 方法 | 参数 | 返回值 | 说明 |
-|------|------|--------|------|
-| `defineClass(declaration, instanceMethods, classMethods)` | 见下 | 类构造器 | 定义一个可在 Objective-C 中使用的类，**所有插件的入口**。 |
-| `newAddon(mainPath)` | `mainPath` (string)：插件包根目录路径 | 必须返回由 `defineClass` 创建的类（构造器） | **插件入口函数**。MarginNote 加载插件时调用，你必须实现并返回插件类（不是实例；MarginNote 会自行实例化）。 |
-| `log(format, ...args)` | `format` (string)：支持 `%@`、`%d` 等 Objective-C 格式；`...args`：对应参数 | void | 向 MarginNote 控制台输出日志，类似 `console.log`。 |
-| `require(name)` | `name` (string)：插件包内 JS 文件路径/名 | void | 加载插件包内其他 JS 文件。无模块作用域，所有文件共享全局作用域；推荐使用 Webpack 等打包。 |
+`JSB` 是全局对象，通常不以“实例化”的方式使用。
 
-### defineClass 参数说明
+## 类成员 (Class members)
 
-- **第一个参数 `declaration`** (string)：类声明，例如 `'MyAddon : JSExtension'`。
-- **第二个参数：Instance members（实例成员）** (object)：实例方法与属性的集合。在此对象中定义的方法/属性在**实例**上调用（如 `sceneWillConnect`、`notebookWillOpen`、`queryAddonCommandStatus`、工具栏 selector 回调如 `toggleSample:` 等）；在这些方法内可使用 `self` 访问当前插件实例。
-- **第三个参数：Class members（类成员）** (object，可选)：类方法与属性的集合。在此对象中定义的方法在**类**上调用（如 `addonDidConnect`、`addonWillDisconnect`）；类方法内没有 `self`。
+### 方法
+
+### `defineClass`
+
+定义一个可被运行时识别并回调的类，**所有插件的入口**。
+
+```javascript
+defineClass(declaration: string, instanceMembers: object, classMembers?: object): any
+```
+
+**Parameters:**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `declaration` | `string` | 类声明，例如 `'MyAddon : JSExtension'`。 |
+| `instanceMembers` | `object` | 实例方法与属性的集合。在此对象中定义的方法/属性在**实例**上调用（如 `sceneWillConnect`、`notebookWillOpen`、`queryAddonCommandStatus` 等）。 |
+| `classMembers` | `object?` | 类方法与属性的集合。在此对象中定义的方法在**类**上调用（如 `addonDidConnect`）。 |
+
+**Return Value:**
+
+- `any`: 类构造器。
+
+### `newAddon`
+
+**插件入口函数**。MarginNote 加载插件时调用，你必须实现并返回插件类。
+
+```javascript
+newAddon(mainPath: string): any
+```
+
+**Parameters:**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `mainPath` | `string` | 插件包根目录路径。 |
+
+**Return Value:**
+
+- `any`: 必须返回由 `defineClass` 创建的类（构造器）。注意：是类本身，不是实例。
+
+### `log`
+
+向 MarginNote 控制台输出日志，类似 `console.log`。
+
+```javascript
+log(format: string, ...args: any[]): void
+```
+
+**Parameters:**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `format` | `string` | 格式化字符串，支持 `%@`、`%d` 等 Objective-C 格式。 |
+| `...args` | `any[]` | 对应格式化字符串的参数。 |
+
+### `require`
+
+加载插件包内其他 JS 文件。
+
+```javascript
+require(name: string): void
+```
+
+**Parameters:**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `name` | `string` | 插件包内 JS 文件路径/文件名。 |
+
+**Note:**
+无模块作用域，所有文件共享全局作用域；推荐使用 Webpack 等打包工具。
 
 ## 说明
 

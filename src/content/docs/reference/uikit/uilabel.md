@@ -18,6 +18,10 @@ description: 静态文本标签。
 | `textAlignment` | number | 对齐（如 1 居中）。 |
 | `numberOfLines` | number | 行数（0 多行）。 |
 
+## 类成员 (Class members)
+
+当前运行时未额外暴露 `UILabel` 的类成员。
+
 ## 相关
 
 - [UIView](/reference/uikit/uiview/)、[UIColor](/reference/uikit/uicolor/)

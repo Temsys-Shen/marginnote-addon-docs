@@ -28,10 +28,12 @@ export default defineConfig({
 						{ label: '工具栏与命令', slug: 'guides/toolbar-and-commands' },
 						{ label: '原生 UI', slug: 'guides/native-ui' },
 						{ label: '存储与文件', slug: 'guides/storage-and-files' },
+						{ label: '网络请求', slug: 'guides/network-requests' },
 						{
 							label: 'Cookbook 配方',
 							items: [
 								{ label: '批量修改笔记标题', slug: 'guides/cookbook/batch-rename-notes' },
+								{ label: '调用远程 API', slug: 'guides/cookbook/network-api-call' },
 								{ label: '导出当前笔记本', slug: 'guides/cookbook/export-notebook' },
 								{ label: '在脑图中高亮指定笔记', slug: 'guides/cookbook/focus-note-in-mindmap' },
 								{ label: '将选区追加为评论', slug: 'guides/cookbook/append-selection-as-comment' },
@@ -48,6 +50,7 @@ export default defineConfig({
 						{
 							label: '全局与入口',
 							items: [
+								{ label: '全局入口对象', slug: 'reference/global/global-variables' },
 								{ label: 'JSB', slug: 'reference/global/jsb' },
 								{ label: 'Application', slug: 'reference/global/application' },
 								{ label: 'Database', slug: 'reference/global/database' },
@@ -64,6 +67,7 @@ export default defineConfig({
 								{ label: 'ReaderController', slug: 'reference/marginnote/reader-controller' },
 								{ label: 'DocumentController', slug: 'reference/marginnote/document-controller' },
 								{ label: 'MindMapView', slug: 'reference/marginnote/mindmap-view' },
+								{ label: 'OutlineView', slug: 'reference/marginnote/outline-view' },
 								{ label: 'MindMapNode', slug: 'reference/marginnote/mindmap-node' },
 								{ label: 'MbBookNote', slug: 'reference/marginnote/mb-book-note' },
 								{ label: 'NoteComment', slug: 'reference/marginnote/note-comment' },
@@ -74,38 +78,25 @@ export default defineConfig({
 						},
 						{
 							label: 'Foundation',
-							items: [
-								{ label: 'NSUserDefaults', slug: 'reference/foundation/ns-user-defaults' },
-								{ label: 'NSFileManager', slug: 'reference/foundation/ns-file-manager' },
-								{ label: 'NSData', slug: 'reference/foundation/ns-data' },
-								{ label: 'NSURL', slug: 'reference/foundation/ns-url' },
-								{ label: 'NSJSONSerialization', slug: 'reference/foundation/ns-json-serialization' },
-								{ label: 'NSTimer', slug: 'reference/foundation/ns-timer' },
-								{ label: 'NSNotificationCenter', slug: 'reference/foundation/ns-notification-center' },
-							],
+							autogenerate: { directory: 'reference/foundation' },
 						},
 						{
 							label: 'UIKit',
-							items: [
-								{ label: 'UIView', slug: 'reference/uikit/uiview' },
-								{ label: 'UIViewController', slug: 'reference/uikit/uiview-controller' },
-								{ label: 'UIAlertView', slug: 'reference/uikit/uialertview' },
-								{ label: 'UIButton', slug: 'reference/uikit/uibutton' },
-								{ label: 'UILabel', slug: 'reference/uikit/uilabel' },
-								{ label: 'UITextField', slug: 'reference/uikit/uitextfield' },
-								{ label: 'UISwitch', slug: 'reference/uikit/uiswitch' },
-								{ label: 'UIColor', slug: 'reference/uikit/uicolor' },
-								{ label: 'UIPasteboard', slug: 'reference/uikit/uipasteboard' },
-								{ label: 'UIWebView', slug: 'reference/uikit/uiwebview' },
-							],
+							autogenerate: { directory: 'reference/uikit' },
+						},
+						{
+							label: 'QuartzCore',
+							autogenerate: { directory: 'reference/quartzcore' },
 						},
 						{
 							label: 'Utility',
+							autogenerate: { directory: 'reference/utility' },
+						},
+						{
+							label: '运行时边界',
 							items: [
-								{ label: 'UndoManager', slug: 'reference/utility/undo-manager' },
-								{ label: 'MenuController', slug: 'reference/utility/menu-controller' },
-								{ label: 'SpeechManager', slug: 'reference/utility/speech-manager' },
-								{ label: 'ZipArchive', slug: 'reference/utility/zip-archive' },
+								{ label: 'JavaScript 原生环境', slug: 'reference/js-runtime' },
+								{ label: '隐藏的边界（The Black Box）', slug: 'reference/black-box' },
 							],
 						},
 					],

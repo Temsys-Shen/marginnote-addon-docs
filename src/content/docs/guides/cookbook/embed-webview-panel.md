@@ -11,6 +11,7 @@ description: 从工具栏打开浮窗，浮窗内为 UIWebView，加载本地或
 2. **浮窗内 WebView**：在 ViewController 的 viewDidLoad 中创建 UIWebView、设置 frame 与 delegate，加载 `loadHTMLStringBaseURL(html, null)` 或 `loadRequest` 远程 URL。
 3. **布局**：在 `controllerWillLayoutSubviews` 中根据 `studyController.view.bounds` 计算浮窗 frame，与 [工具栏与命令](/guides/toolbar-and-commands/) 中面板布局方式一致。
 4. **双向通信**：实现 `webViewShouldStartLoadWithRequestNavigationType` 拦截自定义 URL（如 `marginnote://action?msg=...`），解析后执行插件逻辑并 return false；需要时用 `webView.evaluateJavaScript(script, completionHandler)` 向页面注入数据或执行脚本。完整代码与 HTML 示例见 [WebView 内 JS 与插件 JS 双向通信](/guides/cookbook/webview-bidirectional-js/)。
+5. **展示远程 API 数据**：若面板需展示来自远程 API 的数据，可先用 [网络请求](/guides/network-requests/) 获取数据，再通过 `loadHTMLStringBaseURL` 将数据注入 HTML 模板，或加载完成后用 `evaluateJavaScript` 注入。
 
 ## 关键片段
 
@@ -73,3 +74,4 @@ toggleWebViewPanel: function (sender) {
 
 - [工具栏与命令](/guides/toolbar-and-commands/)、[原生 UI：使用 WebView](/guides/native-ui/#使用-webview)
 - [WebView 内 JS 与插件 JS 双向通信](/guides/cookbook/webview-bidirectional-js/)、[UIWebView](/reference/uikit/uiwebview/)
+- [网络请求](/guides/network-requests/) —— 获取远程数据注入面板

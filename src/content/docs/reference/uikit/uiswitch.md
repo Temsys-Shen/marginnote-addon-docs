@@ -13,6 +13,10 @@ description: 开关控件。
 |------|------|------|
 | `on` | boolean | 是否开启。 |
 
+## 类成员 (Class members)
+
+当前运行时未额外暴露 `UISwitch` 的类成员。
+
 ## 相关
 
-- [UIControl](/reference/uikit/uibutton/)（同属 Control，绑定方式类似）
+- [UIControl](/reference/uikit/uicontrol/)（同属 Control，绑定方式类似）

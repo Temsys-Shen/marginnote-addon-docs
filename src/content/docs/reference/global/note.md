@@ -7,13 +7,33 @@ description: 全局注入的笔记工厂对象，用于创建新笔记（MbBookN
 
 需要特别注意：创建笔记的方法**不在** `MbBookNote` 类上，而是在全局 `Note` 对象上（这是由 MarginNote 的 JSExport 导出方式决定的）。
 
-## 全局成员 (Global members)
+## 实例成员 (Instance members)
+
+`Note` 是全局对象，通常不以实例形式使用。
+
+## 类成员 (Class members)
 
 ### 方法
 
-| 方法 | 参数 | 返回值 | 说明 |
-|------|------|--------|------|
-| `createWithTitleNotebookDocument(title, notebook, doc)` | `title`: string；`notebook`: MbTopic；`doc`: MbBook | `MbBookNote` | 在指定笔记本与文档下创建一条新笔记。 |
+### `createWithTitleNotebookDocument`
+
+在指定笔记本与文档下创建一条新笔记。
+
+```javascript
+createWithTitleNotebookDocument(title: string, notebook: MbTopic, doc: MbBook): MbBookNote
+```
+
+**Parameters:**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `title` | `string` | 笔记标题。 |
+| `notebook` | `MbTopic` | 所属笔记本（Topic）。 |
+| `doc` | `MbBook` | 来源文档（Book）。 |
+
+**Return Value:**
+
+- `MbBookNote`: 创建成功的新笔记对象。
 
 ### 示例
 

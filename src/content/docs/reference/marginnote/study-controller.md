@@ -5,10 +5,12 @@ description: 学习场景主视图控制器，访问脑图与文档的入口。
 
 学习场景的主视图控制器，通过 `Application.sharedInstance().studyController(window)` 获取（通常传入 `self.window`）。是访问脑图、文档、当前笔记本等的根对象。
 
-## 属性（只读）
+## 实例成员 (Instance members)
+
+### 属性（只读）
 
 | 属性 | 类型 | 说明 |
-|------|------|------|
+| :--- | :--- | :--- |
 | `view` | `UIView` | 控制器主视图，可在此添加插件 UI。 |
 | `notebookController` | `NotebookController` | 脑图/大纲控制器（getter 为 `fSearchViewController`，JS 侧为 notebookController）。 |
 | `readerController` | `ReaderController` | 文档阅读区域控制器（getter 为 `detailController`）。 |
@@ -17,13 +19,47 @@ description: 学习场景主视图控制器，访问脑图与文档的入口。
 | `docMapSplitMode` | `number` | 书本/脑图分屏模式：0 全脑图，1 半脑图半文档，2 全文档（getter/setter 为 bookSplitMode）。 |
 | `rightMapMode` | `boolean` | 脑图是否在右侧。 |
 
-## 方法
+### 方法
 
-| 方法 | 参数 | 返回值 | 说明 |
-|------|------|--------|------|
-| `focusNoteInMindMapById(noteId)` | `noteId`: string | void | 在脑图中聚焦并高亮指定笔记。 |
-| `focusNoteInDocumentById(noteId)` | `noteId`: string | void | 在文档中聚焦指定笔记。 |
-| `refreshAddonCommands()` | — | void | 强制刷新插件在工具栏的图标状态。 |
+### `focusNoteInMindMapById`
+
+在脑图中聚焦并高亮指定笔记。
+
+```javascript
+focusNoteInMindMapById(noteId: string): void
+```
+
+**Parameters:**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `noteId` | `string` | 笔记 ID。 |
+
+### `focusNoteInDocumentById`
+
+在文档中聚焦指定笔记。
+
+```javascript
+focusNoteInDocumentById(noteId: string): void
+```
+
+**Parameters:**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `noteId` | `string` | 笔记 ID。 |
+
+### `refreshAddonCommands`
+
+强制刷新插件在工具栏的图标状态。
+
+```javascript
+refreshAddonCommands(): void
+```
+
+## 类成员 (Class members)
+
+当前运行时未额外暴露 `StudyController` 的类成员。
 
 ## 相关
 

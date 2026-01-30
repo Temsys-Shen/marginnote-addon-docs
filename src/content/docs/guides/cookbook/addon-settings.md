@@ -40,11 +40,14 @@ NSUserDefaults.standardUserDefaults().setObjectForKey(newKey, "my_addon_api_key"
 Application.sharedInstance().showHUD("已保存", self.window, 2);
 ```
 
+若需用该 Key 发起网络请求，可参考 [调用远程 API](/guides/cookbook/network-api-call/) 和 [网络请求](/guides/network-requests/)。保存后可选择调用简单 API 验证 Key 是否有效。
+
 **完整流程简述**：
 
 1. 用 JSB.defineClass 定义设置页的 ViewController（或直接在插件实例上创建视图），包含 UISwitch、UITextField、保存按钮等。
 2. 在 viewDidLoad 或显示时从 NSUserDefaults 读取并填充控件。
 3. 在 UISwitch 的 action 或保存按钮的 action 中写回 NSUserDefaults。
 4. 插件主逻辑（如是否显示面板）在需要时从 NSUserDefaults 读取。
+5. （可选）保存 API Key 后调用简单接口验证是否有效。
 
-**相关**：[存储与文件](/guides/storage-and-files/)、[NSUserDefaults](/reference/foundation/ns-user-defaults/)、[原生 UI](/guides/native-ui/)
+**相关**：[存储与文件](/guides/storage-and-files/)、[NSUserDefaults](/reference/foundation/ns-user-defaults/)、[原生 UI](/guides/native-ui/)、[调用远程 API](/guides/cookbook/network-api-call/)

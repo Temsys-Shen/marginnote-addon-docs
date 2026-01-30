@@ -5,7 +5,9 @@ description: 单个文档的控制器，提供当前文档与选区。
 
 管理单个打开的文档，通过 `ReaderController.currentDocumentController` 获取当前显示的文档控制器。
 
-## 属性（只读）
+## 实例成员 (Instance members)
+
+### 属性（只读）
 
 | 属性 | 类型 | 说明 |
 |------|------|------|
@@ -16,11 +18,11 @@ description: 单个文档的控制器，提供当前文档与选区。
 | `visibleFocusNote` | `MbBookNote` \| undefined | 当前可见的焦点笔记。 |
 | `selectionText` | `string` \| undefined | 用户在 PDF 中当前选中的文本。 |
 
-## 方法
+说明：该对象对外只暴露了以上属性（常见用途是读“当前文档/当前选区/当前焦点笔记”等状态）。
 
-| 方法 | 返回值 | 说明 |
-|------|--------|------|
-| `imageFromSelection()` | `NSData` | 获取当前选中区域的截图（若头文件中有声明）。 |
+## 类成员 (Class members)
+
+当前运行时未额外暴露 `DocumentController` 的类成员。
 
 ## 相关
 
