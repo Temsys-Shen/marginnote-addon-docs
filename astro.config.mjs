@@ -8,6 +8,9 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'MarginNote 插件开发文档',
+			components: {
+				Search: './src/components/Search.astro',
+			},
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/Temsys-Shen/marginnote-addon-docs' }],
 			sidebar: [
 				{
