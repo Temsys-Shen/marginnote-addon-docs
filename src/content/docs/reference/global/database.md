@@ -3,7 +3,7 @@ title: Database
 description: MarginNote 核心数据库访问对象（MbModelTool），用于获取/修改笔记、笔记本与文档。
 ---
 
-`Database` 即底层类型 `MbModelTool` 的单例，用于访问 MarginNote 的笔记与文档数据。通过 `Database.sharedInstance()` 获取。修改数据后建议配合 [UndoManager](/reference/utility/undo-manager/) 的 `undoGroupingWithRefresh` 并调用 `Application.refreshAfterDBChanged(topicid)` 以刷新界面。
+`Database` 即底层类型 `MbModelTool` 的单例，用于访问 MarginNote 的笔记与文档数据。通过 `Database.sharedInstance()` 获取。修改数据后建议使用 [UndoManager](/reference/utility/undo-manager/) 的 `undoGrouping(title, topicid, fn)` 包裹，并调用 `Application.sharedInstance().refreshAfterDBChanged(topicid)` 刷新界面。
 
 ## 获取实例
 

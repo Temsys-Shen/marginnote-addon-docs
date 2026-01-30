@@ -31,7 +31,7 @@ sceneWillConnect: function () {
   self.webViewController = MyWebViewController.new();
   self.webViewController.mainPath = mainPath;  // 若需加载包内 HTML
 },
-notebookWillOpen: function (notebookid) {
+notebookWillOpen: function (topicid) {
   NSTimer.scheduledTimerWithTimeInterval(0.2, false, function () {
     var show = NSUserDefaults.standardUserDefaults().objectForKey("my_webview_panel_on");
     if (show === true) {

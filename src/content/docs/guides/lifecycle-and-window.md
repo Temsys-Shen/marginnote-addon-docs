@@ -41,8 +41,8 @@ description: 理解 scene/notebook/document 生命周期及何时可安全使用
 下面在 `notebookWillOpen` 中打日志，并在 0.2 秒后检查是否要显示之前保存的浮窗（用 NSUserDefaults 记住状态）：
 
 ```javascript
-notebookWillOpen: function (notebookid) {
-  JSB.log("MNLOG Open Notebook: %@", notebookid);
+notebookWillOpen: function (topicid) {
+  JSB.log("MNLOG Open Notebook: %@", topicid);
 
   NSTimer.scheduledTimerWithTimeInterval(0.2, false, function () {
     var showPanel = NSUserDefaults.standardUserDefaults().objectForKey("my_addon_show_panel");

@@ -45,11 +45,28 @@ if (note) {
 }
 ```
 
-若使用 TypeScript 与 marginnote 包，可能会封装为 `undoGroupingWithRefresh` 之类的单次调用；在纯 JS 下按上面方式先 `undoGrouping` 再 `refreshAfterDBChanged` 即可。
-
 ## 创建新笔记
 
-使用 `MbBookNote.createWithTitle(title, notebook, document)` 在指定笔记本和文档下创建一条新笔记（notebook 为 MbTopic，document 为 MbBook）。创建后同样建议放在 undoGrouping 中并刷新。
+使用全局 `Note` 对象创建新笔记：`Note.createWithTitleNotebookDocument(title, notebook, doc)`（`notebook` 为 `MbTopic`，`doc` 为 `MbBook`）。创建后同样建议放在 undoGrouping 中并刷新。
+
+```javascript
+var db = Database.sharedInstance();
+var notebook = db.getNotebookById("某个笔记本 ID");
+var doc = db.getDocumentById("某个文档 MD5");
+
+if (notebook && doc) {
+  var topicid = notebook.topicId || notebook.topicid;
+  UndoManager.sharedInstance().undoGrouping(
+    "创建笔记",
+    topicid,
+    function () {
+      var note = Note.createWithTitleNotebookDocument("新笔记", notebook, doc);
+      // note 为 MbBookNote
+    }
+  );
+  Application.sharedInstance().refreshAfterDBChanged(topicid);
+}
+```
 
 ## 删除笔记
 

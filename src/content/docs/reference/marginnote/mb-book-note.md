@@ -54,13 +54,11 @@ description: 笔记核心对象，代表脑图中的一条笔记及其摘录、�
 | `paste()` | — | void | 粘贴。 |
 | `allNoteText()` | — | string | 获取笔记全部文本。 |
 
-## 类成员 (Class members)
+## 创建笔记
 
-### 类方法
+创建新笔记的方法**不在** `MbBookNote` 类上，而是在全局注入的 `Note` 对象上：
 
-| 方法 | 参数 | 返回值 | 说明 |
-|------|------|--------|------|
-| `createWithTitle(title, notebook, document)` | title: string；notebook: MbTopic；document: MbBook | `MbBookNote` | 在指定笔记本与文档下创建一条新笔记。 |
+- [Note](/reference/global/note/) — `Note.createWithTitleNotebookDocument(title, notebook, doc)`
 
 ## 相关
 

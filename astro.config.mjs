@@ -33,8 +33,8 @@ export default defineConfig({
 								{ label: '在脑图中高亮指定笔记', slug: 'guides/cookbook/focus-note-in-mindmap' },
 								{ label: '将选区追加为评论', slug: 'guides/cookbook/append-selection-as-comment' },
 								{ label: '插件设置页', slug: 'guides/cookbook/addon-settings' },
-								{ label: 'WebView 内 JS 与插件 JS 双向通信', slug: 'guides/cookbook/webview-bidirectional-js' },
 								{ label: '在插件中嵌入 WebView 面板', slug: 'guides/cookbook/embed-webview-panel' },
+								{ label: 'WebView 内 JS 与插件 JS 双向通信', slug: 'guides/cookbook/webview-bidirectional-js' },
 							],
 						},
 					],
@@ -48,6 +48,7 @@ export default defineConfig({
 								{ label: 'JSB', slug: 'reference/global/jsb' },
 								{ label: 'Application', slug: 'reference/global/application' },
 								{ label: 'Database', slug: 'reference/global/database' },
+								{ label: 'Note', slug: 'reference/global/note' },
 								{ label: 'self', slug: 'reference/global/self' },
 							],
 						},
@@ -107,6 +108,7 @@ export default defineConfig({
 					],
 				},
 			],
+
 		}),
 	],
 });
