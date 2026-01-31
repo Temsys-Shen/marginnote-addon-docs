@@ -3,7 +3,7 @@ title: UILabel
 description: 静态文本标签。
 ---
 
-用于显示静态文本。通过 `new UILabel()` 创建，设置 `frame`、`text`、`textColor`、`font` 等。
+用于显示静态文本。通过 `new UILabel(frame)` 创建（必须传入 frame 参数），设置 `text`、`textColor`、`font` 等。
 
 ## 实例成员 (Instance members)
 

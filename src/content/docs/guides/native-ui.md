@@ -20,8 +20,7 @@ Application.sharedInstance().studyController(self.window).view.addSubview(myView
 ## 添加标签（UILabel）
 
 ```javascript
-var label = new UILabel();
-label.frame = { x: 10, y: 10, width: 80, height: 30 };
+var label = new UILabel({ x: 10, y: 10, width: 80, height: 30 });
 label.text = "Hello!";
 label.textColor = UIColor.whiteColor();
 myView.addSubview(label);
