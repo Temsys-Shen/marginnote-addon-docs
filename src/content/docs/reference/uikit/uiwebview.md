@@ -52,7 +52,7 @@ loadHTMLString(string: string, baseURL: NSURL | null): void
 | `string` | `string` | HTML 内容字符串。 |
 | `baseURL` | `NSURL \| null` | 基础 URL（用于解析相对路径）。 |
 
-**Note:** 部分环境导出名为 `loadHTMLStringBaseURL`。
+**Note:** 在 JS 中实际调用时方法名为 **loadHTMLStringBaseURL(string, baseURL)**，与 Objective-C 的 `loadHTMLString:baseURL:` 对应；若环境不同则可能导出为 `loadHTMLString`。与 [原生 UI：使用 WebView](/guides/native-ui/#使用-webview) 中的表述一致。
 
 ### `loadData`
 

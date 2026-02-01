@@ -77,6 +77,7 @@ var webFrame = { x: 0, y: 40, width: self.view.bounds.width, height: self.view.b
 self.webView = new UIWebView(webFrame);
 self.webView.backgroundColor = UIColor.whiteColor();
 self.webView.scalesPageToFit = true;
+self.webView.autoresizingMask = (1 << 1 | 1 << 4 | 1 << 5);
 self.webView.delegate = self;
 self.view.addSubview(self.webView);
 self.webView.loadRequest(NSURLRequest.requestWithURL(NSURL.URLWithString("http://www.apple.com/")));
@@ -87,10 +88,12 @@ self.webView.loadRequest(NSURLRequest.requestWithURL(NSURL.URLWithString("http:/
 
 ```javascript
 var html = "<html><body><h1>Hello</h1></body></html>";
-self.webView.loadHTMLStringBaseURL(html, null);  // 或 loadHTMLString(html, null)，以实际导出名为准
+self.webView.loadHTMLStringBaseURL(html, null);  // 以示例为准，JS 中方法名为 loadHTMLStringBaseURL(string, baseURL)；若环境不同则可能为 loadHTMLString
 ```
 
 ### Delegate 回调（实例成员）
+
+建议在 **viewWillAppear** 中设置 `self.webView.delegate = self`（确保每次显示时 delegate 有效），在 **viewWillDisappear** 中调用 `self.webView.stopLoading()` 并设置 `self.webView.delegate = null`，避免视图消失后仍收到回调。
 
 在 `JSB.defineClass` 的第二个参数中定义：
 
@@ -102,7 +105,7 @@ webViewDidFinishLoad: function (webView) {
   // 加载完成
 },
 webViewDidFailLoadWithError: function (webView, error) {
-  // 加载失败；可用 error.localizedDescription 获取错误信息，或用 loadHTMLStringBaseURL 显示错误页
+  // 加载失败；可用 error.localizedDescription 获取错误信息，拼接 HTML 后用 loadHTMLStringBaseURL 显示错误页
 },
 webViewShouldStartLoadWithRequestNavigationType: function (webView, request, type) {
   return true;  // 若拦截自定义 URL Scheme 则解析后 return false
