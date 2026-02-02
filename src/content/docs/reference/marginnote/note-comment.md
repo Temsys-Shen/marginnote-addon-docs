@@ -11,10 +11,13 @@ description: 笔记评论条目的类型说明，comments 数组中的元素结�
 
 | type | 说明 | 其他字段 |
 |------|------|----------|
-| `TextNote` | 纯文本评论 | `text`: string |
-| `LinkNote` | 指向另一条笔记的链接 | `noteid`: string（目标笔记 ID） |
+| `TextNote` | 文本评论（包括纯文本、Markdown、链接笔记） | `text`: string，`markdown`: boolean（可选，是否为 Markdown 格式） |
 | `PaintNote` | 手写/图片评论 | `paint`: string（媒体哈希，可用 Database.getMediaByHash 取数据） |
-| `HtmlNote` | 富文本评论 | `html`: string，`text`: string |
+
+**说明**：
+- 所有文本类评论（纯文本、Markdown、链接笔记）现在统一为 `TextNote` 类型
+- Markdown 评论通过 `markdown: true` 字段标识
+- 链接笔记的 `text` 字段存储格式为 `marginnote4app://note/{noteId}`
 
 ## 类成员 (Class members)
 

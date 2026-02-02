@@ -10,7 +10,7 @@ description: 用户点击插件按钮后，用 MNNetwork 调用 REST API，将�
 **步骤**：
 
 1. 在工具栏命令对应的 selector 中调用封装：`await MNNetwork.fetch(url, options)` 得到响应，在 try 中用 `res.json()`（JSON）或 `res.text()`（纯文本）取结果
-2. 将结果用 `showHUD` / `alert` 展示，或通过 `focusNote.appendTextComment` / `appendHtmlComment` 写入笔记
+2. 将结果用 `showHUD` / `alert` 展示，或通过 `focusNote.appendTextComment` / `appendMarkdownComment` 写入笔记
 3. 在 catch 中处理错误（如 `alert("请求失败: " + err)`）
 
 ---

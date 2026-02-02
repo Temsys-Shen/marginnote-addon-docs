@@ -58,6 +58,20 @@ appendTextComment(text: string): void
 | :--- | :--- | :--- |
 | `text` | `string` | 评论内容。 |
 
+### `appendMarkdownComment`
+
+添加一条 Markdown 格式评论。
+
+```javascript
+appendMarkdownComment(text: string): void
+```
+
+**Parameters:**
+
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| `text` | `string` | Markdown 格式的评论内容。 |
+
 ### `appendNoteLink`
 
 添加指向另一条笔记的链接（JS 中也可用 addNoteLink）。
@@ -72,9 +86,11 @@ appendNoteLink(note: MbBookNote): void
 | :--- | :--- | :--- |
 | `note` | `MbBookNote` | 目标笔记对象。 |
 
+**说明**：会在 `comments` 数组中添加一条 `TextNote` 类型的评论，`text` 字段存储格式为 `marginnote4app://note/{noteId}`。
+
 ### `appendHtmlComment`
 
-添加 HTML 评论。
+添加 HTML 评论（已废弃，建议使用 `appendMarkdownComment`）。
 
 ```javascript
 appendHtmlComment(html: string, text: string, tag: string): void
@@ -87,6 +103,8 @@ appendHtmlComment(html: string, text: string, tag: string): void
 | `html` | `string` | HTML 内容。 |
 | `text` | `string` | 纯文本内容（用于搜索等）。 |
 | `tag` | `string` | 标签/尺寸信息。 |
+
+**说明**：此方法已废弃，HTML 评论不再单独存储，建议使用 `appendMarkdownComment` 替代。
 
 ### `removeCommentByIndex`
 
