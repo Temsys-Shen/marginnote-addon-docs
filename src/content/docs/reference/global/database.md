@@ -196,12 +196,12 @@ setNotebookSyncDirty(topicid: string): void
 | :--- | :--- | :--- |
 | `topicid` | `string` | 笔记本 ID。 |
 
-### `saveHistoryArchive`
+### `saveHistoryArchiveKey`
 
 保存历史归档。
 
 ```javascript
-saveHistoryArchive(topicid: string, key: string): NSArray
+saveHistoryArchiveKey(topicid: string, key: string): NSArray
 ```
 
 **Parameters:**
@@ -215,12 +215,12 @@ saveHistoryArchive(topicid: string, key: string): NSArray
 
 - `NSArray`: 归档数据。
 
-### `loadHistoryArchive`
+### `loadHistoryArchiveKey`
 
 加载历史归档。
 
 ```javascript
-loadHistoryArchive(topicid: string, key: string): NSArray
+loadHistoryArchiveKey(topicid: string, key: string): NSArray
 ```
 
 **Parameters:**
@@ -262,12 +262,12 @@ deleteBookNoteTree(noteId: string): void
 | :--- | :--- | :--- |
 | `noteId` | `string` | 笔记 ID。 |
 
-### `cloneNotes`
+### `cloneNotesToTopic`
 
 将笔记克隆到指定笔记本。
 
 ```javascript
-cloneNotes(notes: NSArray, topicId: string): NSArray
+cloneNotesToTopic(notes: NSArray, topicid: string): NSArray
 ```
 
 **Parameters:**
@@ -275,18 +275,18 @@ cloneNotes(notes: NSArray, topicId: string): NSArray
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | `notes` | `NSArray` | `MbBookNote` 数组。 |
-| `topicId` | `string` | 目标笔记本 ID。 |
+| `topicid` | `string` | 目标笔记本 ID。 |
 
 **Return Value:**
 
 - `NSArray`: 克隆后的新笔记数组。
 
-### `cloneNotesToFlashcards`
+### `cloneNotesToFlashcardsToTopic`
 
 将笔记克隆为闪卡到指定笔记本。
 
 ```javascript
-cloneNotesToFlashcards(notes: NSArray, topicId: string): NSArray
+cloneNotesToFlashcardsToTopic(notes: NSArray, topicid: string): NSArray
 ```
 
 **Parameters:**
@@ -294,18 +294,18 @@ cloneNotesToFlashcards(notes: NSArray, topicId: string): NSArray
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | `notes` | `NSArray` | `MbBookNote` 数组。 |
-| `topicId` | `string` | 目标笔记本 ID。 |
+| `topicid` | `string` | 目标笔记本 ID。 |
 
 **Return Value:**
 
 - `NSArray`: 克隆后的新笔记数组。
 
-### `exportNotebook`
+### `exportNotebookStorePath`
 
 导出笔记本。
 
 ```javascript
-exportNotebook(topicid: string, storePath: string): boolean
+exportNotebookStorePath(topicid: string, storePath: string): boolean
 ```
 
 **Parameters:**
@@ -319,12 +319,63 @@ exportNotebook(topicid: string, storePath: string): boolean
 
 - `boolean`: 是否成功。
 
-### `importNotebookFromStorePath`
+### `importNotebookFromStorePathMerge`
 
 从路径导入笔记本。
 
 ```javascript
-importNotebookFromStorePath(storePath: string, merge: boolean): any
+importNotebookFromStorePathMerge(storePath: string, merge: boolean): any
+```
+
+### `createNoteWithTitleTopicid`
+
+在指定笔记本创建新笔记。
+
+```javascript
+createNoteWithTitleTopicid(title: string, topicid: string): MbBookNote
+```
+
+### `getSketchNoteForMindMapFocusNoteId`
+
+获取脑图草稿笔记（Sketch）。
+
+```javascript
+getSketchNoteForMindMapFocusNoteId(topicid: string, focusNoteId: string): MbBookNote
+```
+
+### `getSketchNoteForDocumentMd5Page`
+
+获取指定文档页的草稿笔记（Sketch）。
+
+```javascript
+getSketchNoteForDocumentMd5Page(topicid: string, md5: string, page: number): MbBookNote
+```
+
+### `getSketchNotesForDocumentMd5Page`
+
+获取指定文档页的草稿笔记列表（Sketch）。
+
+```javascript
+getSketchNotesForDocumentMd5Page(topicid: string, md5: string, page: number): NSArray
+```
+
+### `getSketchNotesForMindMap`
+
+获取脑图草稿笔记列表（Sketch）。
+
+```javascript
+getSketchNotesForMindMap(topicid: string): NSArray
+```
+
+## 兼容性工具（类方法）
+
+### `transDictionaryToJSCompatible` / `transArrayToJSCompatible`
+
+将原生容器转换为更易于 JS 使用的结构（行为以运行时实现为准）。
+
+```javascript
+static transDictionaryToJSCompatible(dic: NSDictionary): NSDictionary
+static transArrayToJSCompatible(arr: NSArray): NSArray
 ```
 
 **Parameters:**

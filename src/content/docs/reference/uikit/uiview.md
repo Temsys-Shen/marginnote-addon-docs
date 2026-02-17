@@ -32,6 +32,9 @@ description: 所有 UI 控件的基类，管理 frame、子视图与图层。
 | `insertSubviewBelowSubview(view, sibling)` | 插入到某子视图下方。 |
 | `insertSubviewAboveSubview(view, sibling)` | 插入到某子视图上方。 |
 | `viewWithTag(tag)` | 按 tag 查找子视图。 |
+| `addGestureRecognizer(gestureRecognizer)` | 添加手势识别器。 |
+| `removeGestureRecognizer(gestureRecognizer)` | 移除手势识别器。 |
+| `gestureRecognizerShouldBegin(gestureRecognizer)` | 询问手势是否应开始（返回 boolean）。 |
 
 ## 类成员 (Class members)
 
@@ -40,4 +43,5 @@ description: 所有 UI 控件的基类，管理 frame、子视图与图层。
 ## 相关
 
 - [UIViewController](/reference/uikit/uiview-controller/)、[UIColor](/reference/uikit/uicolor/)
+- [UIGestureRecognizer](/reference/uikit/uigesture-recognizer/)
 - [教程：原生 UI](/guides/native-ui/)

@@ -1,0 +1,57 @@
+---
+import DefaultFooter from '@astrojs/starlight/components/Footer.astro';
+---
+
+<section class="jsb-api sl-markdown-content" data-jsb-api>
+	<details class="jsb-api__details">
+		<summary class="jsb-api__summary">头文件 API 清单</summary>
+		<p class="jsb-api__meta">
+			<span data-jsb-api-status>正在加载…</span>
+		</p>
+		<p class="jsb-api__meta">
+			协议：<code data-jsb-api-protocol>—</code>，来源：<code data-jsb-api-source>—</code>
+		</p>
+		<div data-jsb-api-body></div>
+	</details>
+</section>
+
+<DefaultFooter />
+
+<script>
+	import { initJsbApiFooter } from '../client/jsb-api-footer';
+
+	initJsbApiFooter();
+</script>
+
+<style>
+	@layer starlight.components {
+		.jsb-api {
+			margin-top: 2rem;
+		}
+		.jsb-api__details {
+			border: 1px solid var(--sl-color-gray-6);
+			border-radius: 0.75rem;
+			padding: 0.75rem 1rem;
+			background: color-mix(in srgb, var(--sl-color-gray-7), transparent 70%);
+		}
+		.jsb-api__summary {
+			cursor: pointer;
+			font-weight: 600;
+		}
+		.jsb-api__meta {
+			margin-top: 0.75rem;
+			color: var(--sl-color-gray-3);
+			font-size: var(--sl-text-sm);
+		}
+		.jsb-api__meta code {
+			word-break: break-all;
+		}
+		.jsb-api :global(ul) {
+			margin-top: 0.5rem;
+		}
+		.jsb-api :global(table) {
+			margin-top: 0.75rem;
+			width: 100%;
+		}
+	}
+</style>

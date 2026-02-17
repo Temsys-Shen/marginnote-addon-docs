@@ -7,12 +7,12 @@ description: 错误对象，包含 domain/code/userInfo 与本地化描述信息
 
 ## 类成员 (Class members)
 
-### `errorWithDomain`
+### `errorWithDomainCodeUserInfo`
 
 创建错误实例。
 
 ```javascript
-static errorWithDomain(domain: string, code: number, userInfo: NSDictionary): NSError
+static errorWithDomainCodeUserInfo(domain: string, code: number, userInfo: NSDictionary): NSError
 ```
 
 **Parameters:**
@@ -42,12 +42,12 @@ static errorWithDomain(domain: string, code: number, userInfo: NSDictionary): NS
 | `localizedRecoveryOptions` | `NSArray` | 恢复选项。 |
 | `helpAnchor` | `string` | 帮助锚点。 |
 
-### `initWithDomain`
+### `initWithDomainCodeUserInfo`
 
 初始化错误实例（通常由工厂方法创建，较少直接调用）。
 
 ```javascript
-initWithDomain(domain: string, code: number, userInfo: NSDictionary): void
+initWithDomainCodeUserInfo(domain: string, code: number, userInfo: NSDictionary): void
 ```
 
 **Parameters:**

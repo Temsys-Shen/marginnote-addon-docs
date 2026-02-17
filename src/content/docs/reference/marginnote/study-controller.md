@@ -18,6 +18,7 @@ description: 学习场景主视图控制器，访问脑图与文档的入口。
 | `narrowMode` | `boolean` | 是否窄屏模式（窄屏下书本分屏模式 1 不可用）。 |
 | `docMapSplitMode` | `number` | 书本/脑图分屏模式：0 全脑图，1 半脑图半文档，2 全文档（getter/setter 为 bookSplitMode）。 |
 | `rightMapMode` | `boolean` | 脑图是否在右侧。 |
+| `extensionPanelController` | `UIViewController` | 扩展面板控制器（getter 为 extensionController）。 |
 
 ### 方法
 
@@ -55,6 +56,38 @@ focusNoteInDocumentById(noteId: string): void
 
 ```javascript
 refreshAddonCommands(): void
+```
+
+### `focusNoteInFloatMindMapById`
+
+在浮动脑图中聚焦指定笔记。
+
+```javascript
+focusNoteInFloatMindMapById(noteId: string): void
+```
+
+### `isNoteInReview`
+
+判断某笔记是否处于复习队列/复习态。
+
+```javascript
+isNoteInReview(noteId: string): boolean
+```
+
+### `openNotebookAndDocument`
+
+打开指定笔记本与文档。
+
+```javascript
+openNotebookAndDocument(notebookId: string, docMd5: string): void
+```
+
+### `toggleExtensionPanel`
+
+切换扩展面板显示/隐藏。
+
+```javascript
+toggleExtensionPanel(): void
 ```
 
 ## 类成员 (Class members)

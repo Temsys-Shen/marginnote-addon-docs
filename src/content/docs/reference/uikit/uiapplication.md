@@ -26,7 +26,7 @@ static sharedApplication(): UIApplication
 | 属性 | 类型 | 说明 |
 | :--- | :--- | :--- |
 | `applicationState` | `number` | 只读。应用状态。 |
-| `scheduledLocalNotifications` | `NSArray` | 只读。已调度的本地通知。 |
+| `scheduledLocalNotifications` | `NSArray` | 只读。已调度的本地通知（仅在部分平台可用，例如非 xrOS 环境）。 |
 | `idleTimerDisabled` | `boolean` | 可读写。是否禁用休眠定时器。 |
 | `applicationSupportsShakeToEdit` | `boolean` | 可读写。是否支持摇动编辑。 |
 | `networkActivityIndicatorVisible` | `boolean` | 可读写。是否显示网络活动指示。 |
@@ -95,6 +95,8 @@ openURLOptionsCompletionHandler(url: NSURL, options: NSDictionary, completion: (
 cancelLocalNotification(notification: UILocalNotification): void
 ```
 
+> 注：本地通知相关接口在部分平台不可用（例如 xrOS 环境）。
+
 **Parameters:**
 
 | Name | Type | Description |
@@ -112,6 +114,8 @@ cancelLocalNotification(notification: UILocalNotification): void
 ```javascript
 scheduleLocalNotification(notification: UILocalNotification): void
 ```
+
+> 注：本地通知相关接口在部分平台不可用（例如 xrOS 环境）。
 
 **Parameters:**
 

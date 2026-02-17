@@ -14,10 +14,10 @@ description: JSON 与 Foundation 对象之间的序列化与反序列化。
 | 方法 | 参数 | 返回值 | 说明 |
 |------|------|--------|------|
 | `isValidJSONObject(obj)` | obj: any | boolean | 检查对象是否可被序列化为 JSON。 |
-| `dataWithJSONObjectOptionsError(obj, options, error)` | obj, options: number, error | NSData | 将对象/数组序列化为 NSData。 |
-| `JSONObjectWithDataOptionsError(data, options, error)` | data: NSData, options: number, error | any | 将 NSData 解析为对象/数组。 |
+| `dataWithJSONObjectOptions(obj, options)` | obj, options: number | NSData | 将对象/数组序列化为 NSData。 |
+| `JSONObjectWithDataOptions(data, options)` | data: NSData, options: number | any | 将 NSData 解析为对象/数组。 |
 
-options 通常传 0。error 可为 null；若解析/序列化失败，可通过 error 获取错误信息。
+options 通常传 0。最新导出接口不包含 error 参数；若解析/序列化失败，通常以返回值/异常表现为准（建议在控制台打印并做兼容处理）。
 
 ## 相关
 

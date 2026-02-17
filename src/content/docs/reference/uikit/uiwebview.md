@@ -37,12 +37,12 @@ loadRequest(request: NSURLRequest): void
 | :--- | :--- | :--- |
 | `request` | `NSURLRequest` | URL 请求对象。 |
 
-### `loadHTMLString`
+### `loadHTMLStringBaseURL`
 
 加载 HTML 字符串。
 
 ```javascript
-loadHTMLString(string: string, baseURL: NSURL | null): void
+loadHTMLStringBaseURL(string: string, baseURL: NSURL | null): void
 ```
 
 **Parameters:**
@@ -52,14 +52,14 @@ loadHTMLString(string: string, baseURL: NSURL | null): void
 | `string` | `string` | HTML 内容字符串。 |
 | `baseURL` | `NSURL \| null` | 基础 URL（用于解析相对路径）。 |
 
-**Note:** 在 JS 中实际调用时方法名为 **loadHTMLStringBaseURL(string, baseURL)**，与 Objective-C 的 `loadHTMLString:baseURL:` 对应；若环境不同则可能导出为 `loadHTMLString`。与 [原生 UI：使用 WebView](/guides/native-ui/#使用-webview) 中的表述一致。
+**Note:** 该方法对应 Objective‑C 的 `loadHTMLString:baseURL:`，JS 侧为参数标签拼接后的方法名。
 
-### `loadData`
+### `loadDataMIMETypeTextEncodingNameBaseURL`
 
 加载二进制数据。
 
 ```javascript
-loadData(data: NSData, MIMEType: string, textEncodingName: string, baseURL: NSURL): void
+loadDataMIMETypeTextEncodingNameBaseURL(data: NSData, MIMEType: string, textEncodingName: string, baseURL: NSURL): void
 ```
 
 **Parameters:**
@@ -71,12 +71,12 @@ loadData(data: NSData, MIMEType: string, textEncodingName: string, baseURL: NSUR
 | `textEncodingName` | `string` | 文本编码名称（如 "UTF-8"）。 |
 | `baseURL` | `NSURL` | 基础 URL。 |
 
-### `loadFileURL`
+### `loadFileURLAllowingReadAccessToURL`
 
 加载本地文件 URL。
 
 ```javascript
-loadFileURL(URL: NSURL, allowingReadAccessToURL: NSURL): void
+loadFileURLAllowingReadAccessToURL(URL: NSURL, allowingReadAccessToURL: NSURL): void
 ```
 
 **Parameters:**
@@ -150,11 +150,11 @@ takeSnapshotWithWidth(width: number, completionHandler: (image: UIImage) => void
 | `width` | `number` | 快照宽度。 |
 | `completionHandler` | `(image: UIImage) => void` | 完成回调，接收生成的图片。 |
 
-## Delegate（UIWebViewDelegate）
+## Delegate（UIWebViewDelegate，非 UIWebView 导出方法）
 
 以下方法需在 `webView.delegate` 所指对象的**实例成员**中实现（例如承载 WebView 的 ViewController 在 `JSB.defineClass` 的第二个参数里定义）。
 
-### `webViewDidStartLoad`
+### webViewDidStartLoad
 
 开始加载时调用。
 
@@ -168,7 +168,7 @@ webViewDidStartLoad(webView: UIWebView): void
 | :--- | :--- | :--- |
 | `webView` | `UIWebView` | 发起回调的 WebView。 |
 
-### `webViewDidFinishLoad`
+### webViewDidFinishLoad
 
 加载完成时调用。
 
@@ -182,7 +182,7 @@ webViewDidFinishLoad(webView: UIWebView): void
 | :--- | :--- | :--- |
 | `webView` | `UIWebView` | 发起回调的 WebView。 |
 
-### `webViewDidFailLoadWithError`
+### webViewDidFailLoadWithError
 
 加载失败时调用。
 
@@ -197,7 +197,7 @@ webViewDidFailLoadWithError(webView: UIWebView, error: NSError): void
 | `webView` | `UIWebView` | 发起回调的 WebView。 |
 | `error` | `NSError` | 错误信息。 |
 
-### `webViewShouldStartLoadWithRequestNavigationType`
+### webViewShouldStartLoadWithRequestNavigationType
 
 是否允许加载该请求。
 

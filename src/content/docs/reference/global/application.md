@@ -32,6 +32,8 @@ static sharedInstance(): Application
 | `cachePath` | `string` | 缓存目录路径。 |
 | `tempPath` | `string` | 临时目录路径。 |
 | `osType` | `number` | 系统类型：0 iPadOS，1 iPhoneOS，2 macOS。 |
+| `appVersion` | `string` | 应用版本号。 |
+| `build` | `string` | 构建号。 |
 | `defaultTintColor` | `UIColor` | 默认强调色。 |
 | `defaultTintColorForDarkBackground` | `UIColor` | 深色背景下的默认强调色。 |
 | `defaultTintColorForSelected` | `UIColor` | 选中态默认强调色。 |
@@ -40,6 +42,7 @@ static sharedInstance(): Application
 | `defaultTextColor` | `UIColor` | 默认文本色。 |
 | `defaultDisableColor` | `UIColor` | 默认禁用色。 |
 | `defaultHighlightBlendColor` | `UIColor` | 默认高亮混合色。 |
+| `searchManager` | `SearchManager` | 搜索管理器（全文检索/相似搜索等）。 |
 
 ### 方法
 
@@ -161,7 +164,7 @@ queryCommandWithKeyFlagsInWindow(command: string, keyFlags: any, window: UIWindo
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | `command` | `string` | 命令标识。 |
-| `keyFlags` | `any` | 按键标记。 |
+| `keyFlags` | `number` | 按键标记。 |
 | `window` | `UIWindow` | 目标窗口。 |
 
 **Return Value:**
@@ -181,7 +184,7 @@ processCommandWithKeyFlagsInWindow(command: string, keyFlags: any, window: UIWin
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | `command` | `string` | 命令标识。 |
-| `keyFlags` | `any` | 按键标记。 |
+| `keyFlags` | `number` | 按键标记。 |
 | `window` | `UIWindow` | 目标窗口。 |
 
 ### `saveFileWithUti`
@@ -265,7 +268,16 @@ unregsiterHtmlCommentEditor(commentTag: string): void
 | :--- | :--- | :--- |
 | `commentTag` | `string` | 评论标签标识。 |
 
+### `importDocument`
+
+导入文档（由运行时实现决定入库位置与返回值含义）。
+
+```javascript
+importDocument(fileUrl: string): string
+```
+
 ## 相关
 
 - [StudyController](/reference/marginnote/study-controller/) — 由 `studyController(window)` 返回
+- [SearchManager](/reference/global/search-manager/) — `searchManager`
 - [快速开始](/guides/getting-started/) — 使用 `showHUD` 的示例

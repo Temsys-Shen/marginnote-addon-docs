@@ -21,13 +21,6 @@ static sharedInstance(): JSBUndoManager
 
 ## 实例成员 (Instance members)
 
-### 属性
-
-| 属性 | 类型 | 说明 |
-| :--- | :--- | :--- |
-| `canUndo` | `boolean` | 是否可撤销。 |
-| `canRedo` | `boolean` | 是否可重做。 |
-
 ### 方法
 
 ### `undoGrouping`
@@ -60,6 +53,22 @@ undo(): void
 
 ```javascript
 redo(): void
+```
+
+### `canUndo`
+
+是否可撤销。
+
+```javascript
+canUndo(): boolean
+```
+
+### `canRedo`
+
+是否可重做。
+
+```javascript
+canRedo(): boolean
 ```
 
 ### `clearAll`

@@ -432,20 +432,6 @@ descriptionWithLocale(locale: any): string
 
 - `string`: 描述字符串。
 
-### `isEqualToNumber`
+### isEqualToNumber（未导出）
 
-是否与另一 NSNumber 数值相等。
-
-```javascript
-isEqualToNumber(number: NSNumber): boolean
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `number` | `NSNumber` | 另一数值对象。 |
-
-**Return Value:**
-
-- `boolean`: 是否相等。
+`isEqualToNumber(...)` 在最新头文件导出清单中未暴露；如需比较请使用 `compare(...)` 或先转为标量后比较（以运行时行为为准）。

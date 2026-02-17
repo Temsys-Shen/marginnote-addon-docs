@@ -19,6 +19,8 @@ static mainScreen(): UIScreen
 
 - `UIScreen`: 主屏实例。
 
+> 注：`mainScreen()` 与 `currentMode` 在部分平台不可用（例如 xrOS 环境）。
+
 ### `screens`
 
 所有屏幕数组。
@@ -42,7 +44,7 @@ static screens(): NSArray
 | `availableModes` | `NSArray` | 只读。可用显示模式。 |
 | `scale` | `number` | 只读。像素比。 |
 | `brightness` | `number` | 可读写。亮度。 |
-| `currentMode` | `any` | 可读写。当前显示模式。 |
+| `currentMode` | `any` | 可读写。当前显示模式（部分平台不可用，例如 xrOS 环境）。 |
 
 ### `snapshotViewAfterScreenUpdates`
 

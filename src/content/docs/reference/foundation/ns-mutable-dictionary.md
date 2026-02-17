@@ -7,18 +7,6 @@ description: 可变键值集合（可增删改的字典/映射）。
 
 ## 类成员 (Class members)
 
-### `dictionary`
-
-返回空可变字典。
-
-```javascript
-static dictionary(): NSMutableDictionary
-```
-
-**Return Value:**
-
-- `NSMutableDictionary`: 空字典实例。
-
 ### `dictionaryWithCapacity`
 
 预分配容量创建。
@@ -37,117 +25,23 @@ static dictionaryWithCapacity(numItems: number): NSMutableDictionary
 
 - `NSMutableDictionary`: 新字典。
 
-### `dictionaryWithDictionary`
+### `dictionaryWithSharedKeySet`
 
-从已有字典创建。
-
-```javascript
-static dictionaryWithDictionary(dict: NSDictionary): NSMutableDictionary
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `dict` | `NSDictionary` | 源字典。 |
-
-**Return Value:**
-
-- `NSMutableDictionary`: 新字典。
-
-### `dictionaryWithObjectForKey`
-
-从单键值对创建。
+使用 sharedKeySet 创建字典（用于大量相同 key 的字典以提升性能）。
 
 ```javascript
-static dictionaryWithObjectForKey(object: any, key: any): NSMutableDictionary
+static dictionaryWithSharedKeySet(sharedKeySet: any): NSMutableDictionary
 ```
 
-**Parameters:**
+### `sharedKeySetForKeys`
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `object` | `any` | 值。 |
-| `key` | `any` | 键。 |
-
-**Return Value:**
-
-- `NSMutableDictionary`: 新字典。
-
-### `dictionaryWithObjectsForKeys`
-
-从键数组与值数组创建。
+为 keys 生成 sharedKeySet。
 
 ```javascript
-static dictionaryWithObjectsForKeys(objects: NSArray, keys: NSArray): NSMutableDictionary
+static sharedKeySetForKeys(keys: NSArray): any
 ```
 
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `objects` | `NSArray` | 值数组。 |
-| `keys` | `NSArray` | 键数组。 |
-
-**Return Value:**
-
-- `NSMutableDictionary`: 新字典。
-
-### `dictionaryWithObjectsKeys`
-
-从可变参数键值对创建。
-
-```javascript
-static dictionaryWithObjectsKeys(firstObject: any, firstKey: any, ...args: any[]): NSMutableDictionary
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `firstObject` | `any` | 第一个值。 |
-| `firstKey` | `any` | 第一个键。 |
-| `...args` | `any[]` | 其余键值交替。 |
-
-**Return Value:**
-
-- `NSMutableDictionary`: 新字典。
-
-### `dictionaryWithContentsOfFile`
-
-从 plist 文件路径创建。
-
-```javascript
-static dictionaryWithContentsOfFile(path: string): any
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `path` | `string` | 文件路径。 |
-
-**Return Value:**
-
-- `any`: 解析得到的可变字典或 null。
-
-### `dictionaryWithContentsOfURL`
-
-从 URL 创建。
-
-```javascript
-static dictionaryWithContentsOfURL(url: NSURL): any
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `url` | `NSURL` | 资源 URL。 |
-
-**Return Value:**
-
-- `any`: 解析得到的可变字典或 null。
+> 注：`NSMutableDictionary` 的工厂方法在插件运行时的导出范围较小；请以本页底部的「头文件 API 清单」为准。
 
 ## 实例成员 (Instance members)
 

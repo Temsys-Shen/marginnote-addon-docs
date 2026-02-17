@@ -75,12 +75,12 @@ static dictionaryWithObjectsForKeys(objects: NSArray, keys: NSArray): NSDictiona
 
 - `NSDictionary`: 新字典。
 
-### `dictionaryWithObjectsKeys`
+### `dictionaryWithObjectsAndKeys`
 
 从可变参数键值对创建（firstObject, firstKey, ...）。
 
 ```javascript
-static dictionaryWithObjectsKeys(firstObject: any, firstKey: any, ...args: any[]): NSDictionary
+static dictionaryWithObjectsAndKeys(firstObject: any, firstKey: any, ...args: any[]): NSDictionary
 ```
 
 **Parameters:**

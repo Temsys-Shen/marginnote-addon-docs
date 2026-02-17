@@ -1,6 +1,6 @@
 ---
 title: UIWindow
-description: 顶层窗口。支持设置 rootViewController、windowLevel、screen，并提供坐标系转换与事件分发。
+description: 顶层窗口。支持设置 rootViewController、windowLevel（部分平台也支持 screen），并提供坐标系转换与事件分发。
 ---
 
 `UIWindow` 继承自 [UIView](/reference/uikit/uiview/)，表示一个顶层窗口。插件运行时里你会经常把它作为 `self.window` 或 controller 相关 API 的参数传递。
@@ -11,7 +11,7 @@ description: 顶层窗口。支持设置 rootViewController、windowLevel、scre
 
 | 属性 | 类型 | 说明 |
 | --- | --- | --- |
-| `screen` | UIScreen | 所属屏幕。 |
+| `screen` | UIScreen | 所属屏幕（部分平台不可用，例如 xrOS 环境）。 |
 | `keyWindow` | boolean | 只读。是否为 keyWindow。 |
 | `rootViewController` | UIViewController \| null | 根控制器。 |
 | `windowLevel` | number | 窗口层级。 |

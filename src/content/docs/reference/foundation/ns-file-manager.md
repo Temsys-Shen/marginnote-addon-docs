@@ -51,12 +51,12 @@ isDirectoryAtPath(path: string): boolean
 | :--- | :--- | :--- |
 | `path` | `string` | 路径。 |
 
-### `createDirectoryAtPath`
+### `createDirectoryAtPathWithIntermediateDirectoriesAttributes`
 
 创建目录（支持创建中间目录）。
 
 ```javascript
-createDirectoryAtPath(path: string, withIntermediateDirectories: boolean, attributes: NSDictionary | null): boolean
+createDirectoryAtPathWithIntermediateDirectoriesAttributes(path: string, withIntermediateDirectories: boolean, attributes: NSDictionary | null): boolean
 ```
 
 **Parameters:**
@@ -67,12 +67,12 @@ createDirectoryAtPath(path: string, withIntermediateDirectories: boolean, attrib
 | `withIntermediateDirectories` | `boolean` | 是否创建中间目录。 |
 | `attributes` | `NSDictionary \| null` | 目录属性（通常传 null）。 |
 
-### `createDirectoryAtPath` (简易版)
+### `createDirectoryAtPathAttributes` (简易版)
 
 创建目录（简易版）。
 
 ```javascript
-createDirectoryAtPath(path: string, attributes: NSDictionary | null): boolean
+createDirectoryAtPathAttributes(path: string, attributes: NSDictionary | null): boolean
 ```
 
 **Parameters:**
@@ -162,12 +162,12 @@ contentsAtPath(path: string): NSData
 
 - `NSData`: 文件数据对象。
 
-### `copyItemAtPath`
+### `copyItemAtPathToPath`
 
 复制文件或目录。
 
 ```javascript
-copyItemAtPath(srcPath: string, toPath: string): boolean
+copyItemAtPathToPath(srcPath: string, toPath: string): boolean
 ```
 
 **Parameters:**
@@ -177,12 +177,12 @@ copyItemAtPath(srcPath: string, toPath: string): boolean
 | `srcPath` | `string` | 源路径。 |
 | `toPath` | `string` | 目标路径。 |
 
-### `moveItemAtPath`
+### `moveItemAtPathToPath`
 
 移动（重命名）文件或目录。
 
 ```javascript
-moveItemAtPath(srcPath: string, toPath: string): boolean
+moveItemAtPathToPath(srcPath: string, toPath: string): boolean
 ```
 
 **Parameters:**
@@ -222,12 +222,12 @@ attributesOfFileSystemForPath(path: string): NSDictionary
 | :--- | :--- | :--- |
 | `path` | `string` | 路径。 |
 
-### `fileAttributesAtPath`
+### `fileAttributesAtPathTraverseLink`
 
 获取文件属性（遍历符号链接选项）。
 
 ```javascript
-fileAttributesAtPath(path: string, traverseLink: boolean): NSDictionary
+fileAttributesAtPathTraverseLink(path: string, traverseLink: boolean): NSDictionary
 ```
 
 **Parameters:**

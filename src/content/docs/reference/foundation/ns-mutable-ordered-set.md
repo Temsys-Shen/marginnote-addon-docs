@@ -356,42 +356,6 @@ moveObjectsAtIndexesToIndex(indexes: NSIndexSet, idx: number): void
 
 - 无。
 
-### `setOrderedSet`
-
-用另一有序集整体替换内容。
-
-```javascript
-setOrderedSet(other: NSOrderedSet): void
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `other` | `NSOrderedSet` | 源有序集。 |
-
-**Return Value:**
-
-- 无。
-
-### `setSet`
-
-用另一集合整体替换内容。
-
-```javascript
-setSet(other: NSSet): void
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `other` | `NSSet` | 源集合。 |
-
-**Return Value:**
-
-- 无。
-
 ### `unionOrderedSet`
 
 与另一有序集取并集（结果写回自身）。

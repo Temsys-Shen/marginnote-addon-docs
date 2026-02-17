@@ -10,6 +10,7 @@ export default defineConfig({
 			title: 'MarginNote 插件开发文档',
 			components: {
 				Search: './src/components/Search.astro',
+				Footer: './src/components/Footer.astro',
 			},
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/Temsys-Shen/marginnote-addon-docs' }],
 			sidebar: [
@@ -53,8 +54,11 @@ export default defineConfig({
 								{ label: '全局入口对象', slug: 'reference/global/global-variables' },
 								{ label: 'JSB', slug: 'reference/global/jsb' },
 								{ label: 'Application', slug: 'reference/global/application' },
+								{ label: 'SearchManager', slug: 'reference/global/search-manager' },
 								{ label: 'Database', slug: 'reference/global/database' },
 								{ label: 'Note', slug: 'reference/global/note' },
+								{ label: 'PopupMenu', slug: 'reference/global/popup-menu' },
+								{ label: 'PopupMenuItem', slug: 'reference/global/popup-menu-item' },
 								{ label: 'self', slug: 'reference/global/self' },
 							],
 						},

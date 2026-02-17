@@ -7,18 +7,6 @@ description: 可变有序集合（可增删改的数组）。
 
 ## 类成员 (Class members)
 
-### `array`
-
-返回空可变数组。
-
-```javascript
-static array(): NSMutableArray
-```
-
-**Return Value:**
-
-- `NSMutableArray`: 空数组实例。
-
 ### `arrayWithCapacity`
 
 预分配容量创建。
@@ -37,115 +25,7 @@ static arrayWithCapacity(numItems: number): NSMutableArray
 
 - `NSMutableArray`: 新数组。
 
-### `arrayWithObject`
-
-从单元素创建。
-
-```javascript
-static arrayWithObject(anObject: any): NSMutableArray
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `anObject` | `any` | 唯一元素。 |
-
-**Return Value:**
-
-- `NSMutableArray`: 新数组。
-
-### `arrayWithObjectsCount`
-
-从 C 数组与长度创建。
-
-```javascript
-static arrayWithObjectsCount(objects: any, cnt: number): NSMutableArray
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `objects` | `any` | 元素序列。 |
-| `cnt` | `number` | 个数。 |
-
-**Return Value:**
-
-- `NSMutableArray`: 新数组。
-
-### `arrayWithObjects`
-
-从可变参数创建。
-
-```javascript
-static arrayWithObjects(firstObj: any, ...args: any[]): NSMutableArray
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `firstObj` | `any` | 第一个元素。 |
-| `...args` | `any[]` | 其余元素。 |
-
-**Return Value:**
-
-- `NSMutableArray`: 新数组。
-
-### `arrayWithArray`
-
-从已有数组创建。
-
-```javascript
-static arrayWithArray(array: NSArray): NSMutableArray
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `array` | `NSArray` | 源数组。 |
-
-**Return Value:**
-
-- `NSMutableArray`: 新数组。
-
-### `arrayWithContentsOfFile`
-
-从 plist 文件路径创建。
-
-```javascript
-static arrayWithContentsOfFile(path: string): any
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `path` | `string` | 文件路径。 |
-
-**Return Value:**
-
-- `any`: 解析得到的可变数组或 null。
-
-### `arrayWithContentsOfURL`
-
-从 URL 创建。
-
-```javascript
-static arrayWithContentsOfURL(url: NSURL): any
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `url` | `NSURL` | 资源 URL。 |
-
-**Return Value:**
-
-- `any`: 解析得到的可变数组或 null。
+> 注：除 `arrayWithCapacity(...)` 外，其它常见工厂方法在最新头文件导出清单中未暴露；请以本页底部的「头文件 API 清单」为准。
 
 ## 实例成员 (Instance members)
 
@@ -520,26 +400,6 @@ sortUsingFunctionContext(comparator: any, context: any): void
 | :--- | :--- | :--- |
 | `comparator` | `any` | 比较函数。 |
 | `context` | `any` | 上下文。 |
-
-**Return Value:**
-
-- 无。
-
-### `sortUsingFunctionContextRange`
-
-在指定范围内按 C 函数排序。
-
-```javascript
-sortUsingFunctionContextRange(comparator: any, context: any, range: any): void
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `comparator` | `any` | 比较函数。 |
-| `context` | `any` | 上下文。 |
-| `range` | `any` | 范围。 |
 
 **Return Value:**
 

@@ -71,14 +71,10 @@ URL(): NSURL
 
 - `NSURL`: 当前组件对应的 URL。
 
-### `string`
+### `URLRelativeToURL`
 
-组装为 URL 字符串。
+基于 baseURL 组装 URL（相对 base）。
 
 ```javascript
-string(): string
+URLRelativeToURL(baseURL: NSURL): NSURL
 ```
-
-**Return Value:**
-
-- `string`: URL 字符串。

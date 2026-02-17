@@ -183,18 +183,6 @@ setQueuePriority(p: number): void
 
 - 无。
 
-### `completionBlock`
-
-完成回调块。
-
-```javascript
-completionBlock(): (() => void) | undefined
-```
-
-**Return Value:**
-
-- `(() => void) | undefined`: 完成回调。
-
 ### `setCompletionBlock`
 
 设置完成回调块。

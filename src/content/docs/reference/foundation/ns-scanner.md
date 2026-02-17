@@ -445,20 +445,4 @@ isAtEnd(): boolean
 
 - `boolean`: 是否到末尾。
 
-### `scanUpToEndOfStringIntoString`
-
-扫描剩余部分到 result。
-
-```javascript
-scanUpToEndOfStringIntoString(result: any): boolean
-```
-
-**Parameters:**
-
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `result` | `any` | 输出参数，接收剩余字符串。 |
-
-**Return Value:**
-
-- `boolean`: 是否成功。
+> 注：`scanUpToEndOfStringIntoString(...)` 在最新头文件导出清单中未暴露；可结合 `isAtEnd()` 与 `scanUpToStringIntoString(...)` / `scanUpToCharactersFromSetIntoString(...)` 实现类似效果（以运行时行为为准）。
