@@ -75,7 +75,7 @@ additionalShortcutKeys: function () {
 
 ### keyFlags
 
-以下为常用修饰键位值（Apple平台）：
+以下为常用[修饰键位值](https://learn.microsoft.com/en-us/dotnet/api/uikit.uikeymodifierflags?view=net-ios-26.2-10.0)：
 
 | 修饰键 | 值 |
 |---|---:|
@@ -85,7 +85,6 @@ additionalShortcutKeys: function () {
 | Command | `1048576` |
 | Command+Shift | `1179648` |
 
-修饰键语义可参考UIKit文档：[UIKeyModifierFlags](https://learn.microsoft.com/en-us/dotnet/api/uikit.uikeymodifierflags?view=net-ios-26.2-10.0)。
 
 ## 组合键选择建议
 

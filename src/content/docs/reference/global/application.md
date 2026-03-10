@@ -153,11 +153,13 @@ refreshAfterDBChanged(topicid: string): void
 
 ### `queryCommandWithKeyFlagsInWindow`
 
-查询命令状态（通常用于内部命令系统）。
+查询命令状态。
 
 ```javascript
 queryCommandWithKeyFlagsInWindow(command: string, keyFlags: any, window: UIWindow): NSDictionary
 ```
+
+这里的command指MarginNote内建命令的字符串标识（可理解为某个菜单动作/操作的ID）。常见command可参考[内建command清单](/reference/global/builtin-commands/)。
 
 该接口用于查询某个内建command在“当前窗口+修饰键(keyFlags)”上下文里是否可用，以及是否处于勾选态。你可以用它来：
 
@@ -173,7 +175,7 @@ queryCommandWithKeyFlagsInWindow(command: string, keyFlags: any, window: UIWindo
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| `command` | `string` | 命令标识。 |
+| `command` | `string` | 内建command字符串标识。 |
 | `keyFlags` | `number` | 按键标记。 |
 | `window` | `UIWindow` | 目标窗口。 |
 
@@ -183,23 +185,23 @@ queryCommandWithKeyFlagsInWindow(command: string, keyFlags: any, window: UIWindo
 
 ### `processCommandWithKeyFlagsInWindow`
 
-执行命令（通常用于内部命令系统）。
+执行命令。
 
 ```javascript
 processCommandWithKeyFlagsInWindow(command: string, keyFlags: any, window: UIWindow): void
 ```
 
-该接口用于执行内建command。只要command字符串是系统可识别的命令标识，就可以直接调用执行（例如已确认`ZoomToFit`可执行）。
+这里的command同样是MarginNote内建命令的字符串标识（可理解为某个菜单动作/操作的ID）。只要command字符串是系统可识别的命令标识，就可以直接调用执行（例如已确认`ZoomToFit`可执行）。
 
 可用的command列表没有单一集中枚举，建议参考内建command清单页，并在运行时用`queryCommandWithKeyFlagsInWindow`确认`disabled:false`后再执行：
 
-- `/reference/global/builtin-commands/`
+- [内建command清单](/reference/global/builtin-commands/)
 
 **Parameters:**
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| `command` | `string` | 命令标识。 |
+| `command` | `string` | 内建command字符串标识。 |
 | `keyFlags` | `number` | 按键标记。 |
 | `window` | `UIWindow` | 目标窗口。 |
 
