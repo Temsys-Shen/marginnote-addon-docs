@@ -2,8 +2,8 @@
 
 **本仓库为 MarginNote 官方插件接口文档与教程站点。**
 
-- **在线文档**：<https://mn-docs.museday.top>
-- **仓库**：<https://github.com/Temsys-Shen/marginnote-addon-docs>
+- **在线文档**：[https://mn-docs.museday.top](https://mn-docs.museday.top)
+- **仓库**：[https://github.com/Temsys-Shen/marginnote-addon-docs](https://github.com/Temsys-Shen/marginnote-addon-docs)
 
 基于 [Starlight](https://starlight.astro.build) 构建，提供完整的 API 参考、渐进式教程与 Cookbook 配方，供开发者为 MarginNote 编写插件时查阅与学习。
 
@@ -20,6 +20,61 @@ pnpm install
 pnpm dev      # 本地开发，默认 http://localhost:4321
 pnpm build    # 构建静态站点到 ./dist/
 pnpm preview  # 预览构建结果
+```
+
+## 本地MCP搜索
+
+本项目内置一个本地MCPServer，支持stdio与HTTP两种方式，返回纯文本片段，适合AI直接调用。
+
+embedding模型使用本地BGE-small-zh-v1.5(ONNX)，首次启动会自动下载到 `.mcp/models`。模型文件约95.8MB，向量维度为512。
+
+可选配置：
+
+```
+MCP_HTTP_PORT=8788
+```
+
+如果你需要代理或镜像下载模型：
+
+```
+export HTTPS_PROXY=http://127.0.0.1:7890
+export HF_ENDPOINT=https://hf-mirror.com
+```
+
+### 启动stdio版MCP
+
+```bash
+pnpm mcp
+```
+
+### 启动HTTP版MCP
+
+```bash
+pnpm mcp-http
+```
+
+以上两种启动方式会在检测到文档更新时自动重建索引。
+
+### 强制重建索引
+
+```bash
+pnpm mcp:force-build
+```
+
+### MCP配置
+
+```json
+{
+  "mcpServers": {
+    "mn-docs": {
+      "command": "pnpm",
+      "args": [
+        "mcp"
+      ],
+      "cwd": "path/to/this/repository"
+    }
+  }
+}
 ```
 
 ## 项目结构

@@ -7,12 +7,20 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "mcp": "node scripts/mcp/server.mjs",
+    "mcp-http": "node scripts/mcp/server-http.mjs",
+    "mcp:force-build": "node scripts/mcp/build-index.mjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.37.4",
+    "@huggingface/transformers": "^3.7.3",
+    "@modelcontextprotocol/sdk": "^1.0.0",
     "@pagefind/default-ui": "^1.4.0",
     "astro": "^5.6.1",
-    "sharp": "^0.34.2"
+    "dotenv": "^16.4.5",
+    "gray-matter": "^4.0.3",
+    "sharp": "^0.34.2",
+    "undici": "^6.19.8"
   }
 }
