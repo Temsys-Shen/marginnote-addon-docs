@@ -1,7 +1,7 @@
 {
   "name": "mn-docs-mcp",
   "type": "module",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "bin": {
     "mn-docs-mcp": "mcp/cli.mjs"
   },
