@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import fsSync from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
@@ -9,7 +10,28 @@ import dotenv from 'dotenv';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const ROOT_DIR = path.resolve(__dirname, '../..');
+const DEFAULT_ROOT = path.resolve(__dirname, '..');
+
+function resolveRootDir() {
+	const envRoot = (process.env.MN_DOCS_ROOT || '').trim();
+	if (envRoot) return envRoot;
+	const cwd = process.cwd();
+	const docsFromCwd = path.join(cwd, 'src', 'content', 'docs');
+	try {
+		if (fsSyncExists(docsFromCwd)) return cwd;
+	} catch {}
+	return DEFAULT_ROOT;
+}
+
+function fsSyncExists(p) {
+	try {
+		return fsSync.statSync(p).isDirectory();
+	} catch {
+		return false;
+	}
+}
+
+const ROOT_DIR = resolveRootDir();
 const DOCS_DIR = path.join(ROOT_DIR, 'src', 'content', 'docs');
 const MCP_DIR = path.join(ROOT_DIR, '.mcp');
 const INDEX_PATH = path.join(MCP_DIR, 'index.json');

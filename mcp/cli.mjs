@@ -10,6 +10,7 @@ let mode = 'stdio';
 let port;
 let prebuild = false;
 let silent = false;
+let root;
 
 for (let i = 0; i < args.length; i += 1) {
 	const arg = args[i];
@@ -38,8 +39,17 @@ for (let i = 0; i < args.length; i += 1) {
 		i += 1;
 		continue;
 	}
+	if (arg === '--root' && args[i + 1]) {
+		root = args[i + 1];
+		i += 1;
+		continue;
+	}
 	if (arg?.startsWith('--port=')) {
 		port = arg.split('=')[1];
+		continue;
+	}
+	if (arg?.startsWith('--root=')) {
+		root = arg.split('=')[1];
 		continue;
 	}
 	if (arg === '--help' || arg === '-h') {
@@ -51,6 +61,7 @@ for (let i = 0; i < args.length; i += 1) {
 				'  --prebuild        启动后后台预构建索引',
 				'  --verbose         输出日志(覆盖--silent)',
 				'  --silent          关闭开屏与日志',
+				'  --root <path>     指定文档仓库根目录',
 				'  --stdio           显式使用stdio模式',
 			].join('\n') + '\n'
 		);
@@ -72,6 +83,7 @@ if (mode === 'stdio') {
 	process.env.MCP_SILENT = silent ? '1' : '0';
 	process.env.MN_DOCS_VERSION = version;
 	process.env.MN_DOCS_MODE = 'stdio';
+	process.env.MN_DOCS_ROOT = root || process.env.MN_DOCS_ROOT || process.cwd();
 	if (prebuild) process.env.MCP_PREBUILD = '1';
 	await import('./server.mjs');
 } else {
@@ -79,6 +91,7 @@ if (mode === 'stdio') {
 	process.env.MN_DOCS_VERSION = version;
 	process.env.MN_DOCS_MODE = 'http';
 	if (port) process.env.MN_DOCS_PORT = String(port);
+	process.env.MN_DOCS_ROOT = root || process.env.MN_DOCS_ROOT || process.cwd();
 	if (prebuild) process.env.MCP_PREBUILD = '1';
 	await import('./server-http.mjs');
 }

@@ -12,20 +12,33 @@ function color(text, code) {
 	return `\x1b[${code}m${text}\x1b[0m`;
 }
 
+function stripAnsi(text) {
+	return text.replace(/\x1b\[[0-9;]*m/g, '');
+}
+
+function padLine(line, width) {
+	const len = stripAnsi(line).length;
+	const padding = width - len;
+	return line + (padding > 0 ? ' '.repeat(padding) : '');
+}
+
 function renderSplash() {
 	if (IS_SILENT) return;
 	const version = process.env.MN_DOCS_VERSION || '0.0.0';
 	const mode = process.env.MN_DOCS_MODE || 'http';
 	const port = process.env.MN_DOCS_PORT || String(PORT);
-	const lines = [
-		color('╭──────────────────────────────────────────────────────────────╮', '38;5;45'),
-		color('│  mn-docs-mcp', '38;5;45') + color(` v${version}`, '38;5;214') + color('  (Charm风格启动)         │', '38;5;45'),
-		color('│                                                              │', '38;5;45'),
-		color(`│  模式: ${mode.padEnd(12)}  端口: ${port.padEnd(6)}  状态: 已启动          │`, '38;5;39'),
-		color('│                                                              │', '38;5;45'),
-		color('╰──────────────────────────────────────────────────────────────╯', '38;5;45'),
+	const contentLines = [
+		color(`mn-docs-mcp v${version}`, '38;5;45'),
+		color(`模式: ${mode}  端口: ${port}`, '38;5;39'),
 	];
-	process.stdout.write(lines.join('\n') + '\n');
+	const maxWidth = Math.max(...contentLines.map((line) => stripAnsi(line).length)) + 4;
+	const top = color('╭' + '─'.repeat(maxWidth) + '╮', '38;5;45');
+	const bottom = color('╰' + '─'.repeat(maxWidth) + '╯', '38;5;45');
+	const body = contentLines.map((line) => {
+		const padded = padLine(line, maxWidth - 4);
+		return color('│', '38;5;45') + '  ' + padded + '  ' + color('│', '38;5;45');
+	});
+	process.stdout.write([top, ...body, bottom].join('\n') + '\n');
 }
 
 async function ensureIndex() {
