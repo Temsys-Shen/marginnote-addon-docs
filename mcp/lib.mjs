@@ -249,21 +249,9 @@ function makeId(slug, index) {
 	return `${slug}::${index}`;
 }
 
-async function embedText(text) {
-	const extractor = await getExtractor();
-	const output = await extractor(text, { pooling: 'mean', normalize: true });
-	const list = typeof output.tolist === 'function' ? output.tolist() : output;
-	if (Array.isArray(list) && Array.isArray(list[0])) return list[0];
-	if (Array.isArray(list)) return list;
-	throw new Error('向量生成失败，输出格式不正确');
-}
-
-export async function buildIndex() {
-	const { DOCS_DIR, MCP_DIR, INDEX_PATH } = getPaths();
-	await fs.mkdir(MCP_DIR, { recursive: true });
-
+async function collectDocTasks() {
+	const { DOCS_DIR } = getPaths();
 	const files = await walkFiles(DOCS_DIR);
-	const docs = [];
 	const tasks = [];
 	let counter = 0;
 
@@ -289,6 +277,24 @@ export async function buildIndex() {
 			});
 		}
 	}
+
+	return tasks;
+}
+
+async function embedText(text) {
+	const extractor = await getExtractor();
+	const output = await extractor(text, { pooling: 'mean', normalize: true });
+	const list = typeof output.tolist === 'function' ? output.tolist() : output;
+	if (Array.isArray(list) && Array.isArray(list[0])) return list[0];
+	if (Array.isArray(list)) return list;
+	throw new Error('向量生成失败，输出格式不正确');
+}
+
+export async function buildIndex() {
+	const { DOCS_DIR, MCP_DIR, INDEX_PATH } = getPaths();
+	await fs.mkdir(MCP_DIR, { recursive: true });
+	const docs = [];
+	const tasks = await collectDocTasks();
 
 	const total = tasks.length;
 	let done = 0;
@@ -336,6 +342,25 @@ export async function buildIndex() {
 	return { count: docs.length, path: INDEX_PATH };
 }
 
+export async function buildKeywordIndex() {
+	const { MCP_DIR, INDEX_PATH } = getPaths();
+	await fs.mkdir(MCP_DIR, { recursive: true });
+	const docs = await collectDocTasks();
+	const payload = {
+		version: 1,
+		generatedAt: new Date().toISOString(),
+		source: {
+			root: 'src/content/docs',
+			split: 'heading+paragraph',
+			model: 'keyword-fallback',
+			dim: 0,
+		},
+		docs,
+	};
+	await fs.writeFile(INDEX_PATH, JSON.stringify(payload, null, 2));
+	return { count: docs.length, path: INDEX_PATH, mode: 'keyword' };
+}
+
 export async function loadIndex() {
 	const { INDEX_PATH } = getPaths();
 	const raw = await fs.readFile(INDEX_PATH, 'utf-8');
@@ -377,15 +402,92 @@ function cosineSimilarity(a, b) {
 	return dot / (Math.sqrt(normA) * Math.sqrt(normB) || 1);
 }
 
-export async function searchDocs(query, topK = 5) {
-	const index = await loadIndex();
-	const queryEmbedding = await embedText(query);
+function tokenize(text) {
+	return normalizeWhitespace(String(text || '').toLowerCase()).match(/[\p{L}\p{N}_-]+/gu) || [];
+}
 
-	const scored = index.docs.map((doc) => ({
-		text: doc.text,
-		score: cosineSimilarity(queryEmbedding, doc.embedding),
-	}));
+function buildSearchTerms(query) {
+	const normalized = normalizeWhitespace(String(query || '').toLowerCase());
+	const terms = new Set(tokenize(normalized));
+	const compact = normalized.replace(/\s+/g, '');
+	if (compact) terms.add(compact);
+
+	const cjkRuns = compact.match(/[\p{Script=Han}]{2,}/gu) || [];
+	for (const run of cjkRuns) {
+		terms.add(run);
+		for (let i = 0; i < run.length - 1; i += 1) {
+			terms.add(run.slice(i, i + 2));
+		}
+	}
+
+	return [...terms].filter(Boolean);
+}
+
+function countOccurrences(haystack, needle) {
+	if (!needle || !haystack.includes(needle)) return 0;
+	let count = 0;
+	let index = 0;
+	while ((index = haystack.indexOf(needle, index)) !== -1) {
+		count += 1;
+		index += needle.length || 1;
+	}
+	return count;
+}
+
+function lexicalScore(query, doc) {
+	const queryTerms = buildSearchTerms(query);
+	if (!queryTerms.length) return 0;
+	const title = String(doc.title || '').toLowerCase();
+	const section = String(doc.section || '').toLowerCase();
+	const text = String(doc.text || '').toLowerCase();
+	const haystack = `${title} ${section} ${text}`;
+	let score = 0;
+
+	for (const token of queryTerms) {
+		const occurrences = countOccurrences(haystack, token);
+		if (occurrences <= 0) continue;
+		score += occurrences;
+		score += countOccurrences(title, token) * 6;
+		score += countOccurrences(section, token) * 4;
+		score += Math.min(occurrences, 3);
+	}
+
+	return score;
+}
+
+function rankLexically(query, docs, topK) {
+	const scored = docs
+		.map((doc) => ({
+			text: doc.text,
+			score: lexicalScore(query, doc),
+		}))
+		.filter((item) => item.score > 0);
+
+	if (!scored.length) {
+		return docs.slice(0, topK).map((doc) => doc.text);
+	}
 
 	scored.sort((a, b) => b.score - a.score);
 	return scored.slice(0, topK).map((item) => item.text);
+}
+
+export async function searchDocs(query, topK = 5) {
+	let docs;
+	try {
+		const index = await loadIndex();
+		docs = index.docs;
+		if (docs.every((doc) => Array.isArray(doc.embedding) && doc.embedding.length)) {
+			const queryEmbedding = await embedText(query);
+			const scored = docs.map((doc) => ({
+				text: doc.text,
+				score: cosineSimilarity(queryEmbedding, doc.embedding),
+			}));
+			scored.sort((a, b) => b.score - a.score);
+			return scored.slice(0, topK).map((item) => item.text);
+		}
+		return rankLexically(query, docs, topK);
+	} catch {
+		docs = await collectDocTasks();
+		return rankLexically(query, docs, topK);
+	}
 }

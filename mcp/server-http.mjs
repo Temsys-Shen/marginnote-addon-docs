@@ -1,6 +1,6 @@
 import { FastMCP } from 'fastmcp';
 import { z } from 'zod';
-import { buildIndex, getPaths, isIndexStale, loadIndex, searchDocs } from './lib.mjs';
+import { buildIndex, buildKeywordIndex, getPaths, isIndexStale, loadIndex, searchDocs } from './lib.mjs';
 
 const TOOL_NAME = 'search_docs';
 const PORT = Number(process.env.MCP_HTTP_PORT || 8788);
@@ -69,11 +69,21 @@ async function ensureIndex() {
 		const stale = await isIndexStale();
 		if (stale) {
 			console.error(`检测到文档更新，开始重建索引：${INDEX_PATH}`);
-			await buildIndex();
+			try {
+				await buildIndex();
+			} catch (error) {
+				console.error('语义索引构建失败，回退到关键词索引：', error?.message || error);
+				await buildKeywordIndex();
+			}
 		}
 	} catch {
 		console.error(`未找到索引，开始重建：${INDEX_PATH}`);
-		await buildIndex();
+		try {
+			await buildIndex();
+		} catch (error) {
+			console.error('语义索引构建失败，回退到关键词索引：', error?.message || error);
+			await buildKeywordIndex();
+		}
 	}
 }
 
