@@ -19,6 +19,17 @@ const MODEL_DIM = 512;
 let extractorPromise;
 let proxyInitialized = false;
 const MAX_EXTRACTOR_RETRIES = 3;
+const IS_STDIO = process.env.MCP_STDIO === '1';
+const IS_SILENT = process.env.MCP_SILENT === '1';
+
+function logInfo(message) {
+	if (IS_SILENT) return;
+	if (IS_STDIO) {
+		process.stderr.write(`${message}\n`);
+	} else {
+		console.log(message);
+	}
+}
 
 function loadEnv() {
 	dotenv.config({ path: path.join(ROOT_DIR, '.env') });
@@ -66,7 +77,7 @@ async function getExtractor() {
 					throw error;
 				}
 
-				console.warn(`模型下载失败，准备重试(${attempt}/${MAX_EXTRACTOR_RETRIES})...`);
+				logInfo(`模型下载失败，准备重试(${attempt}/${MAX_EXTRACTOR_RETRIES})...`);
 				await fs.rm(modelDir, { recursive: true, force: true });
 			}
 		}
@@ -195,11 +206,13 @@ export async function buildIndex() {
 	let done = 0;
 	let lastRender = 0;
 	const renderProgress = (force = false) => {
-		if (!process.stdout.isTTY) return;
+		if (IS_SILENT) return;
+		const stream = IS_STDIO ? process.stderr : process.stdout;
+		if (!stream.isTTY) return;
 		const now = Date.now();
 		if (!force && now - lastRender < 120) return;
 		lastRender = now;
-		process.stdout.write(`\r索引构建中：${done}/${total}`);
+		stream.write(`\r索引构建中：${done}/${total}`);
 	};
 	renderProgress(true);
 
@@ -208,11 +221,16 @@ export async function buildIndex() {
 		docs.push({ ...task, embedding });
 		done += 1;
 		renderProgress(false);
+		// 让出事件循环，避免长时间阻塞MCP握手/请求处理
+		if (done % 10 === 0) {
+			await new Promise((resolve) => setImmediate(resolve));
+		}
 	}
-	if (process.stdout.isTTY) {
-		process.stdout.write(`\r索引构建完成：${done}/${total}\n`);
+	if (IS_STDIO ? process.stderr.isTTY : process.stdout.isTTY) {
+		const stream = IS_STDIO ? process.stderr : process.stdout;
+		stream.write(`\r索引构建完成：${done}/${total}\n`);
 	} else {
-		console.log(`索引构建完成：${done}/${total}`);
+		logInfo(`索引构建完成：${done}/${total}`);
 	}
 
 	const payload = {

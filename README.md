@@ -24,54 +24,38 @@ pnpm preview  # 预览构建结果
 
 ## 本地MCP搜索
 
-本项目内置一个本地MCPServer，支持stdio与HTTP两种方式，返回纯文本片段，适合AI直接调用。
+本项目内置一个本地MCPServer，支持stdio与HTTPStream两种方式，返回纯文本片段，适合AI直接调用。
 
 embedding模型使用本地BGE-small-zh-v1.5(ONNX)，首次启动会自动下载到 `.mcp/models`。模型文件约95.8MB，向量维度为512。
 
-可选配置：
+### 快速开始(npx)
 
-```
-MCP_HTTP_PORT=8788
-```
-
-如果你需要代理或镜像下载模型：
-
-```
-export HTTPS_PROXY=http://127.0.0.1:7890
-export HF_ENDPOINT=https://hf-mirror.com
-```
-
-### 启动stdio版MCP
-
-```bash
-pnpm mcp
-```
-
-### 启动HTTP版MCP
-
-```bash
-pnpm mcp-http
-```
-
-以上两种启动方式会在检测到文档更新时自动重建索引。
-
-### 强制重建索引
-
-```bash
-pnpm mcp:force-build
-```
-
-### MCP配置
+### MCP配置示例(npx)
 
 ```json
 {
   "mcpServers": {
     "mn-docs": {
-      "command": "pnpm",
+      "command": "npx",
       "args": [
-        "mcp"
+        "mn-docs-mcp"
+      ]
+    }
+  }
+}
+```
+
+### MCP配置示例(本地clone)
+
+```json
+{
+  "mcpServers": {
+    "mn-docs-local": {
+      "command": "node",
+      "args": [
+        "mcp/cli.mjs"
       ],
-      "cwd": "path/to/this/repository"
+      "cwd": "/path/to/this/repository"
     }
   }
 }
