@@ -75,7 +75,15 @@ function formatBytes(bytes) {
 function logDownloadProgress(info) {
 	if (IS_SILENT) return;
 	if (info?.status === 'download') {
-		logInfo(color('开始下载模型...', '38;5;45'));
+		// 清除当前行（如果之前有内容）
+		if (IS_STDIO) {
+			process.stderr.write('\r\x1b[K'); // 清除整行
+			process.stderr.write(color('开始下载模型...', '38;5;45') + '\n');
+		} else {
+			process.stdout.write('\r\x1b[K'); // 清除整行
+			console.log(color('开始下载模型...', '38;5;45'));
+		}
+		lastDownloadProgress = -1;
 		return;
 	}
 	if (info?.status === 'progress' && typeof info.progress === 'number') {
@@ -87,10 +95,10 @@ function logDownloadProgress(info) {
 		const suffix = loaded && total ? ` ${loaded}/${total}` : '';
 		const line = `${color('模型下载进度', '38;5;45')}: ${pct}%${suffix}`;
 		if (IS_STDIO) {
-			process.stderr.write(`\r${line}`);
+			process.stderr.write(`\r\x1b[K${line}`); // \x1b[K 清除从光标到行尾的内容
 			if (pct === 100) process.stderr.write('\n');
 		} else {
-			process.stdout.write(`\r${line}`);
+			process.stdout.write(`\r\x1b[K${line}`);
 			if (pct === 100) process.stdout.write('\n');
 		}
 	}
@@ -117,11 +125,23 @@ async function getExtractor() {
 	if (extractorPromise) return extractorPromise;
 	loadEnv();
 	setupProxy();
+	
+	// 抑制 Hugging Face Transformers 的警告输出
+	env.cacheDir = path.join(MCP_DIR, 'models');
 	env.allowRemoteModels = true;
+	env.disableProgressBars = true; // 禁用库自带的进度条
+	env.disableSymlinksWarning = true; // 禁用符号链接警告
+	
+	// 设置日志级别为 error，避免 info/warning 级别日志干扰
+	if (!process.env.LOG_LEVEL) {
+		process.env.LOG_LEVEL = 'error';
+	}
+	
 	if (process.env.HF_ENDPOINT) {
 		env.HF_ENDPOINT = process.env.HF_ENDPOINT;
 	}
 
+	const modelDir = path.join(env.cacheDir, 'Xenova', 'bge-small-zh-v1.5');
 	const create = async () =>
 		pipeline('feature-extraction', MODEL_ID, {
 			progress_callback: logDownloadProgress,
@@ -143,7 +163,10 @@ async function getExtractor() {
 					throw error;
 				}
 
+				// 清除上次的进度状态，为重试做准备
+				lastDownloadProgress = -1;
 				logInfo(`模型下载失败，准备重试(${attempt}/${MAX_EXTRACTOR_RETRIES})...`);
+				await fs.rm(modelDir, { recursive: true, force: true });
 			}
 		}
 		throw new Error('模型加载失败');
