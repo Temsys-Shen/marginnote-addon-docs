@@ -1,8 +1,9 @@
 import { FastMCP } from 'fastmcp';
 import { z } from 'zod';
-import { buildIndex, getPaths, isIndexStale, loadIndex, searchDocs } from './lib.mjs';
+import { buildIndex, discoverDocs, getPaths, isIndexStale, loadIndex, readDoc } from './lib.mjs';
 
-const TOOL_NAME = 'search_docs';
+const DISCOVER_TOOL_NAME = 'discover_docs';
+const READ_TOOL_NAME = 'read_doc';
 const IS_SILENT = process.env.MCP_SILENT === '1';
 const NO_COLOR = process.env.MCP_NO_COLOR === '1';
 
@@ -26,7 +27,6 @@ function stringWidth(text) {
 	for (const char of plain) {
 		const code = char.codePointAt(0);
 		if (!code) continue;
-		// CJK / Fullwidth / Wide characters
 		const isWide =
 			(code >= 0x1100 && code <= 0x115f) ||
 			(code === 0x2329 || code === 0x232a) ||
@@ -76,7 +76,7 @@ async function ensureIndex() {
 			await buildIndex();
 		}
 	} catch {
-		logError(`未找到索引，开始重建：${INDEX_PATH}`);
+		logError(`未找到可用索引，开始重建：${INDEX_PATH}`);
 		await buildIndex();
 	}
 }
@@ -89,6 +89,33 @@ function initIndexInBackground() {
 		});
 	}
 	return initPromise;
+}
+
+async function ensureReady() {
+	if (initPromise) {
+		await initPromise;
+	} else {
+		await initIndexInBackground();
+	}
+}
+
+function renderJsonPayload(payload) {
+	return {
+		structuredContent: payload,
+		content: [
+			{
+				type: 'text',
+				text: JSON.stringify(payload, null, 2),
+			},
+		],
+	};
+}
+
+function renderError(message) {
+	return {
+		content: [{ type: 'text', text: message }],
+		isError: true,
+	};
 }
 
 const logger = IS_SILENT
@@ -114,26 +141,68 @@ const server = new FastMCP({
 });
 
 server.addTool({
-	name: TOOL_NAME,
-	description: '在本地文档索引中检索相关文本片段',
+	name: DISCOVER_TOOL_NAME,
+	description:
+		[
+			'发现与当前问题最相关的MarginNote文档。这个工具适合做第一步检索：先找对文档，再决定是否读取全文。',
+			'推荐用法：当用户问某个类、对象、字段、方法、返回值、示例、完整API时，先调用discover_docs。',
+			'如果结果已经出现明确目标文档，再调用read_doc读取整篇文档，不要只依赖片段回答“字段有哪些”“完整API是什么”。',
+			'当query中包含类名、方法名、属性名时，优先使用mode=hybrid或mode=keyword。',
+			'返回结果按文档聚合，每项包含doc_id、title、url、summary、matched_by和snippets，便于继续跳转。',
+		].join('\n'),
 	parameters: z.object({
-		query: z.string().describe('检索关键词或问题'),
-		top_k: z.number().optional().describe('返回片段数量'),
+		query: z.string().describe('用户的问题、关键词或API名，例如“mn卡片字段”“MbBookNote comments”“创建新笔记的方法”'),
+		top_k: z
+			.number()
+			.int()
+			.min(1)
+			.max(20)
+			.optional()
+			.describe('返回文档数量，默认5。通常3到8足够。'),
+		mode: z
+			.enum(['hybrid', 'keyword', 'semantic'])
+			.optional()
+			.describe('检索模式。默认hybrid；keyword适合精确API名；semantic适合自然语言描述。'),
 	}),
-	execute: async ({ query, top_k }) => {
-		const topK = Number(top_k || 5);
-		if (!query.trim()) {
-			return { content: [{ type: 'text', text: 'query不能为空' }] };
+	execute: async ({ query, top_k, mode }) => {
+		try {
+			await ensureReady();
+			const payload = await discoverDocs(query, {
+				topK: top_k,
+				mode,
+			});
+			return renderJsonPayload(payload);
+		} catch (error) {
+			return renderError(error?.message || 'discover_docs执行失败');
 		}
-		if (initPromise) {
-			await initPromise;
-		} else {
-			await initIndexInBackground();
+	},
+});
+
+server.addTool({
+	name: READ_TOOL_NAME,
+	description:
+		[
+			'读取某篇MarginNote文档的全文。这个工具适合做第二步检索：在discover_docs确认目标文档后，拉取完整字段、方法、返回值和示例。',
+			'推荐优先使用discover_docs返回的doc_id调用read_doc，避免slug或url歧义。',
+			'当用户追问“还有哪些字段”“完整API”“相关示例”“完整方法签名”时，应继续调用read_doc，而不是只根据片段猜测。',
+		].join('\n'),
+	parameters: z
+		.object({
+			doc_id: z.string().optional().describe('discover_docs返回的doc_id，最推荐使用'),
+			slug: z.string().optional().describe('文档slug，例如reference/marginnote/mb-book-note'),
+			url: z.string().optional().describe('文档URL，例如/reference/marginnote/mb-book-note/'),
+		})
+		.refine((value) => Boolean(value.doc_id || value.slug || value.url), {
+			message: 'doc_id、slug、url至少需要提供一个',
+		}),
+	execute: async ({ doc_id, slug, url }) => {
+		try {
+			await ensureReady();
+			const payload = await readDoc({ doc_id, slug, url });
+			return renderJsonPayload(payload);
+		} catch (error) {
+			return renderError(error?.message || 'read_doc执行失败');
 		}
-		const results = await searchDocs(query, topK);
-		return {
-			content: results.map((text) => ({ type: 'text', text })),
-		};
 	},
 });
 
@@ -143,5 +212,4 @@ await server.start({
 
 renderSplash();
 
-// 默认自动构建，异步启动避免阻塞握手
 setTimeout(() => initIndexInBackground(), 0);

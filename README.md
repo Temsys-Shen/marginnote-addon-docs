@@ -24,10 +24,29 @@ pnpm preview  # 预览构建结果
 
 ## 本地MCP搜索
 
-本项目内置一个本地MCPServer，支持stdio与HTTPStream两种方式，返回纯文本片段，适合AI直接调用。
+本项目内置一个本地MCPServer，支持stdio与HTTPStream两种方式，面向AI开发问答提供“两步检索”工作流：先发现相关文档，再按需读取全文。
 
 embedding模型使用本地BGE-small-zh-v1.5(ONNX)，首次启动会自动下载到transformers.js默认缓存目录。模型文件约95.8MB，向量维度为512。
 模型下载使用镜像https://hf-mirror.com
+
+### 工具设计
+
+- `discover_docs`
+  - 用于第一步检索。
+  - 支持`hybrid`、`keyword`、`semantic`三种模式。
+  - 返回按文档聚合的结果：`doc_id`、`title`、`url`、`summary`、`matched_by`、`snippets[]`。
+  - 适合回答“先找到该看哪篇文档”。
+
+- `read_doc`
+  - 用于第二步读取全文。
+  - 支持通过`doc_id`、`slug`或`url`读取指定文档。
+  - 返回完整文档内容与章节标题，适合继续回答“完整字段有哪些”“完整API是什么”“示例代码在哪里”。
+
+### 推荐调用顺序
+
+1. 先调用`discover_docs`定位最相关文档。
+2. 若结果里已出现明确目标文档，再调用`read_doc`读取整篇文档。
+3. 当问题涉及字段、方法、返回值、完整API或完整示例时，不要只依赖片段，应该继续读取全文。
 
 ### 快速开始(npx)
 
