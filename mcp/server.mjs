@@ -101,7 +101,6 @@ async function ensureReady() {
 
 function renderJsonPayload(payload) {
 	return {
-		structuredContent: payload,
 		content: [
 			{
 				type: 'text',
