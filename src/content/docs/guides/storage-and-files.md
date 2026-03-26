@@ -23,7 +23,7 @@ var counter = defaults.integerForKey("my_addon_counter");
 var on = defaults.boolForKey("my_addon_switch");
 ```
 
-键名建议加插件前缀，避免与其他插件冲突。
+键名加插件前缀，避免与其他插件冲突。
 
 ## NSFileManager：目录与文件
 
@@ -50,7 +50,7 @@ textData.writeToFileAtomically(filePath, true);
 读取文件为 NSData 后，若需转为 JS 可用的形式：
 
 - **若文件为 JSON**：用 `NSJSONSerialization.JSONObjectWithDataOptions(data, 0)` 解析为对象/数组；解析前可用 `data.length() === 0` 判断是否为空。
-- **若需纯文本字符串**：运行时导出 `NSString`，可用 `NSString.alloc().initWithDataEncoding(data, 4)`（4 为 UTF-8）再取字符串；若无 NSString，可先尝试上述 JSON 解析。
+- **若需纯文本字符串**：使用 `NSString.stringWithContentsOfData(data)` 将 `NSData` 转为字符串。
 
 示例：从文件读取 JSON 并解析
 
@@ -67,7 +67,7 @@ if (data && data.length() > 0) {
 ## 路径说明
 
 - `Application.sharedInstance().documentPath`：文稿目录，适合存放用户数据。
-- `Application.sharedInstance().tempPath`：临时目录，系统可能清理。
+- `Application.sharedInstance().tempPath`：临时目录，系统会清理。
 - 插件包根路径由 `JSB.newAddon(mainPath)` 的 `mainPath` 传入，可用于读取包内资源（如图标）。
 
 ## 完整示例：保存与读取一个开关

@@ -333,4 +333,4 @@ readFromDataOptionsDocumentAttributesError(data: NSData, opts: NSDictionary, dic
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `NSMutableAttributedString` 的类成员。
+当前接口未额外暴露 `NSMutableAttributedString` 的类成员。

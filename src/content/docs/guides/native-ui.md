@@ -88,12 +88,12 @@ self.webView.loadRequest(NSURLRequest.requestWithURL(NSURL.URLWithString("http:/
 
 ```javascript
 var html = "<html><body><h1>Hello</h1></body></html>";
-self.webView.loadHTMLStringBaseURL(html, null);  // 以示例为准，JS 中方法名为 loadHTMLStringBaseURL(string, baseURL)；若环境不同则可能为 loadHTMLString
+self.webView.loadHTMLStringBaseURL(html, null);  // JS 中方法名为 loadHTMLStringBaseURL(string, baseURL)；
 ```
 
 ### Delegate 回调（实例成员）
 
-建议在 **viewWillAppear** 中设置 `self.webView.delegate = self`（确保每次显示时 delegate 有效），在 **viewWillDisappear** 中调用 `self.webView.stopLoading()` 并设置 `self.webView.delegate = null`，避免视图消失后仍收到回调。
+在 **viewWillAppear** 中设置 `self.webView.delegate = self`（确保每次显示时 delegate 有效），在 **viewWillDisappear** 中调用 `self.webView.stopLoading()` 并设置 `self.webView.delegate = null`，避免视图消失后仍收到回调。
 
 在 `JSB.defineClass` 的第二个参数中定义：
 

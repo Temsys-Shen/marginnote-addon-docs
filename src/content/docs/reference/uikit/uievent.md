@@ -3,7 +3,7 @@ title: UIEvent
 description: 触摸/系统事件对象。可查询事件类型、时间戳与 touches 集合。
 ---
 
-`UIEvent` 表示一次输入事件（常见为触摸事件），通常在 `UIResponder` 的触摸回调或 `UIGestureRecognizer` 相关流程中出现。
+`UIEvent` 表示一次输入事件（常见为触摸事件），默认在 `UIResponder` 的触摸回调或 `UIGestureRecognizer` 相关流程中出现。
 
 ## 实例成员 (Instance members)
 
@@ -26,7 +26,7 @@ description: 触摸/系统事件对象。可查询事件类型、时间戳与 to
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UIEvent` 的类成员。
+当前接口未额外暴露 `UIEvent` 的类成员。
 
 ## 相关
 

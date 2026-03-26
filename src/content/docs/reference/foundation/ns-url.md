@@ -18,7 +18,7 @@ description: URL 对象，用于网页、文件路径与 Application.openURL。
 
 ## 实例成员 (Instance members)
 
-### 属性（常用）
+### 属性
 
 | 属性 | 类型 | 说明 |
 |------|------|------|

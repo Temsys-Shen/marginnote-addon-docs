@@ -7,7 +7,7 @@ description: 从零运行你的第一个 MarginNote 插件（Hello World）。
 
 ## 前提
 
-- 已安装 MarginNote 3 或 MarginNote 4（MN3 建议 3.6.11 及以上）。
+- 已安装 MarginNote 3 或 MarginNote 4（MN3使用 3.6.11 及以上）。
 - 了解如何将 .mnaddon 包安装到 MarginNote 并在应用中启用插件。
 
 ## 第一步：插件包结构
@@ -32,7 +32,7 @@ description: 从零运行你的第一个 MarginNote 插件（Hello World）。
 }
 ```
 
-- `addonid`：唯一 ID，建议用反向域名。
+- `addonid`：唯一 ID，用反向域名。
 - `title`：在 MarginNote 中显示的插件名称。
 - `marginnote_version_min`：最低支持的 MarginNote 版本。
 

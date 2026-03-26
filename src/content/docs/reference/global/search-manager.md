@@ -3,7 +3,7 @@ title: SearchManager
 description: 搜索与索引管理器（全文检索、URL 搜索、相似笔记检索等）。
 ---
 
-`SearchManager` 通过 `Application.sharedInstance().searchManager` 获取。其返回结构与索引能力会随版本变化；建议先在控制台打印返回值结构再做兼容处理。
+`SearchManager` 通过 `Application.sharedInstance().searchManager` 获取。其返回结构与索引能力会随版本变化；先在控制台打印返回值结构再做兼容处理。
 
 ## 实例成员 (Instance members)
 
@@ -23,7 +23,7 @@ description: 搜索与索引管理器（全文检索、URL 搜索、相似笔记
 | `searchTextNoteOnly(query, titleOnly, topicid, beginsWith, limit, noteOnly)` | 文本搜索（可限定只搜笔记）。 |
 | `searchTextWordList(textWordLst, titleOnly, topicid, beginsWith, limit)` | 使用分词列表进行搜索。 |
 | `searchFts3Text(query, titleOnly, topicid, limit, noteOnly)` | 通过 FTS3 搜索。 |
-| `searchURLs(urls, topicid)` | 按 URL 列表搜索。运行时`urls`必须为`NSArray`，传原始字符串会报`TypeError: Cannot convert primitive to NSArray`。`topicid`可传`string`或`NSArray`。 |
+| `searchURLs(urls, topicid)` | 按 URL 列表搜索。插件环境`urls`必须为`NSArray`，传原始字符串会报`TypeError: Cannot convert primitive to NSArray`。`topicid`可传`string`或`NSArray`。 |
 | `searchPage(query, beginsWith, limit)` | 页内搜索。 |
 | `snippetForFts3RowId(rowid)` / `snippetForPageRowId(rowid)` | 获取 snippet（结果摘要）。 |
 
@@ -49,7 +49,7 @@ description: 搜索与索引管理器（全文检索、URL 搜索、相似笔记
 
 - `searchPage(...)`有命中时返回数组对象，无命中时返回空数组。
 - `searchPage("", ...)`返回`undefined`，不是空数组。
-- 当前样本中`searchFts3Text(...)`有命中与无命中都可能返回空数组，结果受索引状态影响较大。
+- 当前样本中`searchFts3Text(...)`有命中与无命中都会返回空数组，结果受索引状态影响较大。
 - `snippetForFts3RowId(rowid)`与`snippetForPageRowId(rowid)`在当前样本中返回`undefined`。
 
 ## 相关

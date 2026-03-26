@@ -3,7 +3,7 @@ title: UIApplication
 description: iOS 应用级入口对象（单例），用于打开 URL、管理本地通知等。
 ---
 
-`UIApplication` 是 iOS 应用级入口对象。在插件环境中常用于打开 URL、判断 URL 是否可打开，以及（旧式）本地通知调度。
+`UIApplication` 是 iOS 应用级入口对象。常用于打开 URL、判断 URL 是否可打开，以及（旧式）本地通知调度。
 
 ## 类成员 (Class members)
 

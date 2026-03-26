@@ -11,7 +11,7 @@ description: 导航栏视图。管理导航项栈、左右按钮、标题/提示
 
 | 属性 | 类型 | 说明 |
 | --- | --- | --- |
-| `title` | string | 标题（运行时会把它映射到 `topItem.title`）。 |
+| `title` | string | 标题（插件环境会把它映射到 `topItem.title`）。 |
 | `prompt` | string \| null | 提示文案。 |
 | `items` | NSArray | 导航项栈。 |
 | `topItem` | UINavigationItem | 只读。栈顶导航项。 |
@@ -42,7 +42,7 @@ description: 导航栏视图。管理导航项栈、左右按钮、标题/提示
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UINavigationBar` 的类成员。
+当前接口未额外暴露 `UINavigationBar` 的类成员。
 
 ## 相关
 

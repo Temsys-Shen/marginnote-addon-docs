@@ -451,4 +451,4 @@ isAtEnd(): boolean
 >
 > - 空字符串时`isAtEnd()`为`true`。
 > - 全空白字符串在默认跳过规则下`isAtEnd()`为`true`。
-> - `setScanLocation(pos)`传入越界值有崩溃风险，建议先把`pos`钳制到`[0, string.length]`。
+> - `setScanLocation(pos)`传入越界值有崩溃风险，先把`pos`钳制到`[0, string.length]`。

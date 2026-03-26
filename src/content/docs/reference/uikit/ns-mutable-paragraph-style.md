@@ -7,14 +7,14 @@ description: 可变段落样式（可用于构造/修改富文本段落属性）
 
 ## 实例成员 (Instance members)
 
-`NSMutableParagraphStyle` 用法上通常是：创建一个实例 → 设置段落相关属性 → 作为富文本属性（例如 `paragraphStyle`）写入到 `NSAttributedString`/`NSTextStorage`/`UITextView` 等。
+`NSMutableParagraphStyle` 用法上默认是：创建一个实例 → 设置段落相关属性 → 作为富文本属性（例如 `paragraphStyle`）写入到 `NSAttributedString`/`NSTextStorage`/`UITextView` 等。
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `NSMutableParagraphStyle` 的类成员。
+当前接口未额外暴露 `NSMutableParagraphStyle` 的类成员。
 
 ## 提示
 
 - 用于作为 `NSAttributedString` 的属性值（例如 paragraphStyle）。
-- 具体可用成员建议用站内搜索成员名（或结合系统 UIKit 文档理解）。
+- 具体可用成员用站内搜索成员名（或结合系统 UIKit 文档理解）。
 

@@ -3,7 +3,7 @@ title: NSPointerArray
 description: 指针数组（可配置强/弱引用语义）。
 ---
 
-`NSPointerArray` 是“指针数组”容器，允许存放对象指针或空洞，并支持强/弱语义（例如 `weakObjectsPointerArray()`）。在插件里通常把它当成“特殊数组”来用。
+`NSPointerArray` 是“指针数组”容器，允许存放对象指针或空洞，并支持强/弱语义（例如 `weakObjectsPointerArray()`）。在插件里默认把它当成“特殊数组”来用。
 
 ## 类成员 (Class members)
 

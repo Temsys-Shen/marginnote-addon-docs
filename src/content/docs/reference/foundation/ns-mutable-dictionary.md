@@ -41,7 +41,7 @@ static dictionaryWithSharedKeySet(sharedKeySet: any): NSMutableDictionary
 static sharedKeySetForKeys(keys: NSArray): any
 ```
 
-> 注：`NSMutableDictionary` 的工厂方法在插件运行时的导出范围较小；请以本页底部的「头文件 API 清单」为准。
+> 注：`NSMutableDictionary` 的工厂方法在插件环境的导出范围较小；请以本页底部的「头文件 API 清单」为准。
 
 ## 实例成员 (Instance members)
 

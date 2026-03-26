@@ -5,7 +5,7 @@ description: 插件环境中唯一导出的网络请求类（deprecated，但可
 
 完整用法见 [网络请求](/guides/network-requests/) 教程。
 
-`NSURLConnection` 是插件环境中导出的网络请求类（头文件标注为 deprecated，但在当前接口里仍可用）。它通常与 `NSURLRequest`/`NSMutableURLRequest`、`NSOperationQueue`、`NSData`、`NSError`、`NSHTTPURLResponse` 配合使用。
+`NSURLConnection` 是插件环境中导出的网络请求类（头文件标注为 deprecated，但在当前接口里仍可用）。它默认与 `NSURLRequest`/`NSMutableURLRequest`、`NSOperationQueue`、`NSData`、`NSError`、`NSHTTPURLResponse` 配合使用。
 
 ## 类成员 (Class members)
 
@@ -102,7 +102,7 @@ originalRequest(): NSURLRequest
 
 ### `currentRequest`
 
-当前请求（可能经重定向等变更）。
+当前请求（会经重定向等变更）。
 
 ```javascript
 currentRequest(): NSURLRequest

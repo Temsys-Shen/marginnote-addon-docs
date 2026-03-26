@@ -14,7 +14,7 @@ description: 文档对象，代表一个 PDF/EPUB 文档。
 | `docMd5` | `string` | 文档唯一MD5。 |
 | `docTitle` | `string` | 文档标题。 |
 | `pathFile` | `string` | 文档在 MarginNote 存储中的相对路径。 |
-| `fullPathFileName` | `string` | 文档的完整路径（若环境可用）。 |
+| `fullPathFileName` | `string` | 文档的完整路径。 |
 | `currentTopicId` | `string` | 当前所属笔记本ID。 |
 | `lastVisit` | `NSDate` | 最后访问时间。 |
 | `pageCount` | `number` | 总页数。 |
@@ -23,12 +23,12 @@ description: 文档对象，代表一个 PDF/EPUB 文档。
 
 | 方法 | 参数 | 返回值 | 说明 |
 |------|------|--------|------|
-| `textContentsForPageNo(pageNo)` | pageNo: number | `NSArray` | 获取指定页文本内容。已确认返回二维数组结构，外层为行/段集合，内层元素为对象；键结构不稳定，建议先打印后使用。 |
+| `textContentsForPageNo(pageNo)` | pageNo: number | `NSArray` | 获取指定页文本内容。已确认返回二维数组结构，外层为行/段集合，内层元素为对象；键结构不稳定，先打印后使用。 |
 | `tocAll()` | — | `NSArray` | 获取文档目录（Table of Contents）。 |
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `MbBook` 的类成员。
+当前接口未额外暴露 `MbBook` 的类成员。
 
 ## 相关
 

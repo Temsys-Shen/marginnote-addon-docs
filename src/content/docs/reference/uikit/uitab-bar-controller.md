@@ -17,7 +17,7 @@ description: Tab 容器控制器。管理 viewControllers、selectedIndex/select
 | `selectedIndex` | number | 当前选中索引。 |
 | `selectedViewController` | UIViewController \| null | 当前选中控制器。 |
 | `moreNavigationController` | UINavigationController | 只读。更多页面的导航控制器。 |
-| `tabBarController` | UITabBarController | 只读。运行时暴露的 tabBarController 引用。 |
+| `tabBarController` | UITabBarController | 只读。插件环境暴露的 tabBarController 引用。 |
 | `tabBarItem` | UITabBarItem \| null | 自身在更外层容器中的 tabBarItem。 |
 | `delegate` | id | 代理对象。 |
 
@@ -29,7 +29,7 @@ description: Tab 容器控制器。管理 viewControllers、selectedIndex/select
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UITabBarController` 的类成员。
+当前接口未额外暴露 `UITabBarController` 的类成员。
 
 ## 相关
 

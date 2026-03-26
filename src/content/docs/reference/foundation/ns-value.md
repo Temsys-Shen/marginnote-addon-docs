@@ -99,7 +99,7 @@ static valueWithRange(range: any): NSValue
 
 ### `valueWithCATransform3D`
 
-从[CATransform3D](/reference/value-sturct/#catransform3d)创建，若环境中提供。
+从[CATransform3D](/reference/value-sturct/#catransform3d)创建。
 
 ```javascript
 static valueWithCATransform3D(transform3d: any): NSValue

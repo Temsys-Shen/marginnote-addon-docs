@@ -24,7 +24,7 @@ description: 平移手势识别器。支持查询/设置 translation，并获取
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UIPanGestureRecognizer` 的类成员。
+当前接口未额外暴露 `UIPanGestureRecognizer` 的类成员。
 
 ## 相关
 

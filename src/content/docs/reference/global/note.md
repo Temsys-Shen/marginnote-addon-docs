@@ -3,13 +3,13 @@ title: Note
 description: 全局注入的笔记工厂对象，用于创建新笔记（MbBookNote）。
 ---
 
-`Note` 是 MarginNote 运行时注入到 JavaScript 环境中的**全局对象**之一，用于创建新笔记。
+`Note` 是 MarginNote 宿主注入到 JavaScript 环境中的**全局对象**之一，用于创建新笔记。
 
 需要特别注意：创建笔记的方法**不在** `MbBookNote` 类上，而是在全局 `Note` 对象上（这是由 MarginNote 的 JSExport 导出方式决定的）。
 
 ## 实例成员 (Instance members)
 
-`Note` 是全局对象，通常不以实例形式使用。
+`Note` 是全局对象，默认不以实例形式使用。
 
 ## 类成员 (Class members)
 

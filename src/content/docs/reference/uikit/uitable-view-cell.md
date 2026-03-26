@@ -3,7 +3,7 @@ title: UITableViewCell
 description: 表格单元格。提供 contentView、textLabel/detailTextLabel/imageView，并支持选中/高亮/编辑状态切换。
 ---
 
-`UITableViewCell` 继承自 [UIView](/reference/uikit/uiview/)，用于在 [UITableView](/reference/uikit/uitable-view/) 中展示一行内容。插件运行时暴露了常用的 label/imageView 以及与表格关联的辅助字段。
+`UITableViewCell` 继承自 [UIView](/reference/uikit/uiview/)，用于在 [UITableView](/reference/uikit/uitable-view/) 中展示一行内容。插件环境暴露了常用的 label/imageView 以及与表格关联的辅助字段。
 
 ## 实例成员 (Instance members)
 
@@ -25,14 +25,14 @@ description: 表格单元格。提供 contentView、textLabel/detailTextLabel/im
 | `indentationWidth` | number | 缩进宽度。 |
 | `selected` | boolean | 是否选中。 |
 | `highlighted` | boolean | 是否高亮。 |
-| `editing` | boolean | 是否编辑态（运行时注释为未完全实现）。 |
-| `showingDeleteConfirmation` | boolean | 只读。是否显示删除确认（运行时注释为未完全实现）。 |
+| `editing` | boolean | 是否编辑态（未完全实现）。 |
+| `showingDeleteConfirmation` | boolean | 只读。是否显示删除确认（未完全实现）。 |
 | `reuseIdentifier` | string | 只读。复用标识符。 |
 | `tintColor` | UIColor \| null | tintColor。 |
-| `showsReorderControl` | boolean | 是否显示重排控制（运行时注释为默认值相关）。 |
+| `showsReorderControl` | boolean | 是否显示重排控制（默认值相关）。 |
 | `multiSelView` | UIImageView | 只读。多选视图。 |
-| `indexPath` | NSIndexPath \| null | 运行时附带的 indexPath（便于回调定位）。 |
-| `tableView` | UITableView \| null | 运行时附带的 tableView 引用。 |
+| `indexPath` | NSIndexPath \| null | 插件环境附带的 indexPath（便于回调定位）。 |
+| `tableView` | UITableView \| null | 插件环境附带的 tableView 引用。 |
 
 ### 方法
 

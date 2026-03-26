@@ -3,7 +3,7 @@ title: Database
 description: MarginNote 核心数据库访问对象（MbModelTool），用于获取/修改笔记、笔记本与文档。
 ---
 
-`Database` 即底层类型 `MbModelTool` 的单例，用于访问 MarginNote 的笔记与文档数据。通过 `Database.sharedInstance()` 获取。修改数据后建议使用 [UndoManager](/reference/utility/undo-manager/) 的 `undoGrouping(title, topicid, fn)` 包裹，并调用 `Application.sharedInstance().refreshAfterDBChanged(topicid)` 刷新界面。
+`Database` 即底层类型 `MbModelTool` 的单例，用于访问 MarginNote 的笔记与文档数据。通过 `Database.sharedInstance()` 获取。修改数据后使用 [UndoManager](/reference/utility/undo-manager/) 的 `undoGrouping(title, topicid, fn)` 包裹，并调用 `Application.sharedInstance().refreshAfterDBChanged(topicid)` 刷新界面。
 
 ## 类成员 (Class members)
 
@@ -176,7 +176,7 @@ allDocuments(): NSArray
 
 ### `savedb`
 
-手动保存数据库到磁盘。慎用，通常由系统自动管理。
+手动保存数据库到磁盘。慎用，默认由系统自动管理。
 
 ```javascript
 savedb(): void
@@ -371,7 +371,7 @@ getSketchNotesForMindMap(topicid: string): NSArray
 
 ### `transDictionaryToJSCompatible` / `transArrayToJSCompatible`
 
-将原生容器转换为更易于 JS 使用的结构（行为由运行时定义）。
+将原生容器转换为更易于 JS 使用的结构。
 
 ```javascript
 static transDictionaryToJSCompatible(dic: NSDictionary): NSDictionary

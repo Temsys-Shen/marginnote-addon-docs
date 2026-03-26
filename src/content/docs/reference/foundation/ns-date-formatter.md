@@ -9,13 +9,11 @@ description: 日期格式化与解析。
 
 ### 创建
 
-通过 `new()` 或 `alloc().init()` 创建（视环境可用方式）。
+通过 `new NSDateFormatter()` 创建。
 
 ```javascript
 // 示例
 var formatter = new NSDateFormatter();
-// 或
-var formatter = NSDateFormatter.alloc().init();
 ```
 
 ## 实例成员 (Instance members)

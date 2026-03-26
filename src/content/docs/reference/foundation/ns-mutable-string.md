@@ -133,7 +133,7 @@ setString(aString: string): void
 
 ### `initWithCapacity`
 
-用容量初始化（通常由工厂方法创建）。
+用容量初始化（默认由工厂方法创建）。
 
 ```javascript
 initWithCapacity(capacity: number): void

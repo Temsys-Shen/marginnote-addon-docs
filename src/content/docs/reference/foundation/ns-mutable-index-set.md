@@ -148,7 +148,7 @@ shiftIndexesStartingAtIndexBy(index: number, delta: number): void
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `NSMutableIndexSet` 的类成员。
+当前接口未额外暴露 `NSMutableIndexSet` 的类成员。
 
 ## 相关
 

@@ -3,9 +3,11 @@ title: NSProxy
 description: 代理基类（消息转发基础设施）。
 ---
 
-`NSProxy`是系统代理基类，提供消息转发相关能力。在插件环境中，你一般不会直接创建它，但可能会在调试/反射/桥接场景里遇到它的基础方法。
+`NSProxy`是系统代理基类，提供消息转发相关能力。你直接不会直接创建它，但会在调试/反射/桥接场景里遇到它的基础方法。
 
 ## 类成员 (Class members)
+
+> 注意：插件业务代码不建议调用`alloc/allocWithZone`，推荐使用`.new()`或工厂方法。
 
 ### `alloc`
 
@@ -107,7 +109,7 @@ forwardInvocation(invocation: any): void
 
 ### `dealloc`
 
-析构（通常不直接调用）。
+析构。
 
 ```javascript
 dealloc(): void
@@ -119,7 +121,7 @@ dealloc(): void
 
 ### `finalize`
 
-终结（通常不直接调用）。
+终结。
 
 ```javascript
 finalize(): void

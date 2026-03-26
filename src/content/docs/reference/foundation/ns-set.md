@@ -3,7 +3,7 @@ title: NSSet
 description: 不可变无序集合（集合/去重容器）。
 ---
 
-`NSSet` 是不可变集合，适合表示“去重后的元素集合”。在插件环境中，你会在很多 API 里见到它（例如返回一组对象、或用于 membership 判断）。
+`NSSet` 是不可变集合，适合表示“去重后的元素集合”。你会在很多 API 里见到它（例如返回一组对象、或用于 membership 判断）。
 
 ## 类成员 (Class members)
 

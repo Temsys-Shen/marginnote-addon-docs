@@ -29,7 +29,7 @@ var document = docController.document;           // MbBook
 var selectionText = docController.selectionText; // 用户选中的文本
 ```
 
-若用户未选中任何内容，`selectionText` 可能为 undefined 或空字符串。
+若用户未选中任何内容，`selectionText` 为 undefined 或空字符串。
 
 ## 在脑图中高亮指定笔记
 

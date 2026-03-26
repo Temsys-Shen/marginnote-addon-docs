@@ -16,7 +16,7 @@ description: 旋转手势识别器。支持读取/设置 rotation，并读取 ve
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UIRotationGestureRecognizer` 的类成员。
+当前接口未额外暴露 `UIRotationGestureRecognizer` 的类成员。
 
 ## 相关
 

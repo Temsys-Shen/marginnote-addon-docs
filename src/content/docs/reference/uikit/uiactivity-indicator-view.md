@@ -7,11 +7,11 @@ description: 加载指示器（菊花）。
 
 ## 实例成员 (Instance members)
 
-`UIActivityIndicatorView` 的成员用于控制“是否在转/是否隐藏/样式”等。若你需要具体成员名，建议用站内搜索定位。
+`UIActivityIndicatorView` 的成员用于控制“是否在转/是否隐藏/样式”等。若你需要具体成员名，用站内搜索定位。
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UIActivityIndicatorView` 的类成员。
+当前接口未额外暴露 `UIActivityIndicatorView` 的类成员。
 
 ## 提示
 

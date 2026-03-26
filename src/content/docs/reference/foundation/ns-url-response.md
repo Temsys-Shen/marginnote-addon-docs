@@ -1,9 +1,9 @@
 ---
 title: NSURLResponse
-description: URL 响应对象，包含 MIMEType、编码、建议文件名等元信息。
+description: URL 响应对象，包含 MIMEType、编码、期望文件名等元信息。
 ---
 
-`NSURLResponse` 是 URL 请求的响应对象基类。HTTP 响应通常会是其子类 `NSHTTPURLResponse`。
+`NSURLResponse` 是 URL 请求的响应对象基类。HTTP 响应默认会是其子类 `NSHTTPURLResponse`。
 
 ## 实例成员 (Instance members)
 
@@ -78,7 +78,7 @@ textEncodingName(): string
 
 ### `suggestedFilename`
 
-建议保存文件名。
+保存文件名。
 
 ```javascript
 suggestedFilename(): string
@@ -86,11 +86,11 @@ suggestedFilename(): string
 
 **Return Value:**
 
-- `string`: 建议文件名。
+- `string`: 期望文件名。
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `NSURLResponse` 的类成员。
+当前接口未额外暴露 `NSURLResponse` 的类成员。
 
 ## 相关
 

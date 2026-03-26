@@ -203,7 +203,7 @@ integerForKey(key: string): number
 
 **Return Value:**
 
-- `number`: 整数值（若不存在通常返回 0）。
+- `number`: 整数值（若不存在默认返回 0）。
 
 ### `floatForKey`
 
@@ -239,7 +239,7 @@ boolForKey(key: string): boolean
 
 **Return Value:**
 
-- `boolean`: 布尔值（若不存在通常返回 false）。
+- `boolean`: 布尔值（若不存在默认返回 false）。
 
 ### `URLForKey`
 
@@ -281,7 +281,7 @@ synchronize(): boolean
 
 - `boolean`: 是否写入成功。
 
-**Note:** 系统通常会自动保存，仅在需要立即持久化时调用。
+**Note:** 系统默认会自动保存，仅在需要立即持久化时调用。
 
 ### `registerDefaults`
 

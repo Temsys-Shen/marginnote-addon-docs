@@ -3,7 +3,7 @@ title: NSMutableSet
 description: 可变无序集合（可增删的去重容器）。
 ---
 
-`NSMutableSet` 是可变集合，适合在运行时构造或更新一个“去重集合”。
+`NSMutableSet` 是可变集合，适合构造或更新一个“去重集合”。
 
 ## 类成员 (Class members)
 

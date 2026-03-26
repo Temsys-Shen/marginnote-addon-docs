@@ -3,7 +3,7 @@ title: CALayer
 description: Core Animation 图层。提供几何/内容/阴影/圆角/边框等属性，并支持子图层管理、坐标转换与动画添加。
 ---
 
-`CALayer` 是 Core Animation 的核心图层类型。它在插件运行时中通常作为 `UIView.layer` 的类型出现，也可以独立创建并组合为图层树。
+`CALayer` 是 Core Animation 的核心图层类型。它默认作为 `UIView.layer` 的类型出现，也可以独立创建并组合为图层树。
 
 ## 实例成员 (Instance members)
 

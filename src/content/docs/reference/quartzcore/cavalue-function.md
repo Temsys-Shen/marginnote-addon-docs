@@ -3,7 +3,7 @@ title: CAValueFunction
 description: 值函数。可按名称创建，并可读取 name。
 ---
 
-`CAValueFunction` 用于描述某些动画/变换相关的值函数。它通常作为 `CAPropertyAnimation.valueFunction` 或若干动画对象的 `valueFunction` 字段出现。
+`CAValueFunction` 用于描述某些动画/变换相关的值函数。它默认作为 `CAPropertyAnimation.valueFunction` 或若干动画对象的 `valueFunction` 字段出现。
 
 ## 实例成员 (Instance members)
 

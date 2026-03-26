@@ -11,10 +11,10 @@ description: 点击手势识别器。
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UITapGestureRecognizer` 的类成员。
+当前接口未额外暴露 `UITapGestureRecognizer` 的类成员。
 
 ## 提示
 
 - 常用属性包括 `numberOfTapsRequired`、`numberOfTouchesRequired`（若在环境中可用）。
-- 建议结合 `UIGestureRecognizer` 的通用用法理解。
+- 结合 `UIGestureRecognizer` 的通用用法理解。
 

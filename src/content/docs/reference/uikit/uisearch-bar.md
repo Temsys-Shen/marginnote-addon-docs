@@ -3,7 +3,7 @@ title: UISearchBar
 description: 搜索栏视图。支持占位文本、范围按钮、取消/书签按钮，并可自定义背景与 scope 外观。
 ---
 
-`UISearchBar` 继承自 [UIView](/reference/uikit/uiview/)，用于输入搜索文本与可选范围（scope）筛选。插件运行时通常通过 `delegate` 获取文本变化/按钮点击等回调（delegate 的具体回调方法名由运行时定义与你的对象定义）。
+`UISearchBar`继承自[UIView](/reference/uikit/uiview/)，用于输入搜索文本与可选范围筛选。插件通过`delegate`接收编辑、文本变化、按钮点击与scope切换回调。
 
 ## 实例成员 (Instance members)
 
@@ -47,9 +47,32 @@ description: 搜索栏视图。支持占位文本、范围按钮、取消/书签
 | `setScopeBarButtonTitleTextAttributesForState(attributes, state)` | attributes: NSDictionary, state: number | void | 设置 scope 标题文字属性。 |
 | `scopeBarButtonTitleTextAttributesForState(state)` | state: number | NSDictionary \| null | 获取 scope 标题文字属性。 |
 
+### Delegate回调
+
+以下回调可在`JSB.defineClass`实例方法中实现：
+
+| 回调方法名 | 对应selector | 返回值 | 触发时机 |
+| --- | --- | --- | --- |
+| `searchBarShouldBeginEditing` | `searchBarShouldBeginEditing:` | `BOOL` | 即将进入编辑态时触发。 |
+| `searchBarTextDidBeginEditing` | `searchBarTextDidBeginEditing:` | `void` | 已进入编辑态时触发。 |
+| `searchBarShouldEndEditing` | `searchBarShouldEndEditing:` | `BOOL` | 即将结束编辑态时触发。 |
+| `searchBarTextDidEndEditing` | `searchBarTextDidEndEditing:` | `void` | 已结束编辑态时触发。 |
+| `searchBarTextDidChange` | `searchBar:textDidChange:` | `void` | 文本变化后触发。 |
+| `searchBarShouldChangeTextInRangeReplacementText` | `searchBar:shouldChangeTextInRange:replacementText:` | `BOOL` | 文本变更前拦截触发。 |
+| `searchBarSearchButtonClicked` | `searchBarSearchButtonClicked:` | `void` | 点击Search按钮时触发。 |
+| `searchBarCancelButtonClicked` | `searchBarCancelButtonClicked:` | `void` | 点击Cancel按钮时触发。 |
+| `searchBarBookmarkButtonClicked` | `searchBarBookmarkButtonClicked:` | `void` | 点击Bookmark按钮时触发。 |
+| `searchBarResultsListButtonClicked` | `searchBarResultsListButtonClicked:` | `void` | 点击Results按钮时触发。 |
+| `searchBarSelectedScopeButtonIndexDidChange` | `searchBar:selectedScopeButtonIndexDidChange:` | `void` | 切换scope索引时触发。 |
+
+**桥接规则：**
+
+- 方法名必须与selector正确对应。
+- `should...`回调必须返回`BOOL`。
+
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UISearchBar` 的类成员。
+当前接口未额外暴露 `UISearchBar` 的类成员。
 
 ## 相关
 

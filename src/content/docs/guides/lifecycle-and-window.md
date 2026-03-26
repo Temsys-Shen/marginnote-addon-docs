@@ -11,7 +11,7 @@ description: 理解 scene/notebook/document 生命周期及何时可安全使用
 
 | 方法 | 调用时机 |
 |------|----------|
-| `sceneWillConnect()` | 插件窗口即将创建，可在此做轻量初始化；此时可能还没有打开笔记本。 |
+| `sceneWillConnect()` | 插件窗口即将创建，可在此做轻量初始化；此时会还没有打开笔记本。 |
 | `sceneDidDisconnect()` | 插件窗口已断开。 |
 | `sceneWillResignActive()` | 窗口即将失去活跃。 |
 | `sceneDidBecomeActive()` | 窗口变为活跃。 |
@@ -33,8 +33,8 @@ description: 理解 scene/notebook/document 生命周期及何时可安全使用
 ## 何时可使用 studyController
 
 - `studyController(window)` 返回的是**当前窗口**的学习控制器；只有在该窗口已经打开过笔记本、学习界面已就绪时，返回值才可用。
-- 在 `sceneWillConnect` 中通常**还没有**打开笔记本，因此一般不要在这里依赖 `studyController(self.window)` 去访问脑图或文档。
-- 在 `notebookWillOpen(topicid)` 被调用后，该窗口即将或已经拥有学习界面；但若需在「打开笔记本」后立刻挂载 UI，建议用 `NSTimer.scheduledTimerWithTimeInterval(0.2, false, function () { ... })` 延迟约 0.2 秒再执行，以确保 studyController 与 view 已就绪。
+- 在 `sceneWillConnect` 中默认**还没有**打开笔记本，因此直接不要在这里依赖 `studyController(self.window)` 去访问脑图或文档。
+- 在 `notebookWillOpen(topicid)` 被调用后，该窗口即将或已经拥有学习界面；但若需在「打开笔记本」后立刻挂载 UI，用 `NSTimer.scheduledTimerWithTimeInterval(0.2, false, function () { ... })` 延迟约 0.2 秒再执行，以确保 studyController 与 view 已就绪。
 
 ## 示例：在笔记本打开时打日志并延迟挂载 UI
 
@@ -59,7 +59,7 @@ notebookWillOpen: function (topicid) {
 
 ## 布局回调：controllerWillLayoutSubviews
 
-若你在学习界面上添加了自定义视图，窗口尺寸或布局变化时可能需要重新计算位置。实现 `controllerWillLayoutSubviews(controller)`，当传入的 controller 是当前窗口的 studyController 时，在其中更新你的面板 frame（例如根据 `controller.view.bounds` 计算）。
+若你在学习界面上添加了自定义视图，窗口尺寸或布局变化时会需要重新计算位置。实现 `controllerWillLayoutSubviews(controller)`，当传入的 controller 是当前窗口的 studyController 时，在其中更新你的面板 frame（例如根据 `controller.view.bounds` 计算）。
 
 ```javascript
 controllerWillLayoutSubviews: function (controller) {

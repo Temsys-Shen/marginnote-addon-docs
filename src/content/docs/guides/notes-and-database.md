@@ -47,7 +47,7 @@ if (note) {
 
 ## 创建新笔记
 
-使用全局 `Note` 对象创建新笔记：`Note.createWithTitleNotebookDocument(title, notebook, doc)`（`notebook` 为 `MbTopic`，`doc` 为 `MbBook`）。创建后同样建议放在 undoGrouping 中并刷新。
+使用全局 `Note` 对象创建新笔记：`Note.createWithTitleNotebookDocument(title, notebook, doc)`（`notebook` 为 `MbTopic`，`doc` 为 `MbBook`）。创建后同样放在 undoGrouping 中并刷新。
 
 ```javascript
 var db = Database.sharedInstance();

@@ -434,4 +434,4 @@ descriptionWithLocale(locale: any): string
 
 ### isEqualToNumber（未导出）
 
-`isEqualToNumber(...)` 在最新头文件导出清单中未暴露；如需比较请使用 `compare(...)` 或先转为标量后比较（由运行时行为定义）。
+`isEqualToNumber(...)` 在最新头文件导出清单中未暴露；如需比较请使用 `compare(...)` 或先转为标量后比较（由接口行为定义）。

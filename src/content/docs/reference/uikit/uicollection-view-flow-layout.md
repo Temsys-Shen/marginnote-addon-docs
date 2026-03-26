@@ -3,13 +3,13 @@ title: UICollectionViewFlowLayout
 description: UICollectionView的流式布局。常用于固定网格参数配置。
 ---
 
-`UICollectionViewFlowLayout`是`UICollectionViewLayout`的常用子类，用于按行列流式排布cell。插件场景建议优先使用固定`itemSize/sectionInset/minimumLineSpacing`方案。
+`UICollectionViewFlowLayout`是`UICollectionViewLayout`的常用子类，用于按行列流式排布cell。插件场景优先使用固定`itemSize/sectionInset/minimumLineSpacing`方案。
 
-## 运行时建议
+## 使用规范
 
 - 更稳定的创建路径是：先创建`UICollectionViewFlowLayout`，再用`UICollectionViewController.initWithCollectionViewLayout(layout)`拿到`collectionView`。
 - `initWithFrame:collectionViewLayout:`在当前桥接里不稳定，不建议作为主路径。
-- 动态尺寸回调例如`sizeForItemAtIndexPath`在JS桥接里风险较高，建议后置。
+- 动态尺寸回调例如`sizeForItemAtIndexPath`在JS桥接里风险较高，后置。
 
 ## 实例成员 (Instance members)
 
@@ -42,7 +42,7 @@ description: UICollectionView的流式布局。常用于固定网格参数配置
 | `layoutAttributesClass()` | Class | 返回布局属性类。 |
 | `invalidationContextClass()` | Class | 返回失效上下文类。 |
 
-## 常见问题
+## 问题排查
 
 - 创建成功但不显示时，优先检查`frame/bounds`是否为0、`itemSize`是否为0、是否已挂到可见view层级。
 - `registerClass...`缺失或`reuseId`不一致会导致`dequeue`失败。

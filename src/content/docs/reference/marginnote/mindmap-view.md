@@ -12,11 +12,11 @@ description: 脑图视图，继承自 UIScrollView，展示脑图节点列表与
 | 属性 | 类型 | 说明 |
 |------|------|------|
 | `mindmapNodes` | `NSArray` | 脑图中所有节点（MindMapNode 或等价类型）。 |
-| `selViewLst` | `NSArray` | 当前选中的节点视图列表，每项通常包含 `note`（MindMapNode）与 `view`（UIView）。 |
+| `selViewLst` | `NSArray` | 当前选中的节点视图列表，每项默认包含 `note`（MindMapNode）与 `view`（UIView）。 |
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `MindMapView` 的类成员。
+当前接口未额外暴露 `MindMapView` 的类成员。
 
 ## 相关
 

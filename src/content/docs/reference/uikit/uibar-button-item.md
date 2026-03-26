@@ -7,14 +7,13 @@ description: 条形按钮项（导航栏/工具栏按钮）。
 
 ## 实例成员 (Instance members)
 
-`UIBarButtonItem` 在插件运行时暴露的属性/方法较多。你可以按需通过站内搜索定位具体成员（例如 `title`、`image`、`enabled`、`customView`、`target`、`action` 等）。
+`UIBarButtonItem` 暴露的属性/方法较多。你可以按需通过站内搜索定位具体成员（例如 `title`、`image`、`enabled`、`customView`、`target`、`action` 等）。
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UIBarButtonItem` 的类成员。
+当前接口未额外暴露 `UIBarButtonItem` 的类成员。
 
 ## 提示
 
 - 典型用法是配置 `target` + `action` 来响应点击。
-- 具体属性/方法建议用站内搜索成员名。
-
+- 具体属性/方法用站内搜索成员名。

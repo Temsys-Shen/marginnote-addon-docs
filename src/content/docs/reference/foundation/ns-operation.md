@@ -5,7 +5,7 @@ description: 可调度的任务单元，常与 NSOperationQueue 配合使用。
 
 `NSOperation` 表示一个可调度任务。常与 `NSOperationQueue` 搭配，用于异步调度（例如 `NSURLConnection.sendAsynchronousRequest...` 的 queue 参数）。
 
-> 注意：在插件环境里通常直接使用 `NSOperationQueue.mainQueue()` / `currentQueue()` 即可，不一定需要手动构造自定义 operation。
+> 注意：默认直接使用 `NSOperationQueue.mainQueue()` / `currentQueue()` 即可，不会稳定需要手动构造自定义 operation。
 
 ## 实例成员 (Instance members)
 
@@ -245,4 +245,4 @@ setThreadPriority(p: number): void
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `NSOperation` 的类成员。
+当前接口未额外暴露 `NSOperation` 的类成员。

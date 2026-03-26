@@ -3,7 +3,7 @@ title: NSAttributedString
 description: 富文本字符串（只读）。
 ---
 
-`NSAttributedString` 表示带属性（字体、颜色、段落样式等）的只读富文本。你可能会在 UI 文本渲染、富文本评论/编辑等场景中遇到它。
+`NSAttributedString` 表示带属性（字体、颜色、段落样式等）的只读富文本。你会在 UI 文本渲染、富文本评论/编辑等场景中遇到它。
 
 ## 实例成员 (Instance members)
 

@@ -41,7 +41,7 @@ description: 滑杆控件。支持 value/min/max、三段轨道/拇指图片与 
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UISlider` 的类成员。
+当前接口未额外暴露 `UISlider` 的类成员。
 
 ## 相关
 

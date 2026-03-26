@@ -58,7 +58,7 @@ studyController(window: UIWindow): StudyController
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| `window` | `UIWindow` | 目标窗口（通常传 `self.window`）。 |
+| `window` | `UIWindow` | 目标窗口（默认传 `self.window`）。 |
 
 **Return Value:**
 
@@ -163,7 +163,7 @@ queryCommandWithKeyFlagsInWindow(command: string, keyFlags: any, window: UIWindo
 
 该接口用于查询某个内建command在“当前窗口+修饰键(keyFlags)”上下文里是否可用，以及是否处于勾选态。你可以用它来：
 
-- 判断某个command当前是否能执行（例如编辑态/无焦点时可能禁用）。
+- 判断某个command当前是否能执行（例如编辑态/无焦点时会禁用）。
 - 在调用`processCommandWithKeyFlagsInWindow(...)`之前做保护性判断。
 
 已确认返回值至少包含：
@@ -193,7 +193,7 @@ processCommandWithKeyFlagsInWindow(command: string, keyFlags: any, window: UIWin
 
 这里的command同样是MarginNote内建命令的字符串标识（可理解为某个菜单动作/操作的ID）。只要command字符串是系统可识别的命令标识，就可以直接调用执行（例如已确认`ZoomToFit`可执行）。
 
-可用的command列表没有单一集中枚举，建议参考内建command清单页，并在运行时用`queryCommandWithKeyFlagsInWindow`确认`disabled:false`后再执行：
+可用的command列表没有单一集中枚举，参考内建command清单页，并用`queryCommandWithKeyFlagsInWindow`确认`disabled:false`后再执行：
 
 - [内建command清单](/reference/global/builtin-commands/)
 
@@ -288,7 +288,7 @@ unregsiterHtmlCommentEditor(commentTag: string): void
 
 ### `importDocument`
 
-导入文档（由运行时实现决定入库位置与返回值含义）。
+导入文档，使得在MN可访问到的范围内的文档在文档库中可见。
 
 ```javascript
 importDocument(fileUrl: string): string

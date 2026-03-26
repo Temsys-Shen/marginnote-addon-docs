@@ -1,15 +1,13 @@
 ---
 title: UITextInputMode
-description: 文本输入模式/上下文对象。仅在运行时导出该类型时可用。
+description: 文本输入模式/上下文对象。仅在插件环境导出该类型时可用。
 ---
 
-`UITextInputMode` 在系统 UIKit 中用于描述当前键盘输入模式（例如输入法语言）。在插件运行时它还暴露了一组与文本选择/标记相关的字段（可能用于内部实现或统一接口映射）。
+`UITextInputMode` 在系统 UIKit 中用于描述当前键盘输入模式（例如输入法语言）。在插件环境它还暴露了一组与文本选择/标记相关的字段（会用于内部实现或统一接口映射）。
 
-## 运行时状态
+## 接口状态
 
-当前样本环境中`UITextInputMode`未注册到JSContext，`typeof UITextInputMode === "undefined"`。因此默认不可直接依赖本类型及其类方法。
-
-以下成员表保留为接口参考，仅在你的运行时实际导出该类型时适用。
+`UITextInputMode`未注册到JSContext，无法进行直接调用、判断类型等操作、类似`Mb`开头的几个类。
 
 ## 实例成员 (Instance members)
 
@@ -25,7 +23,7 @@ description: 文本输入模式/上下文对象。仅在运行时导出该类型
 | `endOfDocument` | UITextPosition \| null | 只读。文档终点。 |
 | `start` | UITextPosition \| null | 只读。范围起点。 |
 | `end` | UITextPosition \| null | 只读。范围终点。 |
-| `text` | string \| null | 只读。文本内容（运行时提供）。 |
+| `text` | string \| null | 只读。文本内容（环境提供）。 |
 | `rect` | { x: number, y: number, width: number, height: number } | 只读。相关区域。 |
 | `tokenizer` | id | 只读。分词器对象。 |
 | `textInputView` | UIView \| null | 只读。输入视图。 |

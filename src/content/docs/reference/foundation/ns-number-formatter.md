@@ -117,7 +117,7 @@ getObjectValueForStringRangeError(obj: any, string: string, rangep: any, error: 
 
 - `boolean`: 是否解析成功。
 
-### 常用配置（属性/方法）
+### 配置（属性/方法）
 
 | 方法/属性 | 说明 |
 | :--- | :--- |

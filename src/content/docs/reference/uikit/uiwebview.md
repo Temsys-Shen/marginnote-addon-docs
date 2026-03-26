@@ -84,7 +84,7 @@ loadFileURLAllowingReadAccessToURL(URL: NSURL, allowingReadAccessToURL: NSURL): 
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | `URL` | `NSURL` | 文件 URL。 |
-| `allowingReadAccessToURL` | `NSURL` | 允许读取的访问路径（通常也是文件 URL 或其父目录）。 |
+| `allowingReadAccessToURL` | `NSURL` | 允许读取的访问路径（默认也是文件 URL 或其父目录）。 |
 
 ### `reload`
 
@@ -221,7 +221,7 @@ webViewShouldStartLoadWithRequestNavigationType(webView: UIWebView, request: NSU
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UIWebView` 的类成员。
+当前接口未额外暴露 `UIWebView` 的类成员。
 
 ## 相关
 

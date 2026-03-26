@@ -3,7 +3,7 @@ title: StudyController
 description: 学习场景主视图控制器，访问脑图与文档的入口。
 ---
 
-学习场景的主视图控制器，通过 `Application.sharedInstance().studyController(window)` 获取（通常传入 `self.window`）。是访问脑图、文档、当前笔记本等的根对象。
+学习场景的主视图控制器，通过 `Application.sharedInstance().studyController(window)` 获取（默认传入 `self.window`）。是访问脑图、文档、当前笔记本等的根对象。
 
 ## 实例成员 (Instance members)
 
@@ -92,7 +92,7 @@ toggleExtensionPanel(): void
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `StudyController` 的类成员。
+当前接口未额外暴露 `StudyController` 的类成员。
 
 ## 相关
 

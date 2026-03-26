@@ -3,7 +3,7 @@ title: NSTimeZone
 description: 时区对象。
 ---
 
-`NSTimeZone` 表示时区信息，通常与 `NSDateFormatter` 配合使用。
+`NSTimeZone` 表示时区信息，默认与 `NSDateFormatter` 配合使用。
 
 ## 类成员 (Class members)
 

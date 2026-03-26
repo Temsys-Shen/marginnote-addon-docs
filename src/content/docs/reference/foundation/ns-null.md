@@ -21,4 +21,4 @@ static null(): NSNull
 
 ## 实例成员 (Instance members)
 
-`NSNull` 的实例通常只作为“占位空值”使用，不需要调用其上的成员。
+`NSNull` 的实例默认只作为“占位空值”使用，不需要调用其上的成员。

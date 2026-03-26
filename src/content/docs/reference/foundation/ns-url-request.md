@@ -3,7 +3,7 @@ title: NSURLRequest
 description: 不可变 URL 请求对象，包含 URL、缓存策略、HTTP header/body 等只读访问。
 ---
 
-`NSURLRequest` 表示一个不可变的 URL 请求。通常在插件里用于读取请求信息，或作为 `NSMutableURLRequest` 的父接口使用。
+`NSURLRequest` 表示一个不可变的 URL 请求。默认在插件里用于读取请求信息，或作为 `NSMutableURLRequest` 的父接口使用。
 
 ## 类成员 (Class members)
 
@@ -221,4 +221,4 @@ HTTPShouldUsePipelining(): boolean
 
 - `boolean`: 是否使用。
 
-> 建议：需要设置 method/header/body 等可变字段时，直接使用 [NSMutableURLRequest](/reference/foundation/ns-mutable-url-request/)。
+> 要求：需要设置 method/header/body 等可变字段时，直接使用 [NSMutableURLRequest](/reference/foundation/ns-mutable-url-request/)。

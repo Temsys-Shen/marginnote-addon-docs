@@ -7,7 +7,7 @@ description: 所有 UI 控件的基类，管理 frame、子视图与图层。
 
 ## 实例成员 (Instance members)
 
-### 属性（常用）
+### 属性
 
 | 属性 | 类型 | 说明 |
 |------|------|------|
@@ -23,7 +23,7 @@ description: 所有 UI 控件的基类，管理 frame、子视图与图层。
 | `alpha` | number | 透明度。 |
 | `autoresizingMask` | number | 自动调整掩码（如 1<<0 右边缘）。 |
 
-### 方法（常用）
+### 方法
 
 | 方法 | 说明 |
 |------|------|
@@ -38,7 +38,7 @@ description: 所有 UI 控件的基类，管理 frame、子视图与图层。
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UIView` 的类成员。
+当前接口未额外暴露 `UIView` 的类成员。
 
 ## 相关
 

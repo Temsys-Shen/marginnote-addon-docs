@@ -3,7 +3,7 @@ title: SQLiteStatement
 description: SQLite 语句对象（JSBSQLiteStatement），用于缓存/复用预编译语句。
 ---
 
-`SQLiteStatement` 表示一个 SQLite 语句对象，通常由 SQLite 库内部管理与缓存。
+`SQLiteStatement` 表示一个 SQLite 语句对象，默认由 SQLite 库内部管理与缓存。
 
 ## 实例成员 (Instance members)
 
@@ -41,4 +41,4 @@ reset(): void
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `SQLiteStatement` 的类成员。
+当前接口未额外暴露 `SQLiteStatement` 的类成员。

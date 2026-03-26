@@ -17,7 +17,7 @@ description: 图片视图。支持设置 image/highlightedImage 与帧动画（a
 | `animationImages` | NSArray | 帧动画图片数组。 |
 | `highlightedAnimationImages` | NSArray | 高亮状态下的帧动画图片数组。 |
 | `animationDuration` | number | 动画时长（秒）。 |
-| `animationRepeatCount` | number | 重复次数（0 通常表示无限）。 |
+| `animationRepeatCount` | number | 重复次数（0 默认表示无限）。 |
 
 ### 方法
 
@@ -29,7 +29,7 @@ description: 图片视图。支持设置 image/highlightedImage 与帧动画（a
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UIImageView` 的类成员。
+当前接口未额外暴露 `UIImageView` 的类成员。
 
 ## 相关
 

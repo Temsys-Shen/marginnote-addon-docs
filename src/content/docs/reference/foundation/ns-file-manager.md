@@ -65,7 +65,7 @@ createDirectoryAtPathWithIntermediateDirectoriesAttributes(path: string, withInt
 | :--- | :--- | :--- |
 | `path` | `string` | 目录路径。 |
 | `withIntermediateDirectories` | `boolean` | 是否创建中间目录。 |
-| `attributes` | `NSDictionary \| null` | 目录属性（通常传 null）。 |
+| `attributes` | `NSDictionary \| null` | 目录属性（默认传 null）。 |
 
 ### `createDirectoryAtPathAttributes` (简易版)
 

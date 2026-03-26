@@ -5,7 +5,7 @@ description: 格式化基类（对象↔字符串转换）。
 
 `NSFormatter` 是格式化器基类，用于把对象转换成字符串、或从字符串解析回对象。
 
-在插件环境里更常用的是其具体子类（例如 `NSDateFormatter`、`NSNumberFormatter`）。
+常用的是其具体子类（例如 `NSDateFormatter`、`NSNumberFormatter`）。
 
 ## 实例成员 (Instance members)
 
@@ -128,4 +128,4 @@ isPartialStringValidProposedSelectedRangeOriginalStringOriginalSelectedRangeErro
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `NSFormatter` 的类成员。
+当前接口未额外暴露 `NSFormatter` 的类成员。

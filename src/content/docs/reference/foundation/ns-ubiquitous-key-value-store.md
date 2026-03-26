@@ -51,9 +51,9 @@ static defaultStore(): NSUbiquitousKeyValueStore
 | `dictionaryRepresentation()` | — | NSDictionary | 获取当前键值快照。 |
 | `synchronize()` | — | boolean | 触发同步。 |
 
-## 运行时建议
+## 使用规范
 
-- 缺失key时，读取通常返回`nil/0/false`。
+- 缺失key时，读取默认返回`nil/0/false`。
 - `synchronize()`不保证强一致即时成功，受iCloud账号、网络和系统同步时机影响。
 
 ## 相关

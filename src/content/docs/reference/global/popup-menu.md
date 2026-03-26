@@ -3,7 +3,7 @@ title: PopupMenu
 description: 轻量弹出菜单视图（全局注入），用于展示一组 PopupMenuItem。
 ---
 
-`PopupMenu` 是运行时注入的全局类（对应原生 QBPopupMenu）。常用于在指定 rect 附近弹出一组菜单项。
+`PopupMenu` 是宿主注入的全局类（对应原生 QBPopupMenu）。常用于在指定 rect 附近弹出一组菜单项。
 
 ## 类成员 (Class members)
 
@@ -20,7 +20,7 @@ description: 轻量弹出菜单视图（全局注入），用于展示一组 Pop
 |---|---|---|
 | `visible` | `boolean` | 是否可见。 |
 | `items` | `NSArray` | 菜单项列表。 |
-| `arrowDirection` | `number` | 箭头方向（枚举值由运行时定义）。 |
+| `arrowDirection` | `number` | 箭头方向Default/Up/Down/Left/Right，数值 0/1/2/3/4。 |
 | `targetWinRect` | [`CGRect`](/reference/value-sturct/#cgrect) | 目标窗口 rect（只读）。 |
 
 ### 方法

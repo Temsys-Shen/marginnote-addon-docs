@@ -3,12 +3,12 @@ title: 内建command清单
 description: MarginNote内建command字符串速查表（用于query/processCommand调用）。
 ---
 
-本页汇总一些常见内建command字符串。它们通常用于：
+本页汇总一些常见内建command字符串。它们默认用于：
 
 - `Application.queryCommandWithKeyFlagsInWindow(command,keyFlags,window)`查询可用性与checked状态。
 - `Application.processCommandWithKeyFlagsInWindow(command,keyFlags,window)`执行内建命令。
 
-注意：该清单可能随版本变化；当某个command在运行时表现为`disabled:true`，可能是当前上下文不可用，也可能是版本差异导致不存在。
+注意：该清单会随版本变化；当某个command表现为`disabled:true`，是当前上下文不可用，也是版本差异导致不存在。
 
 ## Root（全局分发）
 

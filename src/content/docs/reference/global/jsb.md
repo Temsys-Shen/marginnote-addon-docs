@@ -1,12 +1,12 @@
 ---
 title: JSB
-description: JavaScript 桥接核心，连接插件 JS 与运行时对象的入口对象。
+description: JavaScript 桥接核心，连接插件 JS 与宿主对象的入口对象。
 ---
-JSB（JavaScript Bridge）是插件运行时的桥接核心对象：类定义、插件入口、日志与包内脚本加载都通过它完成。
+JSB（JavaScript Bridge）是插件环境的桥接核心对象：类定义、插件入口、日志与包内脚本加载都通过它完成。
 
 ## 实例成员 (Instance members)
 
-`JSB` 是全局对象，通常不以“实例化”的方式使用。
+`JSB` 是全局对象，默认不以“实例化”的方式使用。
 
 ## 类成员 (Class members)
 
@@ -14,7 +14,7 @@ JSB（JavaScript Bridge）是插件运行时的桥接核心对象：类定义、
 
 ### `defineClass`
 
-定义一个可被运行时识别并回调的类，只建议在插件入口处使用。
+定义一个可被插件环境识别并回调的类，只在插件入口处使用。
 
 注意：该方法定义的类非js的类，this并不会指向该类的实例，而应使用[self](/reference/global/self/) 替代
 

@@ -20,7 +20,7 @@ description: 菜单控制器，提供表格化菜单视图。
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `MenuController` 的类成员。
+当前接口未额外暴露 `MenuController` 的类成员。
 
 ## 相关
 

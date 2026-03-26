@@ -136,8 +136,8 @@ static bezierPathWithCGPath(CGPath: any): UIBezierPath
 
 ## 实例成员 (Instance members)
 
-`UIBezierPath` 的实例方法（如 moveTo/lineTo/append/closePath、fill/stroke、变换、命中测试等）较多，且组合方式灵活。建议通过站内搜索你关心的方法名来快速定位。
+`UIBezierPath` 的实例方法（如 moveTo/lineTo/append/closePath、fill/stroke、变换、命中测试等）较多，且组合方式灵活。通过站内搜索你关心的方法名来快速定位。
 
 ## 提示
 
-- 具体绘制/变换/填充/描边等方法较多，建议用站内搜索成员名。
+- 具体绘制/变换/填充/描边等方法较多，用站内搜索成员名。

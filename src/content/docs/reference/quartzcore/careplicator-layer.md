@@ -15,12 +15,12 @@ description: 复制图层。可设置 instanceCount、instanceTransform、instan
 | `instanceDelay` | number | 每个实例的时间延迟（秒）。 |
 | `instanceTransform` | object | 实例变换。 |
 | `preservesDepth` | boolean | 是否保持深度。 |
-| `instanceColor` | any | 实例颜色（运行时类型为 id）。 |
+| `instanceColor` | any | 实例颜色id。 |
 | `instanceRedOffset` / `instanceGreenOffset` / `instanceBlueOffset` / `instanceAlphaOffset` | number | 颜色分量偏移。 |
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `CAReplicatorLayer` 的类成员。
+当前接口未额外暴露 `CAReplicatorLayer` 的类成员。
 
 ## 相关
 

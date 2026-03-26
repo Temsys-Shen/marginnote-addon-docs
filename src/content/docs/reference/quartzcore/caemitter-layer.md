@@ -34,10 +34,10 @@ description: 粒子发射图层。用于粒子特效渲染。
 | `defaultValueForKey(key)` | key: string | any | 返回属性默认值。 |
 | `needsDisplayForKey(key)` | key: string | boolean | 判断属性变化是否触发重绘。 |
 
-## 运行时建议
+## 使用规范
 
 - 需要把图层挂到可见layer树才会看到效果。
-- `emitterCells`配置不兼容时常见“无效果不报错”，建议先用最小配置验证链路。
+- `emitterCells`配置不兼容时常见“无效果不报错”，先用最小配置验证链路。
 
 ## 相关
 

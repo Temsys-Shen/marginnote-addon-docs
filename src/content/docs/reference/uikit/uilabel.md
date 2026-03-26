@@ -7,7 +7,7 @@ description: 静态文本标签。
 
 ## 实例成员 (Instance members)
 
-### 属性（常用）
+### 属性
 
 | 属性 | 类型 | 说明 |
 |------|------|------|
@@ -20,7 +20,7 @@ description: 静态文本标签。
 
 ## 类成员 (Class members)
 
-运行时未额外暴露 `UILabel` 的类成员。
+当前接口未额外暴露 `UILabel` 的类成员。
 
 ## 相关
 

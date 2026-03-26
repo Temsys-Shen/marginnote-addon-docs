@@ -3,7 +3,7 @@ title: UIImagePickerController
 description: 系统媒体选择/拍摄控制器。支持选择来源、媒体类型、拍照与视频录制控制。
 ---
 
-`UIImagePickerController` 用于从相册/相机选择图片或视频，或直接拍摄。它在插件运行时以控制器形式出现，常配合导航控制器/弹出层展示。
+`UIImagePickerController` 用于从相册/相机选择图片或视频，或直接拍摄。它以控制器形式出现，常配合导航控制器/弹出层展示。
 
 ## 实例成员 (Instance members)
 
