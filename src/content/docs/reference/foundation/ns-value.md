@@ -1,15 +1,15 @@
 ---
 title: NSValue
-description: 通用值对象封装（CGRect/CGPoint/CGSize/NSRange 等）。
+description: 通用值对象封装（[CGRect](/reference/value-sturct/#cgrect)/[CGPoint](/reference/value-sturct/#cgpoint)/[CGSize](/reference/value-sturct/#cgsize)/[NSRange](/reference/value-sturct/#nsrange)/[CGAffineTransform](/reference/value-sturct/#cgaffinetransform)/[CATransform3D](/reference/value-sturct/#catransform3d)等）。
 ---
 
-`NSValue` 用于封装非对象类型的值（例如 `CGPoint`、`CGRect`、`CGSize`、`NSRange`、`CGAffineTransform`、`CATransform3D` 等），以便在集合中传递或作为返回值使用。
+`NSValue`用于封装非对象类型的值，例如[`CGPoint`](/reference/value-sturct/#cgpoint)、[`CGRect`](/reference/value-sturct/#cgrect)、[`CGSize`](/reference/value-sturct/#cgsize)、[`NSRange`](/reference/value-sturct/#nsrange)、[`CGAffineTransform`](/reference/value-sturct/#cgaffinetransform)、[`CATransform3D`](/reference/value-sturct/#catransform3d)等，以便在集合中传递或作为返回值使用。
 
 ## 类成员 (Class members)
 
 ### `valueWithCGPoint`
 
-从 CGPoint 创建。
+从[CGPoint](/reference/value-sturct/#cgpoint)创建。
 
 ```javascript
 static valueWithCGPoint(point: any): NSValue
@@ -27,7 +27,7 @@ static valueWithCGPoint(point: any): NSValue
 
 ### `valueWithCGSize`
 
-从 CGSize 创建。
+从[CGSize](/reference/value-sturct/#cgsize)创建。
 
 ```javascript
 static valueWithCGSize(size: any): NSValue
@@ -45,7 +45,7 @@ static valueWithCGSize(size: any): NSValue
 
 ### `valueWithCGRect`
 
-从 CGRect 创建。
+从[CGRect](/reference/value-sturct/#cgrect)创建。
 
 ```javascript
 static valueWithCGRect(rect: any): NSValue
@@ -63,7 +63,7 @@ static valueWithCGRect(rect: any): NSValue
 
 ### `valueWithCGAffineTransform`
 
-从 CGAffineTransform 创建。
+从[CGAffineTransform](/reference/value-sturct/#cgaffinetransform)创建。
 
 ```javascript
 static valueWithCGAffineTransform(transform: any): NSValue
@@ -81,7 +81,7 @@ static valueWithCGAffineTransform(transform: any): NSValue
 
 ### `valueWithRange`
 
-从 NSRange 创建。
+从[NSRange](/reference/value-sturct/#nsrange)创建。
 
 ```javascript
 static valueWithRange(range: any): NSValue
@@ -99,7 +99,7 @@ static valueWithRange(range: any): NSValue
 
 ### `valueWithCATransform3D`
 
-从 CATransform3D 创建（若环境中提供）。
+从[CATransform3D](/reference/value-sturct/#catransform3d)创建，若环境中提供。
 
 ```javascript
 static valueWithCATransform3D(transform3d: any): NSValue
@@ -119,7 +119,7 @@ static valueWithCATransform3D(transform3d: any): NSValue
 
 ### `CGPointValue`
 
-取 CGPoint 值。
+取[CGPoint](/reference/value-sturct/#cgpoint)值。
 
 ```javascript
 CGPointValue(): any
@@ -131,7 +131,7 @@ CGPointValue(): any
 
 ### `CGSizeValue`
 
-取 CGSize 值。
+取[CGSize](/reference/value-sturct/#cgsize)值。
 
 ```javascript
 CGSizeValue(): any
@@ -143,7 +143,7 @@ CGSizeValue(): any
 
 ### `CGRectValue`
 
-取 CGRect 值。
+取[CGRect](/reference/value-sturct/#cgrect)值。
 
 ```javascript
 CGRectValue(): any
@@ -155,7 +155,7 @@ CGRectValue(): any
 
 ### `CGAffineTransformValue`
 
-取 CGAffineTransform 值。
+取[CGAffineTransform](/reference/value-sturct/#cgaffinetransform)值。
 
 ```javascript
 CGAffineTransformValue(): any
@@ -167,7 +167,7 @@ CGAffineTransformValue(): any
 
 ### `rangeValue`
 
-取 NSRange 值。
+取[NSRange](/reference/value-sturct/#nsrange)值。
 
 ```javascript
 rangeValue(): any
@@ -179,7 +179,7 @@ rangeValue(): any
 
 ### `CATransform3DValue`
 
-取 CATransform3D 值。
+取[CATransform3D](/reference/value-sturct/#catransform3d)值。
 
 ```javascript
 CATransform3DValue(): any
@@ -191,4 +191,4 @@ CATransform3DValue(): any
 
 ## 相关
 
-- `CGPoint` / `CGRect` / `CGSize` / `NSRange`（作为值类型）
+- [`CGPoint`](/reference/value-sturct/#cgpoint) / [`CGRect`](/reference/value-sturct/#cgrect) / [`CGSize`](/reference/value-sturct/#cgsize) / [`NSRange`](/reference/value-sturct/#nsrange) / [`CGAffineTransform`](/reference/value-sturct/#cgaffinetransform) / [`CATransform3D`](/reference/value-sturct/#catransform3d)作为值类型

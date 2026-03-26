@@ -99,11 +99,13 @@ merge(note: MbBookNote): void
 
 ### `appendHtmlComment`
 
-添加 HTML 评论（已废弃，建议使用 `appendMarkdownComment`）。
+添加 HTML 评论。
 
 ```javascript
-appendHtmlComment(html: string, text: string, size: CGSize, tag: string): void
+appendHtmlComment(html: string, text: string, size: [CGSize](/reference/value-sturct/#cgsize), tag: string): void
 ```
+
+其中`size`类型见[`CGSize`](/reference/value-sturct/#cgsize)。
 
 **Parameters:**
 
@@ -111,7 +113,7 @@ appendHtmlComment(html: string, text: string, size: CGSize, tag: string): void
 | :--- | :--- | :--- |
 | `html` | `string` | HTML 内容。 |
 | `text` | `string` | 纯文本内容（用于搜索等）。 |
-| `size` | `CGSize` | 渲染尺寸。 |
+| `size` | [`CGSize`](/reference/value-sturct/#cgsize) | 渲染尺寸。 |
 | `tag` | `string` | 标签标识。 |
 
 **说明**：此方法已废弃，HTML 评论不再单独存储，建议使用 `appendMarkdownComment` 替代。

@@ -21,18 +21,17 @@ description: 轻量弹出菜单视图（全局注入），用于展示一组 Pop
 | `visible` | `boolean` | 是否可见。 |
 | `items` | `NSArray` | 菜单项列表。 |
 | `arrowDirection` | `number` | 箭头方向（枚举值以运行时为准）。 |
-| `targetWinRect` | `CGRect` | 目标窗口 rect（只读）。 |
+| `targetWinRect` | [`CGRect`](/reference/value-sturct/#cgrect) | 目标窗口 rect（只读）。 |
 
 ### 方法
 
 | 方法 | 参数 | 返回值 | 说明 |
 |---|---|---|---|
-| `showInViewTargetRectAnimated(view, targetRect, animated)` | view: `UIView`, targetRect: `CGRect`, animated: boolean | — | 在 view 中显示。 |
-| `updateWithTargetRect(targetRect)` | targetRect: `CGRect` | — | 更新目标 rect。 |
+| `showInViewTargetRectAnimated(view, targetRect, animated)` | view: `UIView`, targetRect: [`CGRect`](/reference/value-sturct/#cgrect), animated: boolean | — | 在 view 中显示。 |
+| `updateWithTargetRect(targetRect)` | targetRect: [`CGRect`](/reference/value-sturct/#cgrect) | — | 更新目标 rect。 |
 | `dismissAnimated(animated)` | animated: boolean | — | 关闭菜单。 |
 
 ## 相关
 
 - [PopupMenuItem](/reference/global/popup-menu-item/)
 - [UIView](/reference/uikit/uiview/)
-

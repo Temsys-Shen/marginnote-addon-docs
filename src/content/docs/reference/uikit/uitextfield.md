@@ -13,7 +13,7 @@ description: 单行文本输入框。
 |------|------|------|
 | `text` | string | 当前文本。 |
 | `placeholder` | string | 占位符。 |
-| `frame` | CGRect | 位置与大小。 |
+| `frame` | [CGRect](/reference/value-sturct/#cgrect) | 位置与大小。 |
 | `borderStyle` | number | 边框样式（如 2）。 |
 | `delegate` | id | 委托，可实现 textFieldShouldReturn 等。 |
 

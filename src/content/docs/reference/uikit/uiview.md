@@ -11,8 +11,8 @@ description: 所有 UI 控件的基类，管理 frame、子视图与图层。
 
 | 属性 | 类型 | 说明 |
 |------|------|------|
-| `frame` | CGRect | 位置与大小。 |
-| `bounds` | CGRect | 内部坐标系。 |
+| `frame` | [CGRect](/reference/value-sturct/#cgrect) | 位置与大小。 |
+| `bounds` | [CGRect](/reference/value-sturct/#cgrect) | 内部坐标系。 |
 | `backgroundColor` | UIColor | 背景色。 |
 | `hidden` | boolean | 是否隐藏。 |
 | `layer` | CALayer | 图层，可设置 cornerRadius、borderWidth、borderColor 等。 |
