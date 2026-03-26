@@ -26,7 +26,7 @@ description: 触摸/系统事件对象。可查询事件类型、时间戳与 to
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UIEvent` 的类成员。
+运行时未额外暴露 `UIEvent` 的类成员。
 
 ## 相关
 

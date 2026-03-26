@@ -20,7 +20,7 @@ req.setHTTPBody(NSData.dataWithStringEncoding("{}", 4));
 
 ## 类成员 (Class members)
 
-当前运行时未额外在本文列出 `NSMutableURLRequest` 的类成员；通常通过 `requestWithURL(...)` 等工厂方法创建（以你的运行时实际暴露为准，站内搜索即可定位）。
+运行时未额外在本文列出 `NSMutableURLRequest` 的类成员；通常通过 `requestWithURL(...)` 等工厂方法创建（以你的运行时实际暴露情况定义，站内搜索即可定位）。
 
 相关：[网络请求](/guides/network-requests/) 教程含完整请求构建示例。
 

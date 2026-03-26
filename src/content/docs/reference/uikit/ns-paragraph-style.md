@@ -11,7 +11,7 @@ description: 段落样式（只读，富文本排版属性）。
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `NSParagraphStyle` 的类成员。
+运行时未额外暴露 `NSParagraphStyle` 的类成员。
 
 ## 提示
 

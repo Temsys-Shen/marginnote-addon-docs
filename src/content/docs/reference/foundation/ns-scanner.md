@@ -445,4 +445,10 @@ isAtEnd(): boolean
 
 - `boolean`: 是否到末尾。
 
-> 注：`scanUpToEndOfStringIntoString(...)` 在最新头文件导出清单中未暴露；可结合 `isAtEnd()` 与 `scanUpToStringIntoString(...)` / `scanUpToCharactersFromSetIntoString(...)` 实现类似效果（以运行时行为为准）。
+> 注：`scanUpToEndOfStringIntoString(...)`在最新头文件导出清单中未暴露；可结合`isAtEnd()`与`scanUpToStringIntoString(...)`/`scanUpToCharactersFromSetIntoString(...)`实现类似效果。
+>
+> 已确认边界行为：
+>
+> - 空字符串时`isAtEnd()`为`true`。
+> - 全空白字符串在默认跳过规则下`isAtEnd()`为`true`。
+> - `setScanLocation(pos)`传入越界值有崩溃风险，建议先把`pos`钳制到`[0, string.length]`。

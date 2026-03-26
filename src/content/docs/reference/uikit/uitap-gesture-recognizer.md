@@ -11,7 +11,7 @@ description: 点击手势识别器。
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UITapGestureRecognizer` 的类成员。
+运行时未额外暴露 `UITapGestureRecognizer` 的类成员。
 
 ## 提示
 

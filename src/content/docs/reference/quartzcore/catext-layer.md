@@ -21,7 +21,7 @@ description: 文本图层。支持 string/font/fontSize、alignmentMode、foregr
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `CATextLayer` 的类成员。
+运行时未额外暴露 `CATextLayer` 的类成员。
 
 ## 相关
 

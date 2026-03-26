@@ -3,7 +3,7 @@ title: UISearchBar
 description: 搜索栏视图。支持占位文本、范围按钮、取消/书签按钮，并可自定义背景与 scope 外观。
 ---
 
-`UISearchBar` 继承自 [UIView](/reference/uikit/uiview/)，用于输入搜索文本与可选范围（scope）筛选。插件运行时通常通过 `delegate` 获取文本变化/按钮点击等回调（delegate 的具体回调方法名取决于运行时实现与你的对象定义）。
+`UISearchBar` 继承自 [UIView](/reference/uikit/uiview/)，用于输入搜索文本与可选范围（scope）筛选。插件运行时通常通过 `delegate` 获取文本变化/按钮点击等回调（delegate 的具体回调方法名由运行时定义与你的对象定义）。
 
 ## 实例成员 (Instance members)
 
@@ -49,7 +49,7 @@ description: 搜索栏视图。支持占位文本、范围按钮、取消/书签
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UISearchBar` 的类成员。
+运行时未额外暴露 `UISearchBar` 的类成员。
 
 ## 相关
 

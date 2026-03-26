@@ -22,9 +22,9 @@ description: 搜索与索引管理器（全文检索、URL 搜索、相似笔记
 | `searchText(query, titleOnly, topicid, beginsWith, limit)` | 文本搜索。 |
 | `searchTextNoteOnly(query, titleOnly, topicid, beginsWith, limit, noteOnly)` | 文本搜索（可限定只搜笔记）。 |
 | `searchTextWordList(textWordLst, titleOnly, topicid, beginsWith, limit)` | 使用分词列表进行搜索。 |
-| `searchFts3Text(query, titleOnly, topicid, limit, noteOnly)` | 通过 FTS3 搜索（实现依赖运行时）。 |
-| `searchURLs(urls, topicid)` | 按 URL 列表搜索。 |
-| `searchPage(query, beginsWith, limit)` | 页内搜索（实现依赖运行时）。 |
+| `searchFts3Text(query, titleOnly, topicid, limit, noteOnly)` | 通过 FTS3 搜索。 |
+| `searchURLs(urls, topicid)` | 按 URL 列表搜索。运行时`urls`必须为`NSArray`，传原始字符串会报`TypeError: Cannot convert primitive to NSArray`。`topicid`可传`string`或`NSArray`。 |
+| `searchPage(query, beginsWith, limit)` | 页内搜索。 |
 | `snippetForFts3RowId(rowid)` / `snippetForPageRowId(rowid)` | 获取 snippet（结果摘要）。 |
 
 ### 同步与索引
@@ -43,9 +43,15 @@ description: 搜索与索引管理器（全文检索、URL 搜索、相似笔记
 | `findSimilarNotes(queryVector, topicId, k)` | 向量相似笔记检索。 |
 | `batchFindSimilarNotes(queryVectors, topicId, k)` | 批量向量相似检索。 |
 | `findSimilarNotesHybrid(queryVector, queryText, topicId, k, semanticWeight, bm25Weight)` | 语义+BM25 混合检索。 |
-| `loadVectorCacheForTopic(topicId)` / `syncTopicVectorsForceCompletion(topicId, force, completion)` / `invalidateVectorCacheForTopics(topicIds)` | 向量缓存相关（实现依赖运行时）。 |
+| `loadVectorCacheForTopic(topicId)` / `syncTopicVectorsForceCompletion(topicId, force, completion)` / `invalidateVectorCacheForTopics(topicIds)` | 向量缓存相关。 |
+
+### 已确认行为
+
+- `searchPage(...)`有命中时返回数组对象，无命中时返回空数组。
+- `searchPage("", ...)`返回`undefined`，不是空数组。
+- 当前样本中`searchFts3Text(...)`有命中与无命中都可能返回空数组，结果受索引状态影响较大。
+- `snippetForFts3RowId(rowid)`与`snippetForPageRowId(rowid)`在当前样本中返回`undefined`。
 
 ## 相关
 
 - [Application](/reference/global/application/) — `Application.sharedInstance().searchManager`
-

@@ -28,7 +28,7 @@ description: 视图控制器基类，管理 view 与生命周期。
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UIViewController` 的类成员。
+运行时未额外暴露 `UIViewController` 的类成员。
 
 ## 相关
 

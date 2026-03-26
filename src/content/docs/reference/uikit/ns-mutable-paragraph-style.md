@@ -11,7 +11,7 @@ description: 可变段落样式（可用于构造/修改富文本段落属性）
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `NSMutableParagraphStyle` 的类成员。
+运行时未额外暴露 `NSMutableParagraphStyle` 的类成员。
 
 ## 提示
 

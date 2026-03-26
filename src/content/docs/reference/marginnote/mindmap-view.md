@@ -16,7 +16,7 @@ description: 脑图视图，继承自 UIScrollView，展示脑图节点列表与
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `MindMapView` 的类成员。
+运行时未额外暴露 `MindMapView` 的类成员。
 
 ## 相关
 

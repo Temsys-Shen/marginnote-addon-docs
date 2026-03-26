@@ -11,7 +11,7 @@ description: 加载指示器（菊花）。
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UIActivityIndicatorView` 的类成员。
+运行时未额外暴露 `UIActivityIndicatorView` 的类成员。
 
 ## 提示
 

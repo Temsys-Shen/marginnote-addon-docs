@@ -156,7 +156,7 @@ class MNNetwork {
 
 - `Response#text()`：用 `data.base64Encoding()` 得到 base64 串，再 `Base64.decode(encoding)` 得到 JS 字符串；环境无 Base64 解码，故依赖上面的 `base64.js`。
 - `Response#json()`：直接对 **NSData** 调用 `NSJSONSerialization.JSONObjectWithDataOptions(this.data, 1)`，不经过 base64 或字符串。
-- 错误信息：`error.localizedDescription` 在部分运行时为方法，需 `error.localizedDescription()`，封装里已按「有则调用」处理。
+- 错误信息：`error.localizedDescription` 在运行时为方法，需 `error.localizedDescription()`，封装里已按「有则调用」处理。
 
 ---
 
@@ -231,7 +231,7 @@ async function fetchWithAuth() {
 
 - **回调**：`NSURLConnection.sendAsynchronousRequestQueueCompletionHandler(request, NSOperationQueue.mainQueue(), function (response, data, error) { ... })`。有用的是 **data**（响应体）、可选的 `response.statusCode()`、以及 **error**（失败时）。
 - **JSON**：直接对 **data**（NSData）解析，不要先转字符串再 `JSON.parse`：
-  - `var obj = NSJSONSerialization.JSONObjectWithDataOptions(data, 0);` 或选项 `1`（若运行时支持）。
+  - `var obj = NSJSONSerialization.JSONObjectWithDataOptions(data, 0);` 或选项 `1`（运行时支持）。
 - **纯文本**：无 Base64 解码时无法从 NSData 得到字符串；必须先按上文提供 `base64.js`，再 `var str = Base64.decode(data.base64Encoding());`。
 - **错误**：`error.localizedDescription` 可能是属性或方法，建议统一写成：`var msg = (typeof error.localizedDescription === "function" ? error.localizedDescription() : error.localizedDescription) || "未知错误";`。
 
@@ -298,7 +298,7 @@ NSURLConnection.sendAsynchronousRequestQueueCompletionHandler(
 | 响应体 | 使用回调中的 **data**（NSData），不必依赖 response 的其他字段 |
 | data → JSON | `NSJSONSerialization.JSONObjectWithDataOptions(data, 0)` 或 `1`，直接对 data |
 | data → 纯文本 | `data.base64Encoding()` 得到 base64 串，再 **Base64.decode**（需自备 base64.js） |
-| 错误信息 | `error.localizedDescription` 或 `error.localizedDescription()`，依运行时而定 |
+| 错误信息 | `error.localizedDescription` 或 `error.localizedDescription()`，由运行时定义 |
 
 推荐在插件内包含完整的 `base64.js` 与 `network.js`（如上），先 `JSB.require('base64')` 再 `JSB.require('network')`，然后用 `MNNetwork.fetch` 发起请求，在 try/catch 中用 `res.json()` 或 `res.text()` 处理 JSON 与纯文本。
 

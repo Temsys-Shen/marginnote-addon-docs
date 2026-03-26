@@ -14,7 +14,9 @@ JSB（JavaScript Bridge）是插件运行时的桥接核心对象：类定义、
 
 ### `defineClass`
 
-定义一个可被运行时识别并回调的类，**所有插件的入口**。
+定义一个可被运行时识别并回调的类，只建议在插件入口处使用。
+
+注意：该方法定义的类非js的类，this并不会指向该类的实例，而应使用[self](/reference/global/self/) 替代
 
 ```javascript
 defineClass(declaration: string, instanceMembers: object, classMembers?: object): any

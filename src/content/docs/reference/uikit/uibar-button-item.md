@@ -11,7 +11,7 @@ description: 条形按钮项（导航栏/工具栏按钮）。
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UIBarButtonItem` 的类成员。
+运行时未额外暴露 `UIBarButtonItem` 的类成员。
 
 ## 提示
 

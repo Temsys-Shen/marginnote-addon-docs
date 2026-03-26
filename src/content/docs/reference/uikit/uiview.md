@@ -38,7 +38,7 @@ description: 所有 UI 控件的基类，管理 frame、子视图与图层。
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UIView` 的类成员。
+运行时未额外暴露 `UIView` 的类成员。
 
 ## 相关
 

@@ -50,7 +50,7 @@ textData.writeToFileAtomically(filePath, true);
 读取文件为 NSData 后，若需转为 JS 可用的形式：
 
 - **若文件为 JSON**：用 `NSJSONSerialization.JSONObjectWithDataOptions(data, 0)` 解析为对象/数组；解析前可用 `data.length() === 0` 判断是否为空。
-- **若需纯文本字符串**：若运行时导出了 `NSString`，可用 `NSString.alloc().initWithDataEncoding(data, 4)`（4 为 UTF-8）再取字符串；若无 NSString，可先尝试上述 JSON 解析。
+- **若需纯文本字符串**：运行时导出 `NSString`，可用 `NSString.alloc().initWithDataEncoding(data, 4)`（4 为 UTF-8）再取字符串；若无 NSString，可先尝试上述 JSON 解析。
 
 示例：从文件读取 JSON 并解析
 

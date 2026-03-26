@@ -14,7 +14,7 @@ description: 动画组。可组合多段动画，并配置 timingFunction、keyP
 | `animations` | NSArray | 子动画数组。 |
 | `keyPath` | string \| null | keyPath（若该组被用作属性动画时）。 |
 | `fromValue` / `toValue` / `byValue` | any | 起始/结束/增量值。 |
-| `values` | NSArray | 关键帧 values（若运行时复用字段）。 |
+| `values` | NSArray | 关键帧 values（运行时复用字段）。 |
 | `keyTimes` | NSArray | 关键时间点数组。 |
 | `timingFunction` | CAMediaTimingFunction \| null | timingFunction。 |
 | `timingFunctions` | NSArray | 多段 timingFunctions。 |
@@ -34,7 +34,7 @@ description: 动画组。可组合多段动画，并配置 timingFunction、keyP
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `CAAnimationGroup` 的类成员。
+运行时未额外暴露 `CAAnimationGroup` 的类成员。
 
 ## 相关
 

@@ -20,7 +20,7 @@ description: 轻量弹出菜单视图（全局注入），用于展示一组 Pop
 |---|---|---|
 | `visible` | `boolean` | 是否可见。 |
 | `items` | `NSArray` | 菜单项列表。 |
-| `arrowDirection` | `number` | 箭头方向（枚举值以运行时为准）。 |
+| `arrowDirection` | `number` | 箭头方向（枚举值由运行时定义）。 |
 | `targetWinRect` | [`CGRect`](/reference/value-sturct/#cgrect) | 目标窗口 rect（只读）。 |
 
 ### 方法

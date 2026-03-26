@@ -11,7 +11,7 @@ description: 响应链基类（事件/第一响应者）。
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UIResponder` 的类成员。
+运行时未额外暴露 `UIResponder` 的类成员。
 
 ## 提示
 

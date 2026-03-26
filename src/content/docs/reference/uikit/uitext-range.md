@@ -19,7 +19,7 @@ description: 文本范围对象（运行时暴露）。常用于描述选区/标
 | `endOfDocument` | UITextPosition \| null | 只读。文档终点。 |
 | `start` | UITextPosition \| null | 只读。范围起点。 |
 | `end` | UITextPosition \| null | 只读。范围终点。 |
-| `text` | string \| null | 只读。文本内容（若运行时提供）。 |
+| `text` | string \| null | 只读。文本内容（运行时提供）。 |
 | `rect` | { x: number, y: number, width: number, height: number } | 只读。相关区域。 |
 | `tokenizer` | id | 只读。分词器对象。 |
 | `textInputView` | UIView \| null | 只读。输入视图。 |
@@ -32,7 +32,7 @@ description: 文本范围对象（运行时暴露）。常用于描述选区/标
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UITextRange` 的类成员。
+运行时未额外暴露 `UITextRange` 的类成员。
 
 ## 相关
 

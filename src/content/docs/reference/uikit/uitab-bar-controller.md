@@ -29,7 +29,7 @@ description: Tab 容器控制器。管理 viewControllers、selectedIndex/select
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UITabBarController` 的类成员。
+运行时未额外暴露 `UITabBarController` 的类成员。
 
 ## 相关
 

@@ -32,11 +32,11 @@ description: 单个文档的控制器，提供当前文档与选区。
 | `indicesFromPageNo(pageNo)` | pageNo: number | `NSArray<number>` | 由页码得到可能的页索引列表。 |
 | `indexFromPageNo(pageNo)` | pageNo: number | number | 由页码得到页索引。 |
 | `pageNoFromIndex(index)` | index: number | number | 由页索引得到页码。 |
-| `highlightFromSelection()` | — | `any` | 从当前选区生成高亮对象（类型依赖运行时）。 |
+| `highlightFromSelection()` | — | `any` | 从当前选区生成高亮对象（类型由运行时定义）。 |
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `DocumentController` 的类成员。
+运行时未额外暴露 `DocumentController` 的类成员。
 
 ## 相关
 

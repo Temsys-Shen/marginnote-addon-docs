@@ -58,7 +58,10 @@ export default defineConfig({
 								{ label: 'Application', slug: 'reference/global/application' },
 								{ label: 'SearchManager', slug: 'reference/global/search-manager' },
 								{ label: 'Database', slug: 'reference/global/database' },
+								{ label: 'Document', slug: 'reference/global/document' },
+								{ label: 'Notebook', slug: 'reference/global/notebook' },
 								{ label: 'Note', slug: 'reference/global/note' },
+								{ label: 'AgentTools', slug: 'reference/global/agent-tools' },
 								{ label: 'PopupMenu', slug: 'reference/global/popup-menu' },
 								{ label: 'PopupMenuItem', slug: 'reference/global/popup-menu-item' },
 								{ label: 'self', slug: 'reference/global/self' },
@@ -102,6 +105,7 @@ export default defineConfig({
 							label: '运行时边界',
 							items: [
 								{ label: 'JavaScript 原生环境', slug: 'reference/js-runtime' },
+								{ label: 'Value Sturct', slug: 'reference/value-sturct' },
 								{ label: '隐藏的边界（The Black Box）', slug: 'reference/black-box' },
 							],
 						},

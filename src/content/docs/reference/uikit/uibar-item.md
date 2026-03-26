@@ -11,7 +11,7 @@ description: 工具条/导航条条目基类（title/image 等）。
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UIBarItem` 的类成员。
+运行时未额外暴露 `UIBarItem` 的类成员。
 
 ## 提示
 

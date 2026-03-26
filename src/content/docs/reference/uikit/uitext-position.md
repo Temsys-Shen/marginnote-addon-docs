@@ -7,7 +7,7 @@ description: 文本位置对象（运行时暴露）。常作为 UITextRange 的
 
 ## 实例成员 (Instance members)
 
-当前运行时为 `UITextPosition` 暴露了一组与“文本范围/输入上下文”相关的字段（语义与用途高度依赖具体实现）。常见用法是把它作为只读数据从运行时取回并传递给其他 API。
+运行时为 `UITextPosition` 暴露了一组与“文本范围/输入上下文”相关的字段（语义与用途高度依赖具体实现）。常见用法是把它作为只读数据从运行时取回并传递给其他 API。
 
 ### 属性
 
@@ -21,7 +21,7 @@ description: 文本位置对象（运行时暴露）。常作为 UITextRange 的
 | `endOfDocument` | UITextPosition \| null | 只读。文档终点。 |
 | `start` | UITextPosition \| null | 只读。范围起点。 |
 | `end` | UITextPosition \| null | 只读。范围终点。 |
-| `text` | string \| null | 只读。文本内容（若运行时提供）。 |
+| `text` | string \| null | 只读。文本内容（运行时提供）。 |
 | `rect` | { x: number, y: number, width: number, height: number } | 只读。相关区域。 |
 | `tokenizer` | id | 只读。分词器对象。 |
 | `textInputView` | UIView \| null | 只读。输入视图。 |
@@ -34,7 +34,7 @@ description: 文本位置对象（运行时暴露）。常作为 UITextRange 的
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UITextPosition` 的类成员。
+运行时未额外暴露 `UITextPosition` 的类成员。
 
 ## 相关
 

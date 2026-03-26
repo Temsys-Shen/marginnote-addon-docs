@@ -14,4 +14,4 @@ description: 屏幕显示模式对象，提供像素比例与尺寸信息。
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UIScreenMode` 的类成员。
+运行时未额外暴露 `UIScreenMode` 的类成员。

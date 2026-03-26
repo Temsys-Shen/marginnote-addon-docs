@@ -25,7 +25,7 @@ static standardUserDefaults(): NSUserDefaults
 
 ### `setObjectForKey`
 
-存储任意对象（通常为字符串、数字、数组、字典等可序列化类型）。
+存储任意对象（为字符串、数字、数组、字典等可序列化类型）。
 
 ```javascript
 setObjectForKey(value: any, key: string): void

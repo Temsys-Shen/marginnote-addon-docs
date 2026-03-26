@@ -11,7 +11,7 @@ description: 富文本存储（可变 attributed string 的存储与通知层）
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `NSTextStorage` 的类成员。
+运行时未额外暴露 `NSTextStorage` 的类成员。
 
 ## 提示
 

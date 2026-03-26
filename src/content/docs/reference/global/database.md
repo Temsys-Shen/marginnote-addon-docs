@@ -371,7 +371,7 @@ getSketchNotesForMindMap(topicid: string): NSArray
 
 ### `transDictionaryToJSCompatible` / `transArrayToJSCompatible`
 
-将原生容器转换为更易于 JS 使用的结构（行为以运行时实现为准）。
+将原生容器转换为更易于 JS 使用的结构（行为由运行时定义）。
 
 ```javascript
 static transDictionaryToJSCompatible(dic: NSDictionary): NSDictionary
@@ -387,7 +387,7 @@ static transArrayToJSCompatible(arr: NSArray): NSArray
 
 **Return Value:**
 
-- `any`: 导入结果（通常为导入的笔记本对象或状态）。
+- `any`: 导入结果（为导入的笔记本对象或状态）。
 
 ## 相关
 

@@ -92,7 +92,7 @@ toggleExtensionPanel(): void
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `StudyController` 的类成员。
+运行时未额外暴露 `StudyController` 的类成员。
 
 ## 相关
 

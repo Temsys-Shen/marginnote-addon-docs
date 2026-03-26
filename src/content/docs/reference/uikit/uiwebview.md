@@ -11,7 +11,7 @@ UIWebView 用于在插件中嵌入网页或本地 HTML 页面，继承自 [UIVie
 
 | 属性 | 类型 | 说明 |
 | :--- | :--- | :--- |
-| `delegate` | `id` | 实现 UIWebViewDelegate 的对象，通常为承载 WebView 的 ViewController（self）。 |
+| `delegate` | `id` | 实现 UIWebViewDelegate 的对象，为承载 WebView 的 ViewController（self）。 |
 | `scrollView` | `UIScrollView` | 只读，内嵌滚动视图。 |
 | `request` | `NSURLRequest` | 只读，当前请求。 |
 | `loading` | `boolean` | 只读，是否正在加载。 |
@@ -221,7 +221,7 @@ webViewShouldStartLoadWithRequestNavigationType(webView: UIWebView, request: NSU
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UIWebView` 的类成员。
+运行时未额外暴露 `UIWebView` 的类成员。
 
 ## 相关
 

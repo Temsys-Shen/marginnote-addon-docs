@@ -14,7 +14,7 @@ description: 可滚动图层。提供 scrollToPoint/scrollToRect 方法。
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `CAScrollLayer` 的类成员。
+运行时未额外暴露 `CAScrollLayer` 的类成员。
 
 ## 相关
 

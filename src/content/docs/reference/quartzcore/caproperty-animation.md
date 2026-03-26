@@ -30,7 +30,7 @@ description: 属性动画基类。支持按 keyPath 创建，并暴露 timingFun
 | `additive` | boolean | 是否 additive。 |
 | `cumulative` | boolean | 是否 cumulative。 |
 | `removedOnCompletion` | boolean | 是否在完成后移除。 |
-| `animations` | NSArray | 子动画数组（在部分运行时复用字段）。 |
+| `animations` | NSArray | 子动画数组（在运行时复用字段）。 |
 
 ## 类成员 (Class members)
 

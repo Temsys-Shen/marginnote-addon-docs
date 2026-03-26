@@ -15,7 +15,7 @@ description: 开关控件。
 
 ## 类成员 (Class members)
 
-当前运行时未额外暴露 `UISwitch` 的类成员。
+运行时未额外暴露 `UISwitch` 的类成员。
 
 ## 相关
 
