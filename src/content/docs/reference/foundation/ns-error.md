@@ -3,7 +3,7 @@ title: NSError
 description: 错误对象，包含 domain/code/userInfo 与本地化描述信息。
 ---
 
-`NSError` 用于表示错误信息。网络请求（如 `NSURLConnection`）或文件 API 可能通过 `NSError **` 返回错误对象（JS 侧通常作为回调参数或返回值的一部分出现）。
+`NSError` 用于表示错误信息。网络请求（如 `NSURLConnection`）或文件API可能通过`NSError **`返回错误对象，JS侧通常作为回调参数或返回值的一部分出现。
 
 ## 类成员 (Class members)
 

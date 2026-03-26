@@ -139,7 +139,7 @@ getObjectValueForStringRangeError(obj: any, string: string, rangep: any, error: 
 
 ### 进阶
 
-本类型还导出了大量与舍入、科学计数、货币、百分比、解析容错、符号显示相关的 getter/setter（例如 roundingMode、currencyCode、percentSymbol、lenient、usesSignificantDigits 等）。可通过站内搜索成员名定位。
+本类型还导出了大量与舍入、科学计数、货币、百分比、解析容错、符号显示相关的可读写成员，例如`roundingMode`、`currencyCode`、`percentSymbol`、`lenient`、`usesSignificantDigits`等。可通过站内搜索成员名定位。
 
 ## 相关
 

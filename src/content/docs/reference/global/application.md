@@ -25,7 +25,7 @@ static sharedInstance(): Application
 
 | 属性 | 类型 | 说明 |
 | :--- | :--- | :--- |
-| `focusWindow` | `UIWindow` | 当前活动窗口（文档中有时写作 `window`，getter 为 window）。 |
+| `focusWindow` | `UIWindow` | 当前活动窗口，文档中有时写作`window`。 |
 | `currentTheme` | `string` | 当前主题，包括 `Default` / `Sepia`/ `Gray` / `Dark` / `Green`。 |
 | `dbPath` | `string` | 主数据库文件路径。 |
 | `documentPath` | `string` | 文稿目录路径。 |

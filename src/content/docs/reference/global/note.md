@@ -43,16 +43,16 @@ var notebook = db.getNotebookById("NOTEBOOK_ID");
 var doc = db.getDocumentById("DOC_MD5");
 
 if (notebook && doc) {
-  var topicid = notebook.topicId || notebook.topicid; // 兼容不同 getter 命名
+  var topicId = notebook.topicId;
   UndoManager.sharedInstance().undoGrouping(
     "创建笔记",
-    topicid,
+    topicId,
     function () {
       var note = Note.createWithTitleNotebookDocument("新笔记", notebook, doc);
       // note 为 MbBookNote
     }
   );
-  Application.sharedInstance().refreshAfterDBChanged(topicid);
+  Application.sharedInstance().refreshAfterDBChanged(topicId);
 }
 ```
 

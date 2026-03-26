@@ -3,7 +3,7 @@ title: NSTimer
 description: 定时器，延迟执行或周期执行回调。
 ---
 
-用于延迟执行或重复执行一段代码。JS 侧通过 `scheduledTimerWithTimeInterval(ti, repeats, block)` 创建，block 接收 timer 参数。
+用于延迟执行或重复执行一段代码。JS侧通过`scheduledTimerWithTimeInterval(ti, repeats, block)`创建，block接收timer参数。
 
 ## 类成员 (Class members)
 

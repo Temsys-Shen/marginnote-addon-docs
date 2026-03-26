@@ -62,7 +62,7 @@ log(format: string, ...args: any[]): void
 
 | Name        | Type       | Description                                             |
 | :---------- | :--------- | :------------------------------------------------------ |
-| `format`  | `string` | 格式化字符串，支持 `%@`、`%d` 等 Objective-C 格式。 |
+| `format`  | `string` | 格式化字符串，支持`%@`、`%d`等占位符。 |
 | `...args` | `any[]`  | 对应格式化字符串的参数。                                |
 
 ### `require`

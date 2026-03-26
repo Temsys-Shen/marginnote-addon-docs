@@ -14,7 +14,7 @@ UIWebView 用于在插件中嵌入网页或本地 HTML 页面，继承自 [UIVie
 | `delegate` | `id` | 实现 UIWebViewDelegate 的对象，通常为承载 WebView 的 ViewController（self）。 |
 | `scrollView` | `UIScrollView` | 只读，内嵌滚动视图。 |
 | `request` | `NSURLRequest` | 只读，当前请求。 |
-| `loading` | `boolean` | 只读，是否正在加载（getter 为 isLoading）。 |
+| `loading` | `boolean` | 只读，是否正在加载。 |
 | `canGoBack` | `boolean` | 只读，是否可后退。 |
 | `canGoForward` | `boolean` | 只读，是否可前进。 |
 | `scalesPageToFit` | `boolean` | 是否按比例缩放以适应视图。 |
@@ -52,7 +52,7 @@ loadHTMLStringBaseURL(string: string, baseURL: NSURL | null): void
 | `string` | `string` | HTML 内容字符串。 |
 | `baseURL` | `NSURL \| null` | 基础 URL（用于解析相对路径）。 |
 
-**Note:** 该方法对应 Objective‑C 的 `loadHTMLString:baseURL:`，JS 侧为参数标签拼接后的方法名。
+**说明:** 该方法名由参数标签拼接得到。
 
 ### `loadDataMIMETypeTextEncodingNameBaseURL`
 

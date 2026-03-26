@@ -11,11 +11,11 @@ description: 文档对象，代表一个 PDF/EPUB 文档。
 
 | 属性 | 类型 | 说明 |
 |------|------|------|
-| `docMd5` | `string` | 文档唯一 MD5（getter 为 md5real）。 |
-| `docTitle` | `string` | 文档标题（getter 为 bookTitle）。 |
+| `docMd5` | `string` | 文档唯一MD5。 |
+| `docTitle` | `string` | 文档标题。 |
 | `pathFile` | `string` | 文档在 MarginNote 存储中的相对路径。 |
 | `fullPathFileName` | `string` | 文档的完整路径（若环境可用）。 |
-| `currentTopicId` | `string` | 当前所属笔记本 ID（getter 为 currenttopicid）。 |
+| `currentTopicId` | `string` | 当前所属笔记本ID。 |
 | `lastVisit` | `NSDate` | 最后访问时间。 |
 | `pageCount` | `number` | 总页数。 |
 

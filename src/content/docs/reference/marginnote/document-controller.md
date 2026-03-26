@@ -11,12 +11,12 @@ description: 单个文档的控制器，提供当前文档与选区。
 
 | 属性 | 类型 | 说明 |
 |------|------|------|
-| `document` | `MbBook` \| undefined | 当前文档对象（getter 为 currBook）。 |
-| `docMd5` | `string` | 当前文档 MD5（getter 为 currentBookMd5）。 |
-| `notebookId` | `string` | 当前笔记本 ID（getter 为 currTopicId）。 |
+| `document` | `MbBook` \| undefined | 当前文档对象。 |
+| `docMd5` | `string` | 当前文档MD5。 |
+| `notebookId` | `string` | 当前笔记本ID。 |
 | `focusNote` | `MbBookNote` \| undefined | 当前焦点笔记。 |
 | `visibleFocusNote` | `MbBookNote` \| undefined | 当前可见的焦点笔记。 |
-| `lastFocusNote` | `MbBookNote` \| undefined | 上一次的焦点笔记（getter 为 lastFocusNote）。 |
+| `lastFocusNote` | `MbBookNote` \| undefined | 上一次的焦点笔记。 |
 | `selectionText` | `string` \| undefined | 用户在 PDF 中当前选中的文本。 |
 | `currPageNo` | `number` | 当前页码（运行时定义，通常从 1 开始）。 |
 | `currPageIndex` | `number` | 当前页索引（运行时定义，通常从 0 开始）。 |
