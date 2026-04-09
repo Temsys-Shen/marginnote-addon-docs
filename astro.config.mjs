@@ -8,6 +8,10 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'MarginNote 插件开发文档',
+			tableOfContents: {
+				minHeadingLevel: 2,
+				maxHeadingLevel: 4,
+			},
 			customCss: ['/src/styles/starlight-overrides.css'],
 			components: {
 				Search: './src/components/Search.astro',
@@ -116,6 +120,10 @@ export default defineConfig({
 							],
 						},
 					],
+				},
+				{
+					label: 'LibMN',
+					autogenerate: { directory: 'reference/libmn' },
 				},
 				{
 					label: '关于',

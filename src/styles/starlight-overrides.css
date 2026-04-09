@@ -7,6 +7,34 @@
 		table-layout: fixed;
 	}
 
+	/* Determine column count from Markdown table header (2-6 columns). */
+	.sl-markdown-content
+		table:has(> thead > tr > :nth-child(2)):not(:has(> thead > tr > :nth-child(3))) {
+		--sl-table-cols: 2;
+	}
+	.sl-markdown-content
+		table:has(> thead > tr > :nth-child(3)):not(:has(> thead > tr > :nth-child(4))) {
+		--sl-table-cols: 3;
+	}
+	.sl-markdown-content
+		table:has(> thead > tr > :nth-child(4)):not(:has(> thead > tr > :nth-child(5))) {
+		--sl-table-cols: 4;
+	}
+	.sl-markdown-content
+		table:has(> thead > tr > :nth-child(5)):not(:has(> thead > tr > :nth-child(6))) {
+		--sl-table-cols: 5;
+	}
+	.sl-markdown-content
+		table:has(> thead > tr > :nth-child(6)):not(:has(> thead > tr > :nth-child(7))) {
+		--sl-table-cols: 6;
+	}
+
+	/* Keep each column within its share and never over 50% in multi-column tables. */
+	.sl-markdown-content table:has(> thead > tr > :nth-child(2)) :is(th, td):not(:where(.not-content *)) {
+		width: calc(100% / var(--sl-table-cols));
+		max-width: 50%;
+	}
+
 	.sl-markdown-content :is(th, td):not(:where(.not-content *)) {
 		white-space: normal;
 		overflow-wrap: anywhere;
@@ -20,4 +48,3 @@
 		word-break: break-word;
 	}
 }
-

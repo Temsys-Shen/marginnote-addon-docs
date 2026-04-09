@@ -36,7 +36,14 @@ description: 文档贡献流程与格式规范（API 参考、教程、Markdown 
 
 ### 方法（方法单列）
 
-- 每个方法一个三级标题：`### \`methodName\``。
+- 每个方法一个三级标题，格式如下：
+  ```markdown
+  ### `methodName`
+  ```
+  例如：
+  ```markdown
+  ### `getUser`
+  ```
 - 可选：标题下方一行简短说明。
 - **签名代码块**：使用 ` ```javascript `，内容为方法签名，例如 `static sharedInstance(): Application` 或 `count(): number`，然后 ` ``` `。
 - **Parameters**（若有参数）：
@@ -55,6 +62,24 @@ description: 文档贡献流程与格式规范（API 参考、教程、Markdown 
 
 - 二级标题：`## 类成员 (Class members)`、`## 实例成员 (Instance members)`。
 - 可按需用三级标题分组（如「创建」「查询」），再在其下按上述方法/属性格式书写。
+
+### 构造函数
+
+如有构造函数，需单独列出：
+
+````markdown
+## 构造函数
+
+```javascript
+new ClassName(parameter: Type)
+```
+
+构造函数说明。
+
+| 参数名 | 类型 | 说明 |
+| :----- | :--- | :--- |
+| `parameter` | `Type` | 参数说明 |
+````
 
 ### 相关链接
 
@@ -80,3 +105,4 @@ description: 文档贡献流程与格式规范（API 参考、教程、Markdown 
 - **代码块**：标注语言、保持缩进一致；长示例可省略无关部分并用注释说明。
 
 若对某条规范有疑问或改进意见，欢迎在 Issue 中提出。
+
