@@ -2,46 +2,45 @@
 title: MbBookNote
 description: 笔记核心对象，代表脑图中的一条笔记及其摘录、评论、链接与层级。
 ---
-
 插件开发中最核心的数据对象，代表一条笔记（脑图节点）。可通过 [Database.getNoteById](/reference/global/database/)、[NotebookController.focusNote](/reference/marginnote/notebook-controller/)、[MindMapNode.note](/reference/marginnote/mindmap-node/) 等获取。修改后使用 [UndoManager.undoGrouping](/reference/utility/undo-manager/) 包裹并刷新界面。
 
 ## 实例成员 (Instance members)
 
 ### 可读写属性
 
-| 属性 | 类型 | 说明 |
-| :--- | :--- | :--- |
-| `noteTitle` | `string` | 笔记标题。 |
-| `excerptText` | `string` | 摘录文本。 |
+| 属性                    | 类型       | 说明                                          |
+| :---------------------- | :--------- | :-------------------------------------------- |
+| `noteTitle`           | `string` | 笔记标题。                                    |
+| `excerptText`         | `string` | 摘录文本。                                    |
 | `excerptTextMarkdown` | `number` | 摘录文本是否为 Markdown（接口字段，为 0/1）。 |
-| `colorIndex` | `number` | 颜色索引 (0–15)。 |
-| `fillIndex` | `number` | 填充类型。 |
+| `colorIndex`          | `number` | 颜色索引 (0–15)。                            |
+| `fillIndex`           | `number` | 填充类型。                                    |
 
 ### 只读属性
 
-| 属性 | 类型 | 说明 |
-| :--- | :--- | :--- |
-| `noteId` | `string` | 笔记唯一 ID。 |
-| `docMd5` | `string` | 来源文档 MD5。 |
-| `notebookId` | `string` | 所属笔记本 ID。 |
-| `startPage` / `endPage` | `NSNumber` | 摘录起止页码。 |
-| `startPos` / `endPos` | `string` | 摘录起止位置。 |
-| `excerptPic` | `NSDictionary` | 摘录图片信息。 |
-| `createDate` / `modifiedDate` | `NSDate` | 创建/修改时间。 |
-| `mediaList` | `string` | 媒体列表。 |
-| `originNoteId` | `string` | 原始笔记 ID（如 Evernote）。 |
-| `mindmapBranchClose` | `NSNumber` | 脑图分支是否折叠。 |
-| `notesText` | `string` | 笔记文本聚合。 |
-| `groupNoteId` | `string` | 分组笔记 ID。 |
-| `comments` | `NSArray` | 评论数组，元素为 [NoteComment](/reference/marginnote/note-comment/) 结构。 |
-| `parentNote` | `MbBookNote` \| undefined | 父笔记。 |
-| `childMindMap` | `MbBookNote` \| undefined | 子脑图。 |
-| `linkedNotes` | `NSArray` | 链接的笔记。 |
-| `childNotes` | `NSArray` | 子笔记数组。 |
-| `summaryLinks` | `NSArray` | 摘要链接。 |
-| `zLevel` / `hidden` / `toc` / `annotation` / `textFirst` / `groupMode` / `flashcard` / `flagged` | `NSNumber` | 各类标志。 |
-| `summary` | `boolean` | 是否有摘要链接。 |
-| `textHighlight` / `options` | `NSDictionary` | 文本高亮与选项。 |
+| 属性                                                                                                             | 类型                        | 说明                                                                   |
+| :--------------------------------------------------------------------------------------------------------------- | :-------------------------- | :--------------------------------------------------------------------- |
+| `noteId`                                                                                                       | `string`                  | 笔记唯一 ID。                                                          |
+| `docMd5`                                                                                                       | `string`                  | 来源文档 MD5。                                                         |
+| `notebookId`                                                                                                   | `string`                  | 所属笔记本 ID。                                                        |
+| `startPage` / `endPage`                                                                                      | `NSNumber`                | 摘录起止页码。                                                         |
+| `startPos` / `endPos`                                                                                        | `string`                  | 摘录起止位置。                                                         |
+| `excerptPic`                                                                                                   | `NSDictionary`            | 摘录图片信息。                                                         |
+| `createDate` / `modifiedDate`                                                                                | `NSDate`                  | 创建/修改时间。                                                        |
+| `mediaList`                                                                                                    | `string`                  | 媒体列表。                                                             |
+| `originNoteId`                                                                                                 | `string`                  | 原始笔记 ID（如 Evernote）。                                           |
+| `mindmapBranchClose`                                                                                           | `NSNumber`                | 脑图分支是否折叠。                                                     |
+| `notesText`                                                                                                    | `string`                  | 笔记文本聚合。                                                         |
+| `groupNoteId`                                                                                                  | `string`                  | 分组笔记 ID。                                                          |
+| `comments`                                                                                                     | `NSArray`                 | 评论数组，元素为[NoteComment](/reference/marginnote/note-comment/) 结构。 |
+| `parentNote`                                                                                                   | `MbBookNote` \| undefined | 父笔记。                                                               |
+| `childMindMap`                                                                                                 | `MbBookNote` \| undefined | 子脑图。                                                               |
+| `linkedNotes`                                                                                                  | `NSArray`                 | 链接的笔记。                                                           |
+| `childNotes`                                                                                                   | `NSArray`                 | 子笔记数组。                                                           |
+| `summaryLinks`                                                                                                 | `NSArray`                 | 摘要链接。                                                             |
+| `zLevel` / `hidden` / `toc` / `annotation` / `textFirst` / `groupMode` / `flashcard` / `flagged` | `NSNumber`                | 各类标志。                                                             |
+| `summary`                                                                                                      | `boolean`                 | 是否有摘要链接。                                                       |
+| `textHighlight` / `options`                                                                                  | `NSDictionary`            | 文本高亮与选项。                                                       |
 
 ### 实例方法
 
@@ -55,9 +54,9 @@ appendTextComment(text: string): void
 
 **Parameters:**
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `text` | `string` | 评论内容。 |
+| Name     | Type       | Description |
+| :------- | :--------- | :---------- |
+| `text` | `string` | 评论内容。  |
 
 #### `appendMarkdownComment`
 
@@ -69,8 +68,8 @@ appendMarkdownComment(text: string): void
 
 **Parameters:**
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
+| Name     | Type       | Description               |
+| :------- | :--------- | :------------------------ |
 | `text` | `string` | Markdown 格式的评论内容。 |
 
 #### `appendNoteLink`
@@ -83,8 +82,8 @@ appendNoteLink(note: MbBookNote): void
 
 **Parameters:**
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
+| Name     | Type           | Description    |
+| :------- | :------------- | :------------- |
 | `note` | `MbBookNote` | 目标笔记对象。 |
 
 **说明**：会在 `comments` 数组中添加一条 `TextNote` 类型的评论，`text` 字段存储格式为 `marginnote4app://note/{noteId}`。
@@ -102,21 +101,19 @@ merge(note: MbBookNote): void
 添加 HTML 评论。
 
 ```javascript
-appendHtmlComment(html: string, text: string, size: [CGSize](/reference/value-sturct/#cgsize), tag: string): void
+appendHtmlComment(html: string, text: string, size: CGSize, tag: string): void
 ```
 
-其中`size`类型见[`CGSize`](/reference/value-sturct/#cgsize)。
+其中 `size`类型见[`CGSize`](/reference/value-sturct/#cgsize)。
 
 **Parameters:**
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
-| `html` | `string` | HTML 内容。 |
-| `text` | `string` | 纯文本内容（用于搜索等）。 |
-| `size` | [`CGSize`](/reference/value-sturct/#cgsize) | 渲染尺寸。 |
-| `tag` | `string` | 标签标识。 |
-
-**说明**：此方法已废弃，HTML 评论不再单独存储，使用 `appendMarkdownComment` 替代。
+| Name     | Type                                       | Description                |
+| :------- | :----------------------------------------- | :------------------------- |
+| `html` | `string`                                 | HTML 内容。                |
+| `text` | `string`                                 | 纯文本内容（用于搜索等）。 |
+| `size` | [`CGSize`](/reference/value-sturct/#cgsize) | 渲染尺寸。                 |
+| `tag`  | `string`                                 | 标签标识。                 |
 
 #### `removeCommentByIndex`
 
@@ -128,8 +125,8 @@ removeCommentByIndex(index: number): void
 
 **Parameters:**
 
-| Name | Type | Description |
-| :--- | :--- | :--- |
+| Name      | Type       | Description                        |
+| :-------- | :--------- | :--------------------------------- |
 | `index` | `number` | 评论在 `comments` 数组中的索引。 |
 
 #### `clearFormat`
@@ -186,7 +183,7 @@ addChild(note: MbBookNote): void
 
 #### `sortCommentsByNewIndices`
 
-按新索引数组重排`comments`。
+按新索引数组重排 `comments`。
 
 ```javascript
 sortCommentsByNewIndices(newIndices: NSArray): void
@@ -208,7 +205,7 @@ processMarkdownBase64Images(): boolean
 
 **定义：**
 
-处理当前笔记中符合条件的Markdown文本里的`data:image...base64`图片引用。
+处理当前笔记中符合条件的Markdown文本里的 `data:image...base64`图片引用。
 
 **返回：**
 
@@ -223,7 +220,7 @@ processMarkdownBase64Images(): boolean
 **副作用：**
 
 - 会改写笔记内容相关字段。
-- 会更新`mediaList`。
+- 会更新 `mediaList`。
 - 会更新笔记修改时间。
 
 **最小验证：**
@@ -267,7 +264,7 @@ getStrokesCount(): NSInteger
 
 ### `createWithTitleNotebookDocument`
 
-创建新笔记类方法。在JS侧默认通过全局注入的`Note`对象调用同名方法。
+创建新笔记类方法。在JS侧默认通过全局注入的 `Note`对象调用同名方法。
 
 ```javascript
 static createWithTitleNotebookDocument(title: string, notebook: MbTopic, document: MbBook): MbBookNote
