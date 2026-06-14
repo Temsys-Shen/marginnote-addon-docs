@@ -10,22 +10,36 @@
     "mn-docs-mcp": "mcp/cli.mjs"
   },
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "generate:libmn-docs": "node scripts/generate-libmn-docs.mjs"
+    "dev": "node scripts/sync-definitions.mjs && next dev",
+    "start": "node scripts/sync-definitions.mjs && next dev",
+    "build": "node scripts/sync-definitions.mjs && next build",
+    "preview": "serve out"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.37.4",
     "@huggingface/transformers": "^3.7.3",
-    "@pagefind/default-ui": "^1.4.0",
-    "astro": "^5.6.1",
+    "@orama/orama": "^3.1.18",
     "fastmcp": "^3.34.0",
+    "fumadocs-core": "^16.9.3",
+    "fumadocs-mdx": "^15.0.11",
+    "fumadocs-ui": "^16.9.3",
     "gray-matter": "^4.0.3",
+    "lucide-react": "^1.18.0",
+    "next": "^16.2.9",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "sharp": "^0.34.2",
     "undici": "^6.19.8",
-    "zod": "^3.25.76"
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.1",
+    "@types/mdx": "^2.0.14",
+    "@types/node": "^25.9.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "postcss": "^8.5.15",
+    "serve": "^14.2.6",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3"
   }
 }

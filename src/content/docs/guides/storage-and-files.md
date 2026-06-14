@@ -87,5 +87,5 @@ NSUserDefaults.standardUserDefaults().setBoolForKey(newValue, "my_addon_show_pan
 ## 相关
 
 - [NSUserDefaults](/reference/foundation/ns-user-defaults/)、[NSFileManager](/reference/foundation/ns-file-manager/)、[NSData](/reference/foundation/ns-data/)
-- [Cookbook：插件设置页](/guides/cookbook/addon-settings/)
+- [Cookbook：插件设置页](/cookbook/addon-settings/)
 - [网络请求](/guides/network-requests/) —— 网络响应 NSData 的 JSON 解析同理

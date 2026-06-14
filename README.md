@@ -5,7 +5,7 @@
 - **在线文档**：[https://mn-docs.museday.top](https://mn-docs.museday.top)
 - **仓库**：[https://github.com/Temsys-Shen/marginnote-addon-docs](https://github.com/Temsys-Shen/marginnote-addon-docs)
 
-基于 [Starlight](https://starlight.astro.build) 构建，提供完整的 API 参考、渐进式教程与 Cookbook 配方，供开发者为 MarginNote 编写插件时查阅与学习。
+基于 [Fumadocs](https://www.fumadocs.dev) 与 Next.js 构建，提供完整的 API 参考、渐进式教程与 Cookbook 配方，供开发者为 MarginNote 编写插件时查阅与学习。
 
 ## 文档内容
 
@@ -17,8 +17,8 @@
 
 ```bash
 pnpm install
-pnpm dev      # 本地开发，默认 http://localhost:4321
-pnpm build    # 构建静态站点到 ./dist/
+pnpm dev      # 本地开发，默认 http://localhost:3000
+pnpm build    # 构建静态站点到 ./out/
 pnpm preview  # 预览构建结果
 ```
 
@@ -86,17 +86,19 @@ embedding模型使用本地BGE-small-zh-v1.5(ONNX)，首次启动会自动下载
 ```
 .
 ├── public/
+├── source.config.ts
+├── next.config.mjs
 ├── src/
-│   ├── assets/
+│   ├── app/
+│   ├── components/
 │   ├── content/
 │   │   └── docs/          # 文档正文（入门、教程、Cookbook、API 参考）
-│   └── content.config.ts
-├── astro.config.mjs
+│   └── lib/
 ├── package.json
 └── tsconfig.json
 ```
 
-文档页面为 `src/content/docs/` 下的 `.md` / `.mdx` 文件，侧栏在 `astro.config.mjs` 中配置。
+文档页面为 `src/content/docs/` 下的 `.md` / `.mdx` 文件，侧栏顺序由各目录下的 `meta.json` 配置。
 
 ## 声明
 

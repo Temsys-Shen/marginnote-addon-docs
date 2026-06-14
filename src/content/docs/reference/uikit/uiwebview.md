@@ -3,7 +3,7 @@ title: UIWebView
 description: 在插件中嵌入网页或本地 HTML，支持加载 URL、执行 JS 与 delegate 回调。
 ---
 
-UIWebView 用于在插件中嵌入网页或本地 HTML 页面，继承自 [UIView](/reference/uikit/uiview/)。可通过设置 `delegate` 接收加载开始/完成/失败与请求拦截（如自定义 URL Scheme 实现 WebView 内 JS 与插件 JS 的双向通信）。参见 [Cookbook：WebView 内 JS 与插件 JS 双向通信](/guides/cookbook/webview-bidirectional-js/)。
+UIWebView 用于在插件中嵌入网页或本地 HTML 页面，继承自 [UIView](/reference/uikit/uiview/)。可通过设置 `delegate` 接收加载开始/完成/失败与请求拦截（如自定义 URL Scheme 实现 WebView 内 JS 与插件 JS 的双向通信）。参见 [Cookbook：WebView 内 JS 与插件 JS 双向通信](/cookbook/webview-bidirectional-js/)。
 
 ## 实例成员 (Instance members)
 
@@ -225,5 +225,5 @@ webViewShouldStartLoadWithRequestNavigationType(webView: UIWebView, request: NSU
 
 ## 相关
 
-- [原生 UI：使用 WebView](/guides/native-ui/#使用-webview)、[Cookbook：WebView 内 JS 与插件 JS 双向通信](/guides/cookbook/webview-bidirectional-js/)
+- [原生 UI：使用 WebView](/guides/native-ui/#使用-webview)、[Cookbook：WebView 内 JS 与插件 JS 双向通信](/cookbook/webview-bidirectional-js/)
 - [UIView](/reference/uikit/uiview/)、[UIViewController](/reference/uikit/uiview-controller/)

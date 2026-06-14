@@ -1,0 +1,13 @@
+{
+  "title": "Cookbook配方",
+  "pages": [
+    "batch-rename-notes",
+    "network-api-call",
+    "export-notebook",
+    "focus-note-in-mindmap",
+    "append-selection-as-comment",
+    "addon-settings",
+    "embed-webview-panel",
+    "webview-bidirectional-js"
+  ]
+}

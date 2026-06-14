@@ -109,4 +109,4 @@ self.webView.evaluateJavaScript("document.getElementById('text').innerText = '�
 ## 相关
 
 - [UIWebView](/reference/uikit/uiwebview/)、[原生 UI：使用 WebView](/guides/native-ui/#使用-webview)
-- [Cookbook：在插件中嵌入 WebView 面板](/guides/cookbook/embed-webview-panel/)
+- [Cookbook：在插件中嵌入 WebView 面板](/cookbook/embed-webview-panel/)

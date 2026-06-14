@@ -303,6 +303,6 @@ NSURLConnection.sendAsynchronousRequestQueueCompletionHandler(
 
 ## 相关
 
-- [Cookbook：调用远程 API](/guides/cookbook/network-api-call/) —— 将 API 结果展示或写入笔记
+- [Cookbook：调用远程 API](/cookbook/network-api-call/) —— 将 API 结果展示或写入笔记
 - [JavaScript 原生环境](/reference/js-runtime/) —— 为何没有 fetch
 - [NSURLConnection](/reference/foundation/ns-url-connection/)、[NSMutableURLRequest](/reference/foundation/ns-mutable-url-request/)

@@ -1,0 +1,18 @@
+{
+  "title": "MarginNote核心",
+  "pages": [
+    "jsextension",
+    "study-controller",
+    "notebook-controller",
+    "reader-controller",
+    "document-controller",
+    "mindmap-view",
+    "outline-view",
+    "mindmap-node",
+    "mb-book-note",
+    "note-comment",
+    "mb-topic",
+    "mb-book",
+    "mb-model-tool"
+  ]
+}

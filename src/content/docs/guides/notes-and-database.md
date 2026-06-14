@@ -96,4 +96,4 @@ if (note) {
 ## 相关
 
 - [Database](/reference/global/database/)、[MbBookNote](/reference/marginnote/mb-book-note/)、[UndoManager](/reference/utility/undo-manager/)
-- [Cookbook：批量修改笔记标题](/guides/cookbook/batch-rename-notes/)
+- [Cookbook：批量修改笔记标题](/cookbook/batch-rename-notes/)

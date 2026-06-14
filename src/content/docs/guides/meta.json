@@ -1,0 +1,14 @@
+{
+  "title": "教程",
+  "pages": [
+    "getting-started",
+    "lifecycle-and-window",
+    "notes-and-database",
+    "mindmap-and-selection",
+    "toolbar-and-commands",
+    "shortcut-keys",
+    "native-ui",
+    "storage-and-files",
+    "network-requests"
+  ]
+}

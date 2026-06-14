@@ -299,4 +299,4 @@ registerDefaults(registrationDictionary: NSDictionary): void
 
 ## 相关
 
-- [教程：存储与文件](/guides/storage-and-files/)、[Cookbook：插件设置页](/guides/cookbook/addon-settings/)
+- [教程：存储与文件](/guides/storage-and-files/)、[Cookbook：插件设置页](/cookbook/addon-settings/)

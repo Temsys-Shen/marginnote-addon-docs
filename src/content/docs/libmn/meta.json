@@ -1,0 +1,27 @@
+{
+  "title": "LibMN",
+  "pages": [
+    "index",
+    "runtime",
+    "headers",
+    "runtime-assets",
+    "runtime-web-view-host",
+    "internal-exposed",
+    "vendor-globals",
+    "locale",
+    "data-converter",
+    "frame",
+    "menu",
+    "mnbutton",
+    "mncomment",
+    "mnconnection",
+    "mndocument",
+    "mnextension-panel",
+    "mnnote",
+    "mnnotebook",
+    "mnutil",
+    "mnwebview",
+    "mustache",
+    "response"
+  ]
+}

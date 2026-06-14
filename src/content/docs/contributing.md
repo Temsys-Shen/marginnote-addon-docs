@@ -21,7 +21,7 @@ description: 文档贡献流程与格式规范（API 参考、教程、Markdown 
   - `guides/`：教程与 Cookbook 配方；
   - `reference/`：API 参考，按 `global`、`marginnote`、`foundation`、`uikit`、`quartzcore`、`utility` 等子目录组织。
 - **新增页面**：参考同类型现有页面。若为 API 参考，需符合下述「API 参考格式」；若为教程或 Cookbook，需符合「教程与指南格式」。
-- **侧栏**：若新增的是 `reference/` 下且位于已配置 `autogenerate` 的目录（如 Foundation、UIKit），侧栏会自动出现；若为 `guides/` 新页或新目录，需在 `astro.config.mjs` 的 `sidebar` 中手动添加对应 `slug`。
+- **侧栏**：新增页面后按需要更新对应目录下的 `meta.json`，以固定Fumadocs侧栏标题与页面顺序。
 
 ## API 参考文档格式规范
 
@@ -105,4 +105,3 @@ new ClassName(parameter: Type)
 - **代码块**：标注语言、保持缩进一致；长示例可省略无关部分并用注释说明。
 
 若对某条规范有疑问或改进意见，欢迎在 Issue 中提出。
-

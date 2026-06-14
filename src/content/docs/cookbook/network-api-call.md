@@ -106,7 +106,7 @@ async function fetchWithAPIKey() {
 }
 ```
 
-API Key 的保存与读取见 [插件设置页](/guides/cookbook/addon-settings/)。保存后可选择调用简单 API 验证 Key 是否有效。
+API Key 的保存与读取见 [插件设置页](/cookbook/addon-settings/)。保存后可选择调用简单 API 验证 Key 是否有效。
 
 ---
 
@@ -131,5 +131,5 @@ async function fetchPlainText() {
 ## 相关
 
 - [网络请求](/guides/network-requests/) —— Base64 与 MNNetwork 完整代码、data 转 JSON/文本说明
-- [插件设置页](/guides/cookbook/addon-settings/) —— 存储 API Key
+- [插件设置页](/cookbook/addon-settings/) —— 存储 API Key
 - [笔记与数据库](/guides/notes-and-database/) —— 修改笔记与 Undo

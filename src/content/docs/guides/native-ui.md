@@ -122,7 +122,7 @@ self.webView.evaluateJavaScript("document.title", function (result) {
 });
 ```
 
-WebView 内 JS 与插件 JS 的双向通信（自定义 URL Scheme 拦截 + evaluateJavaScript）见 [Cookbook：WebView 内 JS 与插件 JS 双向通信](/guides/cookbook/webview-bidirectional-js/)。
+WebView 内 JS 与插件 JS 的双向通信（自定义 URL Scheme 拦截 + evaluateJavaScript）见 [Cookbook：WebView 内 JS 与插件 JS 双向通信](/cookbook/webview-bidirectional-js/)。
 
 ## 布局与圆角
 
@@ -133,4 +133,4 @@ WebView 内 JS 与插件 JS 的双向通信（自定义 URL Scheme 拦截 + eval
 
 - [UIView](/reference/uikit/uiview/)、[UIButton](/reference/uikit/uibutton/)、[UIAlertView](/reference/uikit/uialertview/)、[UIWebView](/reference/uikit/uiwebview/)、[UIColor](/reference/uikit/uicolor/)
 - [工具栏与命令](/guides/toolbar-and-commands/) — 将面板与工具栏按钮联动
-- [Cookbook：WebView 内 JS 与插件 JS 双向通信](/guides/cookbook/webview-bidirectional-js/)
+- [Cookbook：WebView 内 JS 与插件 JS 双向通信](/cookbook/webview-bidirectional-js/)

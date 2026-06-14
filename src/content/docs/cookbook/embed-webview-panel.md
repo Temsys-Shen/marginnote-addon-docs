@@ -5,7 +5,7 @@ description: 从工具栏打开浮窗，浮窗内为 UIWebView，加载本地或
 
 **场景**：用户点击插件工具栏按钮后，在主界面上显示一个浮窗面板，面板内为 [UIWebView](/reference/uikit/uiwebview/)，加载本地或内联 HTML；面板内可通过自定义 URL 触发插件逻辑（如 showHUD），插件也可通过 `evaluateJavaScript` 更新页面内容。
 
-**要点**：浮窗为自定义 ViewController 的 view，在入口中 `JSB.require` 该 ViewController **一次**，在 `sceneWillConnect` 中创建实例；在 ViewController 的 **viewWillAppear** 中设置 `webView.delegate = self`，在 **viewWillDisappear** 中 `webView.stopLoading()` 并 `webView.delegate = null`。加载 HTML 用 `loadHTMLStringBaseURL(html, null)`，加载失败时在 `webViewDidFailLoadWithError` 中用 `error.localizedDescription` 拼 HTML 后用 `loadHTMLStringBaseURL` 显示错误页。双向通信写法见 [WebView 内 JS 与插件 JS 双向通信](/guides/cookbook/webview-bidirectional-js/)。
+**要点**：浮窗为自定义 ViewController 的 view，在入口中 `JSB.require` 该 ViewController **一次**，在 `sceneWillConnect` 中创建实例；在 ViewController 的 **viewWillAppear** 中设置 `webView.delegate = self`，在 **viewWillDisappear** 中 `webView.stopLoading()` 并 `webView.delegate = null`。加载 HTML 用 `loadHTMLStringBaseURL(html, null)`，加载失败时在 `webViewDidFailLoadWithError` 中用 `error.localizedDescription` 拼 HTML 后用 `loadHTMLStringBaseURL` 显示错误页。双向通信写法见 [WebView 内 JS 与插件 JS 双向通信](/cookbook/webview-bidirectional-js/)。
 
 下文给出与 Samples/UIKit/WebView 同构的完整代码：main.js 中挂面板与切换显示，MyWebViewController.js 中创建 WebView、生命周期与 delegate。
 
@@ -154,5 +154,5 @@ var MyWebViewController = JSB.defineClass('MyWebViewController : UIViewControlle
 ## 相关
 
 - [工具栏与命令](/guides/toolbar-and-commands/)、[原生 UI：使用 WebView](/guides/native-ui/#使用-webview)
-- [WebView 内 JS 与插件 JS 双向通信](/guides/cookbook/webview-bidirectional-js/)、[UIWebView](/reference/uikit/uiwebview/)
+- [WebView 内 JS 与插件 JS 双向通信](/cookbook/webview-bidirectional-js/)、[UIWebView](/reference/uikit/uiwebview/)
 - [网络请求](/guides/network-requests/) —— 获取远程数据后注入 HTML 或通过 evaluateJavaScript 注入

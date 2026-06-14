@@ -1,0 +1,81 @@
+@import 'fumadocs-ui/css/style.css';
+
+@source '../**/*.{ts,tsx,md,mdx}';
+
+:root {
+	color-scheme: light dark;
+}
+
+.prose table {
+	display: table;
+	overflow: visible;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.prose table:has(> thead > tr > :nth-child(2)):not(:has(> thead > tr > :nth-child(3))) {
+	--mn-table-cols: 2;
+}
+
+.prose table:has(> thead > tr > :nth-child(3)):not(:has(> thead > tr > :nth-child(4))) {
+	--mn-table-cols: 3;
+}
+
+.prose table:has(> thead > tr > :nth-child(4)):not(:has(> thead > tr > :nth-child(5))) {
+	--mn-table-cols: 4;
+}
+
+.prose table:has(> thead > tr > :nth-child(5)):not(:has(> thead > tr > :nth-child(6))) {
+	--mn-table-cols: 5;
+}
+
+.prose table:has(> thead > tr > :nth-child(6)):not(:has(> thead > tr > :nth-child(7))) {
+	--mn-table-cols: 6;
+}
+
+.prose table:has(> thead > tr > :nth-child(2)) :is(th, td) {
+	width: calc(100% / var(--mn-table-cols));
+	max-width: 50%;
+}
+
+.prose :is(th, td),
+.prose :is(th, td) code {
+	white-space: normal;
+	overflow-wrap: anywhere;
+	word-break: break-word;
+}
+
+.jsb-api {
+	margin-top: 2rem;
+}
+
+.jsb-api__details {
+	border: 1px solid var(--color-fd-border);
+	border-radius: 0.75rem;
+	padding: 0.75rem 1rem;
+	background: color-mix(in srgb, var(--color-fd-muted), transparent 38%);
+}
+
+.jsb-api__summary {
+	cursor: pointer;
+	font-weight: 600;
+}
+
+.jsb-api__meta {
+	margin-top: 0.75rem;
+	color: var(--color-fd-muted-foreground);
+	font-size: 0.875rem;
+}
+
+.jsb-api__meta code {
+	word-break: break-all;
+}
+
+.jsb-api ul {
+	margin-top: 0.5rem;
+}
+
+.jsb-api table {
+	margin-top: 0.75rem;
+	width: 100%;
+}

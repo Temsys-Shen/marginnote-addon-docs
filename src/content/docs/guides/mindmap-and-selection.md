@@ -73,4 +73,4 @@ if (focusNote && text && text.length > 0) {
 ## 相关
 
 - [StudyController](/reference/marginnote/study-controller/)、[NotebookController](/reference/marginnote/notebook-controller/)、[DocumentController](/reference/marginnote/document-controller/)
-- [Cookbook：将选区追加为评论](/guides/cookbook/append-selection-as-comment/)、[在脑图中高亮指定笔记](/guides/cookbook/focus-note-in-mindmap/)
+- [Cookbook：将选区追加为评论](/cookbook/append-selection-as-comment/)、[在脑图中高亮指定笔记](/cookbook/focus-note-in-mindmap/)

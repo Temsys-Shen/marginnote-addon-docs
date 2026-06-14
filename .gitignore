@@ -1,7 +1,12 @@
 # build output
 dist/
+out/
+.next/
+public/definitions/
+public/definitions-manifest.json
 # generated types
 .astro/
+.source/
 
 # dependencies
 node_modules/

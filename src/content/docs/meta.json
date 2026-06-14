@@ -1,0 +1,11 @@
+{
+  "title": "MarginNote插件开发文档",
+  "pages": [
+    "index",
+    "guides",
+    "cookbook",
+    "reference",
+    "libmn",
+    "contributing"
+  ]
+}

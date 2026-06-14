@@ -1,0 +1,18 @@
+{
+  "title": "全局与入口",
+  "pages": [
+    "global-variables",
+    "jsb",
+    "application",
+    "search-manager",
+    "database",
+    "document",
+    "notebook",
+    "note",
+    "agent-tools",
+    "popup-menu",
+    "popup-menu-item",
+    "self",
+    "builtin-commands"
+  ]
+}
